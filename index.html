@@ -18,66 +18,59 @@
 
     <!--Menu proyecto-->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <div class="menu1">
 
-        <div class="container-fluid">
+        <div>
+            <h1 class="logo">Global Tech</h1>
+        </div>
 
-            <a class="navbar-brand" href="#">Global Tech:</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
-                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon "></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarColor01">
-
-                <ul class="navbar-nav me-auto">
-                    <form class="d-flex">
-                        <input id="buscador" class="form-control me-2" placeholder="Buscar en Inventario"
-                            aria-label="Search">
-                        <button id="btnBuscar" class="btn btn-outline-primary">Buscar</button>
-                    </form>
-                </ul>
-
-                <ul class="navbar-nav me-auto">
-                    <button id="botonDarkMode" class="btn btn-dark">Dark</button>
-                </ul>
-
-                <ul class="navbar-nav me-auto">
-                    <button id="botonLightMode" class="btn btn-light">Light</button>
-                </ul>
-
-                <ul class="navbar-nav me-auto">
-                    <select id="selectOrden" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>Ordenar Inventario:</option>
-                        <option value="1">Precio mayor.</option>
-                        <option value="2">Precio menor.</option>
-                        <option value="3">Alfabeticamente.</option>
-                    </select>
-                </ul>
-
-                <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito"
-                    class="btn btn-secondary"><i class="fas fa-shopping-cart fa-1x"></i></a>
-
-
-            </div>
+        <div>
+            <form class="d-flex">
+                <input id="buscador" class="form-control me-2" placeholder="Buscar Modelo" aria-label="Search">
+                <button id="btnBuscar" class="btn btn-outline-primary">Buscar</button>
+            </form>
 
         </div>
 
-    </nav>
+        <div>
+            <button id="botonDarkMode" class="btn btn-dark">Dark Mode</button>
+        </div>
+
+        <div>
+            <button id="botonLightMode" class="btn btn-light">Light Mode</button>
+        </div>
+
+    </div>
 
 
-    <div class="menu">
 
-        <button id="verIventario" class="btn btn-primary">Ver Inventario</button>
+    <div class="menu2">
 
-        <button id="ocultarInventario" class="btn btn-primary">Ocultar Inventario</button>
+        <div>
+            <ul class="navbar-nav me-auto">
+                <select id="selectOrden" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>Ordenar Inventario:</option>
+                    <option value="1">Precio mayor.</option>
+                    <option value="2">Precio menor.</option>
+                    <option value="3">Alfabeticamente.</option>
+                </select>
+            </ul>
+        </div>
 
-        <button id="agregarCel" data-bs-toggle="modal" data-bs-target="#idModalAgregarCel"
-            class="btn btn-primary">Agregar Dispositivo</button>
+        <div>
+            <button id="agregarCel" data-bs-toggle="modal" data-bs-target="#idModalAgregarCel"
+                class="btn btn-primary">Agregar Dispositivo</button>
+        </div>
 
-        <button id="eliminarCel" data-bs-toggle="modal" data-bs-target="#idModalEliminarCel"
-            class="btn btn-primary">Eliminar Dispositivo</button>
+        <div>
+            <button id="eliminarCel" data-bs-toggle="modal" data-bs-target="#idModalEliminarCel"
+                class="btn btn-primary">Eliminar Dispositivo</button>
+        </div>
+
+        <div>
+            <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito" class="btn btn-secondary"><i
+                    class="fas fa-shopping-cart fa-1x"></i></a>
+        </div>
 
     </div>
 
@@ -89,43 +82,6 @@
 
 
     <!--Modals-->
-
-    <!--Modal Carrito-->
-
-    <div class="modal fade" id="idModalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-        <div class="modal-dialog">
-
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body" id="modal-bodyCarrito">
-
-                </div>
-
-                <div class="row ml-ato">
-                    <p id="precioTotal"></p>
-                </div>
-
-
-                <div class="modal-footer">
-
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-
-                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary"
-                        id="botonFinalizarCompra">Finalizar Compra</button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
 
     <!--Modal Agregar Dispositivo-->
 
@@ -180,11 +136,6 @@
                             <input type="text" class="form-control" id="precioInput" aria-describedby="precio">
                         </div>
 
-                        <div>
-                            <label for="imagen" class="form-label">Imagen:</label>
-                            <input type="file" class="form-control" id="formFileMultiple" aria-label="imagen">
-                        </div>
-
                     </form>
 
                 </div>
@@ -204,6 +155,47 @@
 
     </div>
 
+
+
+
+    <!--Modal Carrito-->
+
+    <div class="modal fade" id="idModalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body" id="modal-bodyCarrito">
+                </div>
+
+                <div class="row ml-ato">
+                    <p id="precioTotal"></p>
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary"
+                        id="botonFinalizarCompra">Finalizar Compra</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
     <!--Modal Eliminar Libro-->
 
     <div class="modal fade" id="idModalEliminarCel" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -214,19 +206,31 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Dispositivo</h5>
+
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar Dispositivo por ID</h5>
+
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 </div>
 
                 <div class="modal-body" id="modal-body">
 
+                <div id="iDInventario">
+                </div>
                     <form>
 
+                        
+
                         <div class="mb-3">
-                            <label for="eliminarModelo" class="form-label">Ingrese el modelo que desea eliminar:</label>
+                            <label for="eliminarModelo" class="form-label" style="text-align: justify; margin-top: 1rem;"><strong>Ingrese la ID del modelo que desea
+                                eliminar:</strong></label>
+
                             <input type="text" class="form-control" id="eliminarModeloInput"
                                 aria-describedby="eliminarModelo">
-                        </div>
+                        
+                            </div>
+
+                        <p style="text-align: justify;"><strong>Haga doble click en "Eliminar Dispositivo" para eliminar la unidad.</strong></p>
 
                     </form>
 
@@ -246,13 +250,6 @@
         </div>
 
     </div>
-
-
-
-    <!--Script de Bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
 
     <!--Script de Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
