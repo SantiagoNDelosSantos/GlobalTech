@@ -1,24 +1,15 @@
-//PROYECTO - Tienda de celulares:
-
-//Capturas nodos DOM:
-let libros = document.getElementById("cel")
+let cels = document.getElementById("cel")
 let guardarCelBtn = document.getElementById("guardarCelBtn")
 let buscador = document.getElementById("buscador")
 let coincidencia = document.getElementById("coincidencia")
 let selectOrden = document.getElementById("selectOrden")
 let botonCarrito = document.getElementById("botonCarrito")
 let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
-let formAgregarLibro = document.getElementById("formAgregarCel")
+let formAgregarCel = document.getElementById("formAgregarCel")
 let precioTotal = document.getElementById("precioTotal")
 let eliminarCEL = document.getElementById("eliminarCel")
 let eliminarCelular = document.getElementById("eliminarModeloBtn")
 
-
-
-//Funciones:
-
-
-// 1 - Mostrar inventario:
 
 function verInventario(array) {
 
@@ -57,7 +48,7 @@ function verInventario(array) {
 
         </div>`
 
-        libros.appendChild(nuevoCel)
+        cels.appendChild(nuevoCel)
 
         let btnAgregar = document.getElementById(`agregarBtn${cel.id}`)
 
@@ -70,16 +61,7 @@ function verInventario(array) {
 }
 
 let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []
-console.log(productosEnCarrito)
 
-//Inventario stock:
-
-
-
-
-
-
-//Agregar dispositivo/s al carrito:
 
 function agregarAlCarrito(cel) {
 
@@ -95,16 +77,6 @@ function agregarAlCarrito(cel) {
 }
 
 
-
-
-
-
-
-
-
-
-//Agregar Dispositivo al Inventrio:
-
 function cargarCel(array) {
 
     let inputMarca = document.getElementById("marcaInput")
@@ -115,35 +87,18 @@ function cargarCel(array) {
     let inputCamara = document.getElementById("camaraInput")
     let inputPrecio = document.getElementById("precioInput")
 
-    //creamos nuevo objeto 
 
     const celNuevo = new Cel(array.length + 1, inputMarca.value, inputModelo.value, inputColor.value, inputMemoriaInterna.value, inputMemoriaRam.value, inputCamara.value, inputPrecio.value, "CelGenerico.jpg")
 
-    //sumarlo al inventario
     array.push(celNuevo)
 
-
-    //guardar en localStorage
     localStorage.setItem("inventario", JSON.stringify(array))
     verInventario(array)
 
     formAgregarCel.reset()
+
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Filtro buscador:
 
 function buscarInfo(buscado, array) {
 
@@ -164,18 +119,6 @@ margin-right: 10%;">No hay modelos que coincidan con tu búsqueda.</h3></div>`
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-//Ordenar por:
 
 function ordenarMenorMayor(array) {
     const menorMayor = [].concat(array)
@@ -204,10 +147,6 @@ function ordenarAlfabeticamenteTitulo(array) {
     })
     verInventario(ordenadoAlfabeticamente)
 }
-
-
-
-//Agregar al modal carrito:
 
 
 function cargarProductosCarrito(array) {
@@ -255,17 +194,11 @@ function calcularTotal(array){
 
 
 
-//id boton eliminar eliminarModeloBtn
-
-//Eliminar Dispositivo:
-
 function verIDS(array){
 
     iDInventario.innerHTML = ""
 
-    array.forEach((cel) => {
-
-    iDInventario.innerHTML += `
+    array.forEach((cel) => { iDInventario.innerHTML += `
     <p style="text-align: center; line-height: 0.45;">La id del modelo ${cel.modelo} es ${cel.id}.</p>`
     })
 
@@ -276,59 +209,16 @@ eliminarCEL.addEventListener("click", ()=>{
 })
 
 
-
-function eliminarCelu(array) {
-
-
-    let modeloEliminar = document.getElementById("eliminarModeloInput")
-
-    inventario.splice(modeloEliminar, 1)
-
-    verInventario(inventario)
-
-    modeloEliminar = innerHTML =""
-
-}
-
-eliminarCelular.addEventListener("click", ()=>{
-    eliminarCelu(inventario)
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Eventos cargar al inventario:
-
 guardarCelBtn.addEventListener("click", ()=>{
     cargarCel(inventario)
 })
 
-
-//Evento buscador:
 
 buscador.addEventListener("input", ()=>{
     
     buscarInfo(buscador.value.toLowerCase(), inventario)
 }) 
 
-//Evento ordenar por:
 
 selectOrden.addEventListener("change", () => {
     console.log(selectOrden.value)
@@ -347,8 +237,4 @@ botonCarrito.addEventListener("click", ()=>{
     cargarProductosCarrito(productosEnCarrito)
 })
 
-//eliminar del inventario:
-eliminarCelular
-
-//Código Inventario:
 verInventario(inventario)

@@ -13,7 +13,6 @@ body{
     font-family: "Montserrat";
 }
 
-
 body::-webkit-scrollbar {
     width: 10px;
 }
@@ -25,7 +24,6 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
     background: rgb(8, 15, 40);
 }
-
 
 .menu1{
     display: flex;
@@ -44,7 +42,6 @@ body::-webkit-scrollbar-track {
     font-weight: 600;
     line-height: 0.10;
 }
-
 
 .menu2{
     display: flex;
@@ -88,7 +85,6 @@ body::-webkit-scrollbar-track {
     transform: scale(1.02);
     transition: all .3s;
 }
-
 
 .darkMode h3{
     background-color: #FFFFFF;
