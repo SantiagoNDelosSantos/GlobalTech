@@ -128,9 +128,6 @@ function cargarCel(array) {
     verInventario(array)
 
     formAgregarCel.reset()
-
-
-
 }
 
 
@@ -292,9 +289,6 @@ function eliminarCelu(array) {
     modeloEliminar = innerHTML =""
 
 }
-
-
-
 
 eliminarCelular.addEventListener("click", ()=>{
     eliminarCelu(inventario)
