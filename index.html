@@ -18,23 +18,13 @@
 
     <header>
 
-        <div>
-            <h1 class="logo">Global Tech</h1>
-        </div>
 
-    </header>
 
-    <main>
-        <div class="menu1">
-
+        <nav>
 
 
             <div>
-                <form class="d-flex">
-                    <input id="buscador" class="form-control me-2" placeholder="Buscar Modelo" aria-label="Search">
-                    <button id="btnBuscar" class="btn btn-outline-primary">Buscar</button>
-                </form>
-
+                <h1 class="logo">Global Tech</h1>
             </div>
 
             <div>
@@ -45,11 +35,33 @@
                 <button id="botonLightMode" class="btn btn-light">Light Mode</button>
             </div>
 
-        </div>
+            <div>
+                <a id="botonFavoritos" data-bs-toggle="modal" data-bs-target="#idFavoritosCarrito" class="btn btn-secondary">
+                    <i class="fa fa-heart"></i>
+                </a>
+            </div>
 
+            <div>
+                <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito" class="btn btn-secondary">
+                    <i class="fa fa-shopping-cart"></i>
+                </a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
 
         <div class="menu2">
+            <div>
+                <form class="d-flex">
+                    <input id="buscador" class="form-control me-2" placeholder="Buscar Modelo" aria-label="Search">
+                    <button id="btnBuscar" class="btn btn-outline-primary">Buscar</button>
+                </form>
 
+            </div>
             <div>
                 <ul class="navbar-nav me-auto">
                     <select id="selectOrden" class="form-select form-select-sm" aria-label=".form-select-sm example">
@@ -71,10 +83,6 @@
                     class="btn btn-primary">Eliminar Dispositivo</button>
             </div>
 
-            <div>
-                <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito"
-                    class="btn btn-secondary"><i class="fas fa-shopping-cart fa-1x"></i></a>
-            </div>
 
         </div>
 
