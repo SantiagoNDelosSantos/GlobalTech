@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   background-color: #EBEBEB;
   font-family: "Montserrat";
@@ -17,7 +21,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #0083FF;
+  background: #0D6EFD;
 }
 
 body::-webkit-scrollbar-track {
@@ -28,7 +32,7 @@ body::-webkit-scrollbar-track {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: linear-gradient(90deg, rgb(1, 12, 65) 0%, rgb(0, 26, 139) 50%, rgb(0, 7, 171) 100%);
+  background: #001428;
   background-repeat: no-repeat;
   background-size: auto;
   padding: 1%;
@@ -37,9 +41,15 @@ body::-webkit-scrollbar-track {
 .logo {
   font-family: "Orbitron";
   font-size: 50px;
-  color: white;
   font-weight: 600;
-  line-height: 0.1;
+  background-image: linear-gradient(90deg, rgb(0, 16, 158) 0%, rgb(13, 110, 253) 100%);
+  background-size: cover;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
 .menu2 {
@@ -52,16 +62,6 @@ body::-webkit-scrollbar-track {
   border-bottom: 0.1em solid white;
 }
 
-.darkMode {
-  background-color: rgb(22, 22, 22);
-}
-
-.darkMode .card {
-  color: black;
-  background-color: rgba(2, 25, 74, 0.994);
-  border: 0.1em solid white;
-}
-
 .card-body {
   background-color: #FFFFFF;
   font-size: 13px;
@@ -70,9 +70,16 @@ body::-webkit-scrollbar-track {
   line-height: 0.5rem;
 }
 
+.darkMode {
+  background-color: #898989;
+}
+
+.darkMode .card {
+  background: #afb0b1;
+}
+
 .darkMode .card-body {
-  color: white;
-  background-color: rgba(2, 25, 74, 0.994);
+  background-color: #afb0b1;
 }
 
 .card, #productoCarrito1 {
