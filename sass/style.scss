@@ -19,6 +19,21 @@ body::-webkit-scrollbar-track {
     background: rgb(8, 15, 40);
 }
 
+header{
+    height: 10em;
+    background-color: #080a0e;
+}
+
+.logo{
+    font-family: "Orbitron";
+    font-size: 50px;
+    font-weight: 600;
+    color: white;
+    display: flex;
+    
+}
+
+
 .menu1{
     display: flex;
     justify-content:space-around;
@@ -29,20 +44,9 @@ body::-webkit-scrollbar-track {
     padding: 1%;  
 }
 
-.logo{
-    font-family: "Orbitron";
-    font-size: 50px;
-    font-weight: 600;
-    background-image:  linear-gradient(90deg, rgba(0,16,158,1) 0%, rgba(13,110,253,1) 100%);
-    background-size: cover;
-    background-repeat: repeat;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
 
-}
+
+
 
 .menu2{
     display: flex;
