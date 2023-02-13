@@ -17,140 +17,124 @@
 
     <header>
 
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="    display: flex;
-        justify-content: space-around;
-        align-items: center;">
+        <nav class="navbar navbar-expand-lg bg-primary">
 
             <div class="container-fluid">
 
-                <a class="nav-item">
-                    <h1 class="logo">GlobalTech</h1>
-                </a>
+                <h1 class="logo" style="margin-top: 5px">GlobalTech</h1>
 
-
-                <form class="d-flex">
-                    <input id="buscador" class="form-control me-2" placeholder="Buscar en Global Tech"
-                        aria-label="Search">
-                    <button id="btnBuscar" class="btn btn-dark">Buscar</button>
-                </form>
-
-
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="    display: flex;
-                    justify-content: space-around;
-                    align-items: center;">
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px; display: flex; align-items: center;">
 
 
+                        <li class="nav-item">
+                            <button id="verInventario" data-bs-toggle="modal" data-bs-target="#idVerInventario"
+                                class="btn btn-primary">Ver todo el Inventario</button>
+                        </li>
 
-                        <div>
-                            <button id="valoraciones" data-bs-toggle="modal" data-bs-target="#idValoradiones"
-                                class="btn btn-primary">Ver Valoraciones</button>
-                        </div>
+                        <li class="nav-item">
+                            <button id="mayorPrecio" data-bs-toggle="modal" data-bs-target="#idMayorPrecio"
+                                class="btn btn-primary">Ord. Mayor Precio</button>
+                        </li>
 
-                        <div>
+                        <li class="nav-item">
+                            <button id="menorPrecio" data-bs-toggle="modal" data-bs-target="#idMenorPrecio"
+                                class="btn btn-primary">Ord. Menor Precio</button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button id="alfabeticamente" data-bs-toggle="modal" data-bs-target="#idAlfabeticamente"
+                                class="btn btn-primary">Ord. Alfabéticamente</button>
+                        </li>
+
+
+                        <li class="nav-item">
                             <button id="agregarCel" data-bs-toggle="modal" data-bs-target="#idModalAgregarCel"
                                 class="btn btn-primary">Agregar Dispositivo</button>
-                        </div>
+                        </li>
 
-                        <div>
+                        <li class="nav-item">
                             <button id="eliminarCel" data-bs-toggle="modal" data-bs-target="#idModalEliminarCel"
                                 class="btn btn-primary">Eliminar Dispositivo</button>
-                        </div>
-
-
-
-                        <li class="nav-item">
-
-                            <button id="verInventario" data-bs-toggle="modal" data-bs-target="#idVerInventario"
-                                class="btn btn-primary">Ver Inventario</button>
                         </li>
-
-
-                        <li class="nav-item">
-                            <ul class="navbar-nav me-auto">
-                                <select id="selectOrden" class="form-select form-select-sm"
-                                    aria-label=".form-select-sm example">
-                                    <option selected>Ordenar Inventario:</option>
-                                    <option value="1">Precio mayor.</option>
-                                    <option value="2">Precio menor.</option>
-                                    <option value="3">Alfabeticamente.</option>
-                                </select>
-                            </ul>
-                        </li>
-
 
                     </ul>
 
 
+                    <form class="d-flex" role="search">
+
+                        <input id="buscador" class="form-control me-2" type="search" placeholder="Buscar en Global Tech"
+                            aria-label="Search">
+
+                        <button id="btnBuscar" class="btn btn-dark" type="submit">Buscar</button>
+
+                    </form>
+
 
                 </div>
-
             </div>
-
         </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </header>
 
 
 
-    <nav>
 
 
 
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
 
-        <div>
+        <div class="container-fluid">
 
-            <a id="botonDarkMode" class="btn btn-dark">
-                <i class="fas fa-moon fa-2x"></i>
-            </a>
-        </div>
+            <div>
+                <a id="botonDarkMode" class="btn btn-dark">
+                    <i class="fas fa-moon fa-2x"></i>
+                </a>
+            </div>
 
-        <div>
-            <a id="botonLightMode"  class="btn btn-light">
-                <i class="far fa-sun fa-2x"></i>
-            </a>
-        </div>
+            <div>
+                <a id="botonLightMode" class="btn btn-light">
+                    <i class="far fa-sun fa-2x"></i>
+                </a>
+            </div>
 
-        <div>
-            <a id="botonFavoritos" data-bs-toggle="modal" data-bs-target="#idFavoritos" class="btn btn-danger">
-                <i class="fa fa-heart fa-2x"></i>
-            </a>
-        </div>
+            <div>
+                <a id="botonFavoritos" data-bs-toggle="modal" data-bs-target="#idFavoritos" class="btn btn-danger">
+                    <i class="fa fa-heart fa-2x"></i>
+                </a>
+            </div>
 
-        <div>
-            <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito" class="btn btn-success">
-                <i class="fa fa-shopping-cart fa-2x"></i>
-            </a>
+            <div>
+                <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito" class="btn btn-success">
+                    <i class="fa fa-shopping-cart fa-2x"></i>
+                </a>
+            </div>
+
         </div>
 
     </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -235,6 +219,36 @@
             </div>
 
         </div>
+
+
+
+        <div class="modal fade" id="idModalFavoritos" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Favoritos:</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body" id="modal-bodyFavoritos">
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
 
 
         <div class="modal fade" id="idModalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel"

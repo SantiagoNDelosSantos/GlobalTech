@@ -21,18 +21,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #0D6EFD;
+  background: #0329a8;
 }
 
 body::-webkit-scrollbar-track {
   background: rgb(8, 15, 40);
-}
-
-.logo {
-  font-family: "Orbitron";
-  font-size: 50px;
-  font-weight: 600;
-  color: white;
 }
 
 .navbar navbar-expand-lg navbar-light bg-primary {
@@ -137,14 +130,34 @@ h4 {
 }
 
 .logo {
-  font-size: 15px;
-  font-weight: bold;
-  padding: 0.4em;
+  font-family: "Orbitron";
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  padding: 0.5em;
   border: 0.1em solid rgb(255, 255, 255);
   border-radius: 20em;
+  background: linear-gradient(90deg, rgb(0, 0, 32) 0%, rgb(16, 19, 98) 50%, rgb(0, 0, 32) 100%);
 }
 @media (min-width: 500px) {
   .logo {
     font-size: 18px;
+  }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 0.2em solid white;
+}
+
+#verInventario, #mayorPrecio, #menorPrecio, #alfabeticamente, #agregarCel, #eliminarCel {
+  font-size: 12px;
+  padding: 0.5em;
+}
+@media (min-width: 500px) {
+  #verInventario, #mayorPrecio, #menorPrecio, #alfabeticamente, #agregarCel, #eliminarCel {
+    font-size: 14px;
   }
 }/*# sourceMappingURL=style.css.map */

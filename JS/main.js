@@ -2,7 +2,29 @@ let cels = document.getElementById("cel")
 let guardarCelBtn = document.getElementById("guardarCelBtn")
 let buscador = document.getElementById("buscador")
 let coincidencia = document.getElementById("coincidencia")
+
 let selectOrden = document.getElementById("selectOrden")
+
+
+
+
+
+
+
+//Capturas botones para ver y ordenar el inventario:
+
+let botonVerInventario = document.getElementById("verInventario")
+
+let botorOrdMayor = document.getElementById("mayorPrecio")
+
+let botorOrdMenor = document.getElementById("menorPrecio")
+
+let botorOrdAlfabeticamente = document.getElementById("alfabeticamente")
+
+// Fin Capturas botones para ver y ordenar el inventario.
+
+
+
 let botonCarrito = document.getElementById("botonCarrito")
 let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
 let formAgregarCel = document.getElementById("formAgregarCel")
@@ -19,7 +41,7 @@ function verInventario(array) {
 
         let nuevoCel = document.createElement("div")
 
-        nuevoCel.classList.add("col-6", "col-md-6", "col-lg-3")
+        nuevoCel.classList.add("col-12", "col-md-6", "col-lg-3")
 
         nuevoCel.innerHTML = `
         <div id="${cel.id}" class="card" style="margin: 1rem; border-radius: 1rem;">
@@ -72,6 +94,15 @@ function verInventario(array) {
     }
 
 }
+
+botonVerInventario.addEventListener("click", ()=>{
+    verInventario(inventario) 
+})
+
+
+
+
+
 
 let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []
 
@@ -133,33 +164,98 @@ margin-right: 10%;">No hay modelos que coincidan con tu búsqueda.</h3></div>`
 
 
 
-function ordenarMenorMayor(array) {
-    const menorMayor = [].concat(array)
-    menorMayor.sort((a, b) => a.precio - b.precio)
-    verInventario(menorMayor)
-}
 
-function ordenarMayorMenor(arr) {
-    const mayorMenor = [].concat(arr)
+
+// Function Ordenar de Mayor Precio a Menor Precio:
+
+function ordenarMayorMenor(arry) {
+    const mayorMenor = [].concat(arry)
     mayorMenor.sort((param1, param2) => {
         return param2.precio - param1.precio
     })
     verInventario(mayorMenor)
 }
 
-function ordenarAlfabeticamenteTitulo(array) {
-    const ordenadoAlfabeticamente = [].concat(array)
-    ordenadoAlfabeticamente.sort((a, b) => {
-        if (a.modelo > b.modelo) {
-            return 1
-        }
+// Fin Function Ordenar de Mayor Precio a Menor Precio.
+
+// Evento boton Ord. Mayor Precio:
+
+botorOrdMayor.addEventListener("click", ()=>{
+    ordenarMayorMenor(inventario)
+})
+
+// Fin Evento boton Ord. Mayor Precio.
+
+
+
+
+
+// Function Odernar de Menor Precio a Mayor Precio:
+
+function ordenarMenorMayor(array) {
+    const menorMayor = [].concat(array)
+    menorMayor.sort((a, b) => a.precio - b.precio)
+    verInventario(menorMayor)
+}
+
+// Fin Function Odernar de Menor Precio a Mayor Precio.
+
+// Evento boton Ord. Menor Precio:
+
+botorOrdMenor.addEventListener("click", ()=>{
+    ordenarMenorMayor(inventario)
+})
+
+// Fin Evento boton Ord. Menor Precio.
+
+
+
+
+
+// Function Ordenar Alfabeticamente:
+
+function ordenarAlfabeticamente(array) {
+
+    let ordenadoAlfabeticamente = [].concat(array)
+
+
+    ordenadoAlfabeticamente.sort(function(a, b) {
+        
         if (a.modelo < b.modelo) {
             return -1
         }
+
+        if (a.modelo > b.modelo) {
+            return 1
+        }
+    
         return 0;
+
     })
+
     verInventario(ordenadoAlfabeticamente)
+
 }
+
+// Fin Function Ordenar Alfabeticamente.
+
+//Evento boton Ordenar Alfabeticamente:
+
+botorOrdAlfabeticamente.addEventListener("click", ()=>{
+    ordenarAlfabeticamente(inventario)
+})
+
+// Fin Evento boton Ordenar Alfabeticamente.
+
+
+
+
+
+
+
+
+
+
 
 
 function cargarProductosCarrito(array) {
@@ -233,18 +329,7 @@ buscador.addEventListener("input", ()=>{
 }) 
 
 
-selectOrden.addEventListener("change", () => {
-    console.log(selectOrden.value)
-    if (selectOrden.value == 1) {
-        ordenarMayorMenor(inventario)
-    } else if (selectOrden.value == 2) {
-        ordenarMenorMayor(inventario)
-    } else if (selectOrden.value == 3) {
-        ordenarAlfabeticamenteTitulo(inventario)
-    } else {
-        verInventario(inventario)
-    }
-})
+
 
 botonCarrito.addEventListener("click", ()=>{
     cargarProductosCarrito(productosEnCarrito)
