@@ -19,7 +19,7 @@ function verInventario(array) {
 
         let nuevoCel = document.createElement("div")
 
-        nuevoCel.classList.add("col-12", "col-md-6", "col-lg-3")
+        nuevoCel.classList.add("col-6", "col-md-6", "col-lg-3")
 
         nuevoCel.innerHTML = `
         <div id="${cel.id}" class="card" style="margin: 1rem; border-radius: 1rem;">
