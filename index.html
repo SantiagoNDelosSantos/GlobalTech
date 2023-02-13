@@ -15,76 +15,148 @@
 
 <body class="">
 
-
     <header>
 
 
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="    display: flex;
+        justify-content: space-around;
+        align-items: center;">
 
-        <nav>
+            <div class="container-fluid">
 
-
-            <div>
-                <h1 class="logo">Global Tech</h1>
-            </div>
-
-            <div>
-                <button id="botonDarkMode" class="btn btn-dark">Dark Mode</button>
-            </div>
-
-            <div>
-                <button id="botonLightMode" class="btn btn-light">Light Mode</button>
-            </div>
-
-            <div>
-                <a id="botonFavoritos" data-bs-toggle="modal" data-bs-target="#idFavoritosCarrito" class="btn btn-secondary">
-                    <i class="fa fa-heart"></i>
+                <a class="nav-item">
+                    <h1 class="logo">GlobalTech</h1>
                 </a>
-            </div>
 
-            <div>
-                <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito" class="btn btn-secondary">
-                    <i class="fa fa-shopping-cart"></i>
-                </a>
+
+                <form class="d-flex">
+                    <input id="buscador" class="form-control me-2" placeholder="Buscar en Global Tech"
+                        aria-label="Search">
+                    <button id="btnBuscar" class="btn btn-dark">Buscar</button>
+                </form>
+
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="    display: flex;
+                    justify-content: space-around;
+                    align-items: center;">
+
+
+
+                        <div>
+                            <button id="valoraciones" data-bs-toggle="modal" data-bs-target="#idValoradiones"
+                                class="btn btn-primary">Ver Valoraciones</button>
+                        </div>
+
+                        <div>
+                            <button id="agregarCel" data-bs-toggle="modal" data-bs-target="#idModalAgregarCel"
+                                class="btn btn-primary">Agregar Dispositivo</button>
+                        </div>
+
+                        <div>
+                            <button id="eliminarCel" data-bs-toggle="modal" data-bs-target="#idModalEliminarCel"
+                                class="btn btn-primary">Eliminar Dispositivo</button>
+                        </div>
+
+
+
+                        <li class="nav-item">
+
+                            <button id="verInventario" data-bs-toggle="modal" data-bs-target="#idVerInventario"
+                                class="btn btn-primary">Ver Inventario</button>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <ul class="navbar-nav me-auto">
+                                <select id="selectOrden" class="form-select form-select-sm"
+                                    aria-label=".form-select-sm example">
+                                    <option selected>Ordenar Inventario:</option>
+                                    <option value="1">Precio mayor.</option>
+                                    <option value="2">Precio menor.</option>
+                                    <option value="3">Alfabeticamente.</option>
+                                </select>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+
+
+
+                </div>
+
             </div>
 
         </nav>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </header>
 
 
-    <main>
 
-        <div class="menu2">
-            <div>
-                <form class="d-flex">
-                    <input id="buscador" class="form-control me-2" placeholder="Buscar Modelo" aria-label="Search">
-                    <button id="btnBuscar" class="btn btn-outline-primary">Buscar</button>
-                </form>
-
-            </div>
-            <div>
-                <ul class="navbar-nav me-auto">
-                    <select id="selectOrden" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>Ordenar Inventario:</option>
-                        <option value="1">Precio mayor.</option>
-                        <option value="2">Precio menor.</option>
-                        <option value="3">Alfabeticamente.</option>
-                    </select>
-                </ul>
-            </div>
-
-            <div>
-                <button id="agregarCel" data-bs-toggle="modal" data-bs-target="#idModalAgregarCel"
-                    class="btn btn-primary">Agregar Dispositivo</button>
-            </div>
-
-            <div>
-                <button id="eliminarCel" data-bs-toggle="modal" data-bs-target="#idModalEliminarCel"
-                    class="btn btn-primary">Eliminar Dispositivo</button>
-            </div>
+    <nav>
 
 
+
+
+
+        <div>
+
+            <a id="botonDarkMode" class="btn btn-dark">
+                <i class="fas fa-moon fa-2x"></i>
+            </a>
         </div>
+
+        <div>
+            <a id="botonLightMode"  class="btn btn-light">
+                <i class="far fa-sun fa-2x"></i>
+            </a>
+        </div>
+
+        <div>
+            <a id="botonFavoritos" data-bs-toggle="modal" data-bs-target="#idFavoritos" class="btn btn-danger">
+                <i class="fa fa-heart fa-2x"></i>
+            </a>
+        </div>
+
+        <div>
+            <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito" class="btn btn-success">
+                <i class="fa fa-shopping-cart fa-2x"></i>
+            </a>
+        </div>
+
+    </nav>
+
+
+
+
+
+    <main>
 
 
         <div class="container">
@@ -109,13 +181,13 @@
                         <form id="formAgregarCel">
 
                             <div class="mb-3">
-                                <label for="marca" class="form-label">Marca:</label>
-                                <input type="text" class="form-control" id="marcaInput" aria-describedby="marca">
+                                <label for="modelo" class="form-label">Modelo:</label>
+                                <input type="text" class="form-control" id="modeloInput" aria-describedby="modelo">
                             </div>
 
                             <div class="mb-3">
-                                <label for="modelo" class="form-label">Modelo:</label>
-                                <input type="text" class="form-control" id="modeloInput" aria-describedby="modelo">
+                                <label for="marca" class="form-label">Marca:</label>
+                                <input type="text" class="form-control" id="marcaInput" aria-describedby="marca">
                             </div>
 
                             <div class="mb-3">
@@ -130,7 +202,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="memoriaRam" class="form-label">Memori Ram:</label>
+                                <label for="memoriaRam" class="form-label">Memoria Ram:</label>
                                 <input type="text" class="form-control" id="memoriaRamInput"
                                     aria-describedby="memoriaRam">
                             </div>
@@ -259,6 +331,50 @@
         </div>
 
     </main>
+
+    <footer>
+
+
+        <h3 class="h3-FooterH" style="color:white;">Conoce más sobre nosotros</h3>
+
+        <ul class="ul-FooterH">
+
+            <li>
+
+                <a href="mailto:takemyhand.arg@gmail.com" target="_blank" style="text-decoration: none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 64 58"
+                        style=" fill:#ffffff;" aria-label="Correo">
+                        <path
+                            d="M55,10H9c-2.209,0-4,1.791-4,4v34c0,2.209,1.791,4,4,4h46c2.209,0,4-1.791,4-4V14C59,11.791,57.209,10,55,10z M55,45.738 C54.954,47,53.901,48,52.618,48H49.5L51,21L32,33L13,22l1.5,26h-3.118C10.099,48,9.046,47,9,45.738V16.289 c0-1.25,1.03-2.263,2.3-2.263h1.2L32,29l19.5-14.974h1.2c1.27,0,2.3,1.013,2.3,2.263V45.738z">
+                        </path>
+                    </svg>
+                </a>
+
+                <a href="https://pin.it/3hNFJ9Z" target="_blank" style="text-decoration: none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="34" style="fill: #ffffff;"
+                        class="bi bi-pinterest" viewBox="0 0 16 16" aria-label="Pinterest">
+                        <path
+                            d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0z" />
+                    </svg>
+                </a>
+
+                <a href="https://www.youtube.com/channel/UCyNAIoROzOtGec0Ql83Z-9g" target="_blank"
+                    style="text-decoration: none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" style="fill: #ffffff;"
+                        class="bi bi-youtube" viewBox="0 0 16 15" aria-label="YouTube">
+                        <path
+                            d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                    </svg>
+                </a>
+
+            </li>
+
+        </ul>
+
+        <p class="p-FooterH" style="color:white;"> &copy; 2022 Copyright - De los Santos</p>
+
+    </footer>
+
 
     <!--Script de Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

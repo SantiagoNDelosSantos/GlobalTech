@@ -28,7 +28,7 @@ function verInventario(array) {
 
                 <div class="card-body">
 
-                        <h4 class="card-title" style="text-align: center;">${cel.modelo}</h4>
+                        <h4 class="card-title" style="text-align: center;"><strong>${cel.modelo}</strong></h4>
 
                         <p style="text-align: center;">Marca: ${cel.marca}</p>
 
@@ -40,13 +40,26 @@ function verInventario(array) {
                         
                         <p style="text-align: center;">Cámara: ${cel.camara}</p>
                         
-                        <p style="text-align: center; font-size:16px;"><strong>Precio:</strong> $${cel.precio}</p>
+                        <p style="text-align: center; font-size:1.50em;"><strong>Precio:</strong> $${cel.precio}</p>
 
-                        <button id="agregarBtn${cel.id}" class="btn btn-outline-primary"  style="width: 100%;">Agregar al carrito</button>
+                        <div style=" display: flex;
+                        justify-content: space-between;
+                        align-items: center; margin-top: 10%;">
 
+                        <a id="botonAgregarAFavoritos" data-bs-toggle="modal" data-bs-target="#idAgregarAFavoritos"
+                        class="btn btn-outline-danger" style="width: 22%; margin-left:5%; margin-right: 5%;">
+                            <i class="fa fa-heart fa-1x"></i>
+                        </a>
+
+                        <button id="agregarBtn${cel.id}" class="btn btn-outline-primary"  style="width: 63%;  margin-right: 5%;">Agregar al carrito</button>
+
+                        </div>
                 </div>
 
         </div>`
+        
+
+
 
         cels.appendChild(nuevoCel)
 

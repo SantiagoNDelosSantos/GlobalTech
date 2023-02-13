@@ -2,9 +2,9 @@
 
 @import "generales";
 
-body{
-    background-color:#EBEBEB;
-    font-family: "Montserrat"; 
+body {
+    background-color: #EBEBEB;
+    font-family: "Montserrat";
 }
 
 body::-webkit-scrollbar {
@@ -19,81 +19,70 @@ body::-webkit-scrollbar-track {
     background: rgb(8, 15, 40);
 }
 
-.menu1{
-    display: flex;
-    justify-content:space-around;
-    align-items: center;
-    background: white;
-    background-repeat: no-repeat;
-    background-size:auto;
-    padding: 1%;  
-}
 
-.logo{
+.logo {
     font-family: "Orbitron";
     font-size: 50px;
     font-weight: 600;
-    background-image:  linear-gradient(90deg, rgba(0,16,158,1) 0%, rgba(13,110,253,1) 100%);
-    background-size: cover;
-    background-repeat: repeat;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
+    color: white;
 
 }
 
-.menu2{
+.navbar navbar-expand-lg navbar-light bg-primary{
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
-    background-color: rgba(2, 25, 74, 0.994);
-    padding: 1%;  
-    border-top: 0.10em solid white;
-    border-bottom: 0.10em solid white;
 }
 
-.card-body{
-    background-color:#FFFFFF;
+
+.card-body {
+    background-color: #FFFFFF;
     font-size: 13px;
     color: rgb(0, 0, 0);
     border-radius: 1rem;
-    line-height: 0.50rem;
+    line-height: 2rem;
 }
 
-.darkMode{
+.darkMode {
     background-color: #898989;
 }
 
-.darkMode .menu1{
+.darkMode .menu1 {
     background-color: #afb0b1;
 }
 
-.darkMode .card{
+.darkMode .card {
     color: black;
-    background:#afb0b1;
+    background: #afb0b1;
 }
 
 
-.darkMode .card-body{
-    color: white;
-    background-color:#afb0b1;
+.darkMode .card-body {
+    background-color: #afb0b1;
 
 }
 
-.card, #productoCarrito1{
+.card,
+#productoCarrito1 {
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover{
+.card:hover {
     box-shadow: 4px 3px 15px rgba(0, 0, 0, 0.4);
     transform: scale(1.02);
     transition: all .3s;
 }
 
-.darkMode h3{
+.darkMode h3 {
     background-color: #FFFFFF;
+}
+
+header {
+    background: linear-gradient(90deg, rgb(0, 0, 32) 0%, rgb(16, 19, 98) 50%, rgb(0, 0, 32) 100%);
+}
+
+.darkMode header {
+    background-color: #898989;
 }
 
 nav {
@@ -103,10 +92,7 @@ nav {
     padding: 10px;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
+
 
 .btn {
     padding: 10px 20px;
@@ -124,17 +110,50 @@ nav {
     color: #333;
 }
 
-@media (max-width: 600px) {
-    nav {
-        flex-wrap: wrap;
+footer {
+
+    background: linear-gradient(90deg, rgb(0, 0, 32) 0%, rgb(16, 19, 98) 50%, rgb(0, 0, 32) 100%);
+    padding: 0.50em;
+    border-top: 0.20em solid white;
+    width: 100%;
+    height: 132px;
+    display: flex;
+    justify-content: space-evenly;
+
+    @media (min-width: 500px) {
+        height: 140%;
     }
 
-    .logo {
-        margin-bottom: 10px;
+    @media (min-width: 700px) {
+        height: 150%;
     }
 
-    .btn {
-        width: 100%;
-        margin: 10px 0;
+}
+
+h4 {
+    font-size: 2em;
+}
+
+
+
+
+
+
+
+//NAV BAR
+
+//LOGO
+
+.logo {
+
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0.40em;
+    border: 0.10em solid rgb(255, 255, 255);
+    border-radius: 20em;
+
+    @media (min-width: 500px) {
+        font-size: 18px;
     }
+
 }

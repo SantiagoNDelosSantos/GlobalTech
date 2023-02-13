@@ -28,38 +28,17 @@ body::-webkit-scrollbar-track {
   background: rgb(8, 15, 40);
 }
 
-.menu1 {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: white;
-  background-repeat: no-repeat;
-  background-size: auto;
-  padding: 1%;
-}
-
 .logo {
   font-family: "Orbitron";
   font-size: 50px;
   font-weight: 600;
-  background-image: linear-gradient(90deg, rgb(0, 16, 158) 0%, rgb(13, 110, 253) 100%);
-  background-size: cover;
-  background-repeat: repeat;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
+  color: white;
 }
 
-.menu2 {
+.navbar navbar-expand-lg navbar-light bg-primary {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgba(2, 25, 74, 0.994);
-  padding: 1%;
-  border-top: 0.1em solid white;
-  border-bottom: 0.1em solid white;
 }
 
 .card-body {
@@ -67,7 +46,7 @@ body::-webkit-scrollbar-track {
   font-size: 13px;
   color: rgb(0, 0, 0);
   border-radius: 1rem;
-  line-height: 0.5rem;
+  line-height: 2rem;
 }
 
 .darkMode {
@@ -84,11 +63,11 @@ body::-webkit-scrollbar-track {
 }
 
 .darkMode .card-body {
-  color: white;
   background-color: #afb0b1;
 }
 
-.card, #productoCarrito1 {
+.card,
+#productoCarrito1 {
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -102,16 +81,19 @@ body::-webkit-scrollbar-track {
   background-color: #FFFFFF;
 }
 
+header {
+  background: linear-gradient(90deg, rgb(0, 0, 32) 0%, rgb(16, 19, 98) 50%, rgb(0, 0, 32) 100%);
+}
+
+.darkMode header {
+  background-color: #898989;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
 }
 
 .btn {
@@ -130,15 +112,39 @@ nav {
   color: #333;
 }
 
-@media (max-width: 600px) {
-  nav {
-    flex-wrap: wrap;
+footer {
+  background: linear-gradient(90deg, rgb(0, 0, 32) 0%, rgb(16, 19, 98) 50%, rgb(0, 0, 32) 100%);
+  padding: 0.5em;
+  border-top: 0.2em solid white;
+  width: 100%;
+  height: 132px;
+  display: flex;
+  justify-content: space-evenly;
+}
+@media (min-width: 500px) {
+  footer {
+    height: 140%;
   }
+}
+@media (min-width: 700px) {
+  footer {
+    height: 150%;
+  }
+}
+
+h4 {
+  font-size: 2em;
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0.4em;
+  border: 0.1em solid rgb(255, 255, 255);
+  border-radius: 20em;
+}
+@media (min-width: 500px) {
   .logo {
-    margin-bottom: 10px;
-  }
-  .btn {
-    width: 100%;
-    margin: 10px 0;
+    font-size: 18px;
   }
 }/*# sourceMappingURL=style.css.map */
