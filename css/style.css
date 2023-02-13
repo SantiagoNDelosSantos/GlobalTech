@@ -153,7 +153,7 @@ header {
 }
 
 #verInventario, #mayorPrecio, #menorPrecio, #alfabeticamente, #agregarCel, #eliminarCel {
-  font-size: 12px;
+  font-size: 14px;
   padding: 0.5em;
 }
 @media (min-width: 500px) {
