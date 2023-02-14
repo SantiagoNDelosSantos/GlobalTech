@@ -17,41 +17,57 @@
 
     <header>
 
-        <nav class="navbar navbar-expand-lg bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-light  bg-primary">
 
             <div class="container-fluid">
 
-                <h1 class="logo" style="margin-top: 5px">GlobalTech</h1>
+                <h1 class="logo" style="margin-top: 5px">Global Tech</h1>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-                <div class="collapse navbar-collapse" id="navbarScroll">
-                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px; display: flex; align-items: center;">
-
-
-                        <li class="nav-item">
-                            <button id="verInventario" data-bs-toggle="modal" data-bs-target="#idVerInventario"
-                                class="btn btn-primary">Ver todo el Inventario</button>
-                        </li>
+                    <ul class="navbar-nav">
 
                         <li class="nav-item">
-                            <button id="mayorPrecio" data-bs-toggle="modal" data-bs-target="#idMayorPrecio"
-                                class="btn btn-primary">Ord. Mayor Precio</button>
+                            <button id="verInventario"class="subrayado"data-bs-toggle="modal"
+                                data-bs-target="#idVerInventario">INVENTARIO</button>
                         </li>
 
-                        <li class="nav-item">
-                            <button id="menorPrecio" data-bs-toggle="modal" data-bs-target="#idMenorPrecio"
-                                class="btn btn-primary">Ord. Menor Precio</button>
+
+                        <li class="nav-item dropdown">
+
+                            <a href="#" id="navbarDropdown" class="subrayado" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                ORDENAR
+                            </a>
+
+                            
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <li class="dropdown-item" id="menorPrecio" class="subrayado2" data-bs-target="#idMenorPrecio">
+                                    Menor precio
+                                </li>
+
+                                <li class="dropdown-item" id="mayorPrecio" class="subrayado2" data-bs-target="#idMayorPrecio">
+                                    Mayor precio
+                                </li>
+
+                                <li class="dropdown-item" id="alfabeticamente" class="subrayado2" data-bs-target="#idAlfabeticamente">
+                                    Alfabético
+                                </li>
+
+                            </ul>
+
+
                         </li>
 
-                        <li class="nav-item">
-                            <button id="alfabeticamente" data-bs-toggle="modal" data-bs-target="#idAlfabeticamente"
-                                class="btn btn-primary">Ord. Alfabéticamente</button>
-                        </li>
+
+
 
 
                         <li class="nav-item">
@@ -64,32 +80,32 @@
                                 class="btn btn-primary">Eliminar Dispositivo</button>
                         </li>
 
+
+
                     </ul>
 
 
-                    <form class="d-flex" role="search">
 
-                        <input id="buscador" class="form-control me-2" type="search" placeholder="Buscar en Global Tech"
-                            aria-label="Search">
-
-                        <button id="btnBuscar" class="btn btn-dark" type="submit">Buscar</button>
-
-                    </form>
 
 
                 </div>
+
             </div>
+
         </nav>
 
     </header>
 
 
-
-
-
-
-
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+        <form class="d-flex" role="search">
+
+            <input id="buscador" class="form-control me-2" type="search" placeholder="Buscar en GlobalTech"
+                aria-label="Search">
+
+        </form>
+
 
         <div class="container-fluid">
 
@@ -147,6 +163,7 @@
             <div id="coincidencia"></div>
             <div id="cel" class="row"></div>
         </div>
+
 
         <div class="modal fade" id="idModalAgregarCel" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -221,6 +238,7 @@
         </div>
 
 
+        <!-- Modal Favoritos-->>
 
         <div class="modal fade" id="idModalFavoritos" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -248,6 +266,9 @@
             </div>
 
         </div>
+
+        <!-- Modal Carrito -->
+
 
 
 

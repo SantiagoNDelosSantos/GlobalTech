@@ -1,0 +1,93 @@
+#verInventario,
+#navbarDropdown {
+
+    font-family: 'Lato';
+    color: white;
+    background-color: #0D6EFD;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+    padding: 0.70em;
+
+    display: flex;
+    justify-content: center;
+
+    border: none;
+
+    margin-left: 25px;
+    @media (min-width: 900px) {
+        font-size: 17px;
+    }
+
+}
+
+
+.subrayado {
+    background-image: linear-gradient(transparent 0%, transparent 94%, #ffffff 94%, #ffffff 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position-x: right;
+    transition: background-size 500ms;
+  }
+  
+  .subrayado:hover {
+    background-size: 100% 100%;
+    background-position-x: left;
+  }
+  
+  
+#menorPrecio, #mayorPrecio {
+    background-image: linear-gradient(transparent 0%, transparent 94%, #4d4d4d 94%, #000000 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position-x: right;
+    transition: background-size 500ms;
+  }
+  
+#menorPrecio:hover, #mayorPrecio:hover {
+    background-size: 100% 100%;
+    background-position-x: left;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ORDENAR BOTONES FILTROS:
+
+.dropdown-item {
+
+    font-family: 'Lato';
+    color: rgb(121, 119, 119);
+
+    text-decoration: none;
+
+    font-size: 17px;
+    font-weight: 400;
+
+    padding: 10px !important;
+
+    text-align: center;
+
+    @media (min-width: 900px) {
+        font-size: 17px;
+    }
+
+}
+
+.dropdown-item:hover {
+    color: black;
+
+}

@@ -1,33 +1,74 @@
 let cels = document.getElementById("cel")
-let guardarCelBtn = document.getElementById("guardarCelBtn")
-
-let selectOrden = document.getElementById("selectOrden")
-
-
-
-
-
 
 
 //Capturas botones para ver y ordenar el inventario:
 
+let botonVerInventario = document.getElementById("verInventario")
 
+let botonOrdMayor = document.getElementById("mayorPrecio")
 
-let botorOrdMenor = document.getElementById("menorPrecio")
+let botonOrdMenor = document.getElementById("menorPrecio")
 
-let botorOrdAlfabeticamente = document.getElementById("alfabeticamente")
+let botonOrdAlfabeticamente = document.getElementById("alfabeticamente")
 
 // Fin Capturas botones para ver y ordenar el inventario.
 
 
+// Captura botón Agregar Dispositivo:
+
+let guardarCelBtn = document.getElementById("guardarCelBtn")
+
+// Fin Captura botón Agregar Dispositivo.
+
+
+// Captura Barra de Busqueda:
+
+let buscador = document.getElementById("buscador")
+
+let coincidencia = document.getElementById("coincidencia")
+
+// Captura Barra de Busqueda.
+
+
+
+// Captura Botones Favoritos:
+
+let botonFavNav = document.getElementById ("botonFavoritos")
+
+let modalBodyFavoritos = document.getElementById ("modal-bodyFavoritos")
+
+// Fin Captura Botones Favoritos.
+
+
+
+
+
+
+
+
+// Captura botones Carrito:
 
 let botonCarrito = document.getElementById("botonCarrito")
+
 let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
+
+// Fin Captura botones Carrito.
+
+
+
+
+
+
 let formAgregarCel = document.getElementById("formAgregarCel")
 let precioTotal = document.getElementById("precioTotal")
 let eliminarCEL = document.getElementById("eliminarCel")
 let eliminarCelular = document.getElementById("eliminarModeloBtn")
 
+
+
+
+
+// Function Ver Inventario:
 
 function verInventario(array) {
 
@@ -64,7 +105,7 @@ function verInventario(array) {
                         justify-content: space-between;
                         align-items: center; margin-top: 10%;">
 
-                        <a id="botonAgregarAFavoritos" data-bs-toggle="modal" data-bs-target="#idAgregarAFavoritos"
+                        <a id="botonAgregarAFavoritos${cel.id}" data-bs-toggle="modal" data-bs-target="#idAgregarAFavoritos"
                         class="btn btn-outline-danger" style="width: 22%; margin-left:5%; margin-right: 5%;">
                             <i class="fa fa-heart fa-1x"></i>
                         </a>
@@ -75,8 +116,6 @@ function verInventario(array) {
                 </div>
 
         </div>`
-        
-
 
 
         cels.appendChild(nuevoCel)
@@ -91,29 +130,107 @@ function verInventario(array) {
 
 }
 
-botonVerInventario.addEventListener("click", ()=>{
-    verInventario(inventario) 
+
+// Fin Function Ver Inventario.
+
+// Evento botón Ver Inventario:
+
+botonVerInventario.addEventListener("click", () => {
+    verInventario(inventario)
 })
 
+// Fin Evento botón Ver Inventario.
 
 
 
 
 
-let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []
+// Function Ordenar de Mayor Precio a Menor Precio:
 
-
-function agregarAlCarrito(cel) {
-
-
-
-        productosEnCarrito.push(cel)
-
-        localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
-
-    } 
+function ordenarMayorMenor(arry) {
+    const mayorMenor = [].concat(arry)
+    mayorMenor.sort((param1, param2) => {
+        return param2.precio - param1.precio
+    })
+    verInventario(mayorMenor)
 }
 
+// Fin Function Ordenar de Mayor Precio a Menor Precio.
+
+
+
+
+// Evento botón Ord. Mayor Precio:
+
+botonOrdMayor.addEventListener("click", () => {
+    ordenarMayorMenor(inventario)
+})
+
+// Fin Evento botón Ord. Mayor Precio.
+
+
+
+// Function Odernar de Menor Precio a Mayor Precio:
+
+function ordenarMenorMayor(array) {
+    const menorMayor = [].concat(array)
+    menorMayor.sort((a, b) => a.precio - b.precio)
+    verInventario(menorMayor)
+}
+
+// Fin Function Odernar de Menor Precio a Mayor Precio.
+
+// Evento botón Ord. Menor Precio:
+
+botonOrdMenor.addEventListener("click", () => {
+    ordenarMenorMayor(inventario)
+})
+
+// Fin Evento botón Ord. Menor Precio.
+
+
+
+
+
+// Function Ordenar Alfabeticamente:
+
+function ordenarAlfabeticamente(array) {
+
+    const ordenadoAlfabeticamente = [].concat(array)
+
+    ordenadoAlfabeticamente.sort((a, b) => {
+
+        let modeloA = a.modelo.toUpperCase();
+        let modeloB = b.modelo.toUpperCase();
+
+        if (modeloA > modeloB) {
+            return 1
+        }
+        if (modeloA < modeloB) {
+            return -1
+        }
+        return 0;
+    })
+
+    verInventario(ordenadoAlfabeticamente)
+
+}
+
+// Fin Function Ordenar Alfabeticamente.
+
+//Evento botón Ordenar Alfabeticamente:
+
+botonOrdAlfabeticamente.addEventListener("click", () => {
+    ordenarAlfabeticamente(inventario)
+})
+
+// Fin Evento botón Ordenar Alfabeticamente.
+
+
+
+
+
+// Function Agregar Nuevo Producto al Inventario:
 
 function cargarCel(array) {
 
@@ -137,6 +254,71 @@ function cargarCel(array) {
 
 }
 
+// Evento botón Agregar Dispositivo:
+
+guardarCelBtn.addEventListener("click", () => {
+    cargarCel(inventario)
+})
+
+// Fin Evento botón Agregar Dispositivo.
+
+
+
+
+
+
+//eliminar dispositivoooooooooooooooooooooooooooooooooooooooo
+//oooooooooooooooooooooo
+//ooooooooo
+
+
+
+
+function eliminarItem(indice) {
+    pedido.items.splice(indice, 1);
+    dibujarPedido();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []
+
+
+function agregarAlCarrito(cel) {
+
+    let celAgregado = productosEnCarrito.find((elem) => elem.id == cel.id)
+
+    if (celAgregado == undefined) {
+
+        productosEnCarrito.push(cel)
+
+        localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
+
+    }
+}
+
+
+
+
+
+
+// Function Buscar en Inventario:
 
 function buscarInfo(buscado, array) {
 
@@ -156,94 +338,80 @@ margin-right: 10%;">No hay modelos que coincidan con tu búsqueda.</h3></div>`
 
 }
 
+// Fin Function Buscar en Inventario.
 
+// Evento Input Buscar en Inventario:
 
-
-
-// Function Ordenar de Mayor Precio a Menor Precio:
-
-function ordenarMayorMenor(arry) {
-    const mayorMenor = [].concat(arry)
-    mayorMenor.sort((param1, param2) => {
-        return param2.precio - param1.precio
-    })
-    verInventario(mayorMenor)
-}
-
-// Fin Function Ordenar de Mayor Precio a Menor Precio.
-
-// Evento boton Ord. Mayor Precio:
-
-botorOrdMayor.addEventListener("click", ()=>{
-    ordenarMayorMenor(inventario)
+buscador.addEventListener("input", () => {
+    buscarInfo(buscador.value.toLowerCase(), inventario)
 })
 
-// Fin Evento boton Ord. Mayor Precio.
+// Fin Evento Input Buscar en Inventario.
 
 
 
 
+let productosFavoritos = JSON.parse(localStorage.getItem("favoritos")) || []
 
+function agregarAfavoritos(cel) {
 
-function ordenarMenorMayor(array) {
-    const menorMayor = [].concat(array)
-    menorMayor.sort((a, b) => a.precio - b.precio)
-    verInventario(menorMayor)
+    let celAgregado = productosFavoritos.find((elem) => elem.id == cel.id)
+
+    if (celAgregado == undefined) {
+
+        productosFavoritos.push(cel)
+
+        localStorage.setItem("favoritos", JSON.stringify(productosFavoritos))
+
+    }
 }
 
-// Fin Function Odernar de Menor Precio a Mayor Precio.
-
-// Evento boton Ord. Menor Precio:
-
-botorOrdMenor.addEventListener("click", ()=>{
-    ordenarMenorMayor(inventario)
-})
-
-// Fin Evento boton Ord. Menor Precio.
 
 
+// Funtion Agregar a Favoritos:
 
 
+function agregarProductosFavoritos(array) {
+    modalBodyCarrito.innerHTML = ""
+    array.forEach((productosFavoritos) => {
 
-// Function Ordenar Alfabeticamente:
+        modalBodyFavoritos.innerHTML +=
 
-function ordenarAlfabeticamente(array) {
+            `<div class="modal-dialog" style="max-width:250px;>
 
-    let ordenadoAlfabeticamente = [].concat(array)
+            <div class="modal-content">
 
+                <div class="card border-primary mb-4" id ="productoCarrito${productosFavoritos.id}" style="max-width:400px; display: flex;justify-content:space-around; align-items: center;">
 
-    ordenadoAlfabeticamente.sort(function(a, b) {
-        
-        if (a.modelo < b.modelo) {
-            return -1
-        }
+                    <img class="card-img-top" style="max-height:300px;max-width:180px; margin-top: 2rem" src="assets/${productosFavoritos.imagen}" alt="">
 
-        if (a.modelo > b.modelo) {
-            return 1
-        }
-    
-        return 0;
+                    <div class="card-body">
+                    
+                        <h4 class="card-title" style="text-align: center;">${productosFavoritos.modelo}</h4>
+                            
+                        <p class="card-text" style="text-align: center;">$${productosFavoritos.precio}</p> 
+                    
+                        <button class= "btn btn-danger" id="botonEliminar" style="height:20%; width:40%;margin-left:30%; margin-right: 30%;margin-bottom: 1rem"><i class="fas fa-trash-alt"></i></button>
 
+                    </div>    
+                    
+                </div>
+
+            </div>
+
+        </div>`
     })
 
-    verInventario(ordenadoAlfabeticamente)
-
 }
 
-// Fin Function Ordenar Alfabeticamente.
+// Fin Funtion Agregar a Favoritos.
 
-//Evento boton Ordenar Alfabeticamente:
 
-botorOrdAlfabeticamente.addEventListener("click", ()=>{
-    ordenarAlfabeticamente(inventario)
+//Evento 
+
+botonFavNav.addEventListener("click", () => {
+    agregarProductosFavoritos(productosFavoritos)
 })
-
-// Fin Evento boton Ordenar Alfabeticamente.
-
-
-
-
-
 
 
 
@@ -257,7 +425,7 @@ function cargarProductosCarrito(array) {
 
         modalBodyCarrito.innerHTML +=
 
-        `<div class="modal-dialog" style="max-width:250px;>
+            `<div class="modal-dialog" style="max-width:250px;>
 
             <div class="modal-content">
 
@@ -286,46 +454,41 @@ function cargarProductosCarrito(array) {
 }
 
 
-function calcularTotal(array){
-    let total = array.reduce((acc, productoCarrito)=> acc + productoCarrito.precio ,0)
+
+
+function calcularTotal(array) {
+    let total = array.reduce((acc, productoCarrito) => acc + productoCarrito.precio, 0)
 
     precioTotal.innerHTML = `<p style="text-align: center;">El total del carrito es <strong>$${total}</strong>.</p>`
 }
 
 
 
-
-
-function verIDS(array){
+function verIDS(array) {
 
     iDInventario.innerHTML = ""
 
-    array.forEach((cel) => { iDInventario.innerHTML += `
+    array.forEach((cel) => {
+        iDInventario.innerHTML += `
     <p style="text-align: center; line-height: 0.45;">La id del modelo ${cel.modelo} es ${cel.id}.</p>`
     })
 
 }
 
-eliminarCEL.addEventListener("click", ()=>{
+eliminarCEL.addEventListener("click", () => {
     verIDS(inventario)
 })
 
 
-guardarCelBtn.addEventListener("click", ()=>{
-    cargarCel(inventario)
-})
-
-
-buscador.addEventListener("input", ()=>{
-    
-    buscarInfo(buscador.value.toLowerCase(), inventario)
-}) 
-
-
-
-
-botonCarrito.addEventListener("click", ()=>{
+botonCarrito.addEventListener("click", () => {
     cargarProductosCarrito(productosEnCarrito)
 })
+
+
+
+
+
+
+
 
 verInventario(inventario)

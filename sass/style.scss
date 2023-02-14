@@ -9,11 +9,7 @@ body {
 
 @import "scrollbar";
 
-.navbar navbar-expand-lg navbar-light bg-primary {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+@import "botones";
 
 
 .card-body {
@@ -58,20 +54,7 @@ body {
     background-color: #FFFFFF;
 }
 
-header {
-    background: linear-gradient(90deg, rgb(0, 0, 32) 0%, rgb(16, 19, 98) 50%, rgb(0, 0, 32) 100%);
-}
 
-.darkMode header {
-    background-color: #898989;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-}
 
 
 
@@ -121,41 +104,61 @@ h4 {
 
 
 
-//NAV BAR
 
 //LOGO
 
-
-
 .logo {
-    font-family: "Orbitron";
-    font-size: 16px;
-    font-weight: 600;
+    font-family: "Lobster";
+    font-size: 17px;
+    font-weight: 400;
     color: white;
-    padding: 0.50em;
-    border: 0.10em solid rgb(255, 255, 255);
-    border-radius: 20em;
-    background: linear-gradient(90deg, rgb(0, 0, 32) 0%, rgb(16, 19, 98) 50%, rgb(0, 0, 32) 100%);
+
 
     @media (min-width: 500px) {
-        font-size: 18px;
+        font-size: 35px;
+        margin-left: 23px;
+        margin-right: 25px;
     }
 
 }
 
-header{
+//NAV BAR
+
+header {
     position: sticky;
     top: 0;
     z-index: 10;
     border-bottom: 0.20em solid white;
 }
 
+//BOTONES
 
-#verInventario, #mayorPrecio, #menorPrecio, #alfabeticamente, #agregarCel, #eliminarCel{
-    font-size: 14px;
-    padding: 0.50em;
+
+
+#agregarCel,
+#eliminarCel,
+#buscador {
+
+   
+    font-family: 'Lato';
+    font-size: 15px;
+    padding: 5px;
+
+
 
     @media (min-width: 500px) {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
+
+#buscador {
+
+    margin-bottom: 1rem;
+    margin-right: 0rem!important;
+
+    @media (min-width: 990px) { 
+    margin-left: 1.5rem;
+    margin-bottom: 0rem;
+    }
+}
+
