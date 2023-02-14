@@ -1,7 +1,5 @@
 let cels = document.getElementById("cel")
 let guardarCelBtn = document.getElementById("guardarCelBtn")
-let buscador = document.getElementById("buscador")
-let coincidencia = document.getElementById("coincidencia")
 
 let selectOrden = document.getElementById("selectOrden")
 
@@ -13,9 +11,7 @@ let selectOrden = document.getElementById("selectOrden")
 
 //Capturas botones para ver y ordenar el inventario:
 
-let botonVerInventario = document.getElementById("verInventario")
 
-let botorOrdMayor = document.getElementById("mayorPrecio")
 
 let botorOrdMenor = document.getElementById("menorPrecio")
 
@@ -109,9 +105,7 @@ let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []
 
 function agregarAlCarrito(cel) {
 
-    let celAgregado = productosEnCarrito.find((elem) => elem.id == cel.id)
 
-    if (celAgregado == undefined) {
 
         productosEnCarrito.push(cel)
 
@@ -190,7 +184,6 @@ botorOrdMayor.addEventListener("click", ()=>{
 
 
 
-// Function Odernar de Menor Precio a Mayor Precio:
 
 function ordenarMenorMayor(array) {
     const menorMayor = [].concat(array)
