@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Lobster&family=Montserrat&display=swap");
 * {
   text-decoration: none;
   list-style: none;
@@ -16,20 +16,61 @@ body {
   font-family: "Montserrat";
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 0.2em solid white;
+}
+
 body::-webkit-scrollbar {
   width: 10px;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #0329a8;
+  background: #042aa8;
 }
 
 body::-webkit-scrollbar-track {
-  background: rgb(8, 15, 40);
+  background: rgb(0, 22, 112);
 }
 
-#verInventario,
+.logo {
+  font-family: "Lobster";
+  font-size: 17px;
+  font-weight: 400;
+  color: white;
+}
+@media (min-width: 500px) {
+  .logo {
+    font-size: 35px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 5px;
+  }
+}
+
+.navbar-toggler {
+  color: #ffffff;
+  background-color: #006de3;
+  border: var(--bs-border-width) solid rgba(255, 255, 255, 0);
+}
+
 #navbarDropdown {
+  margin-left: 0px;
+}
+
+.navbar-toggler-icon {
+  background-image: var(--bs-navbar-toggler-icon-bg);
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#verInventario, #navbarDropdown, #agregarCel, #eliminarCel {
   font-family: "Lato";
   color: white;
   background-color: #0D6EFD;
@@ -41,12 +82,27 @@ body::-webkit-scrollbar-track {
   display: flex;
   justify-content: center;
   border: none;
-  margin-left: 25px;
 }
-@media (min-width: 900px) {
-  #verInventario,
-  #navbarDropdown {
-    font-size: 17px;
+
+#eliminarCel {
+  margin-bottom: 10px;
+}
+@media (min-width: 990px) {
+  #eliminarCel {
+    margin-bottom: 0em;
+  }
+}
+
+@media (min-width: 990px) {
+  #verInventario {
+    margin-right: 25px;
+  }
+}
+
+@media (min-width: 990px) {
+  #verInventario, #agregarCel,
+  #eliminarCel {
+    margin-left: 25px;
   }
 }
 
@@ -63,7 +119,7 @@ body::-webkit-scrollbar-track {
   background-position-x: left;
 }
 
-#menorPrecio, #mayorPrecio {
+#menorPrecio, #mayorPrecio, #alfabeticamente {
   background-image: linear-gradient(transparent 0%, transparent 94%, #4d4d4d 94%, #000000 100%);
   background-repeat: no-repeat;
   background-size: 0% 100%;
@@ -71,9 +127,15 @@ body::-webkit-scrollbar-track {
   transition: background-size 500ms;
 }
 
-#menorPrecio:hover, #mayorPrecio:hover {
+#menorPrecio:hover, #mayorPrecio:hover, #alfabeticamente:hover {
   background-size: 100% 100%;
   background-position-x: left;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-left: 10px;
 }
 
 .dropdown-item {
@@ -95,16 +157,87 @@ body::-webkit-scrollbar-track {
   color: black;
 }
 
+#buscador {
+  margin-bottom: 1rem;
+  margin-right: 0rem !important;
+  font-family: "Lato";
+  font-size: 17px;
+  font-weight: 400;
+  padding: 0.65em;
+}
+@media (min-width: 990px) {
+  #buscador {
+    margin-left: 25px;
+    margin-bottom: 0px !important;
+  }
+}
+
+.modal-header {
+  background: #0D6EFD;
+}
+
+#exampleModalLabel {
+  color: white;
+  font-size: 17px;
+}
+
+.form-label {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.form-control {
+  font-size: 15px;
+}
+
+.btn-dark,
+.btn-primary {
+  font-size: 17px;
+}
+
+#precioTotal {
+  margin-bottom: 0px;
+}
+
+.modal-footer {
+  justify-content: space-around;
+}
+
 .card-body {
   background-color: #FFFFFF;
-  font-size: 13px;
+  font-size: 14px;
   color: rgb(0, 0, 0);
   border-radius: 1rem;
-  line-height: 2rem;
+  line-height: 1.7rem;
+}
+
+.card, #productoCarrito1 {
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  box-shadow: 4px 3px 15px rgba(0, 0, 0, 0.4);
+  transform: scale(1.02);
+  transition: all 0.3s;
+}
+
+.btn-outline-primary {
+  font-size: 15px;
+  padding: 1.5px;
+  height: 3.5em;
+}
+
+h4 {
+  font-size: 2em;
+}
+
+.btn-light {
+  background-color: #fff;
+  color: #000000;
 }
 
 .darkMode {
-  background-color: #898989;
+  background-color: #444444;
 }
 
 .darkMode .menu1 {
@@ -120,104 +253,88 @@ body::-webkit-scrollbar-track {
   background-color: #afb0b1;
 }
 
-.card,
-#productoCarrito1 {
-  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+.darkMode .modal-body {
+  background-color: #afb0b1;
 }
 
-.card:hover {
-  box-shadow: 4px 3px 15px rgba(0, 0, 0, 0.4);
-  transform: scale(1.02);
-  transition: all 0.3s;
+.darkMode .modal-footer {
+  background-color: #afb0b1;
 }
 
-.darkMode h3 {
-  background-color: #FFFFFF;
+.darkMode #precioTotal {
+  background-color: #afb0b1;
 }
 
-.btn {
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-left: 10px;
-}
-
-.btn-dark {
-  background-color: #333;
-  color: #fff;
-}
-
-.btn-light {
-  background-color: #fff;
-  color: #333;
+.darkMode .noCoincidencia {
+  color: white;
 }
 
 footer {
-  background: linear-gradient(90deg, rgb(0, 0, 32) 0%, rgb(16, 19, 98) 50%, rgb(0, 0, 32) 100%);
+  background: #0D6EFD;
   padding: 0.5em;
   border-top: 0.2em solid white;
   width: 100%;
-  height: 132px;
+  height: auto;
+}
+
+.gridFooter {
+  grid-area: gridFooter;
   display: flex;
   justify-content: space-evenly;
 }
-@media (min-width: 500px) {
-  footer {
-    height: 140%;
-  }
-}
-@media (min-width: 700px) {
-  footer {
-    height: 150%;
-  }
+
+.h3Footer0 {
+  line-height: 120%;
+  grid-area: h3Footer0;
 }
 
-h4 {
-  font-size: 2em;
+.ulFooter {
+  grid-area: ulFooter;
 }
 
-.logo {
-  font-family: "Lobster";
-  font-size: 17px;
-  font-weight: 400;
-  color: white;
-}
-@media (min-width: 500px) {
-  .logo {
-    font-size: 35px;
-    margin-left: 23px;
-    margin-right: 25px;
-  }
+.h3FooterCopy {
+  grid-area: h3FooterCopy;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  border-bottom: 0.2em solid white;
-}
-
-#agregarCel,
-#eliminarCel,
-#buscador {
-  font-family: "Lato";
-  font-size: 15px;
-  padding: 5px;
-}
-@media (min-width: 500px) {
-  #agregarCel,
-  #eliminarCel,
-  #buscador {
-    font-size: 12px;
-  }
-}
-
-#buscador {
-  margin-bottom: 1rem;
-  margin-right: 0rem !important;
+.gridFooter {
+  display: grid;
+  grid-template-areas: "h3Footer0" "ulFooter" "h3FooterCopy";
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
 }
 @media (min-width: 990px) {
-  #buscador {
-    margin-left: 1.5rem;
-    margin-bottom: 0rem;
+  .gridFooter {
+    grid-template-areas: "h3Footer0  ulFooter h3FooterCopy";
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
   }
+}
+
+h3, .ulFooter, .h3FooterCopy {
+  font-size: 15px;
+  padding: 0em;
+  margin: 0em;
+}
+
+.listEnlaces {
+  display: flex;
+  gap: 3em;
+  justify-content: center;
+}
+
+.gridFooter {
+  border-top: 0.2em solid white;
+}
+
+.noCoincidencia {
+  color: black;
+  padding: 1rem;
+  width: 80%;
+  border-radius: 1rem;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 20vh;
+  font-size: 26px;
 }/*# sourceMappingURL=style.css.map */

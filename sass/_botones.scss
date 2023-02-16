@@ -1,93 +1,133 @@
-#verInventario,
-#navbarDropdown {
+// BOTONES NAV BAR OPCIONES GENERALES:
 
-    font-family: 'Lato';
-    color: white;
-    background-color: #0D6EFD;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: 400;
-    text-align: center;
-    padding: 0.70em;
+#verInventario, #navbarDropdown, #agregarCel, #eliminarCel {
+  font-family: 'Lato';
+  color: white;
+  background-color: #0D6EFD;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 400;
+  text-align: center;
+  padding: 0.70em;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
 
-    display: flex;
-    justify-content: center;
+#eliminarCel {
 
-    border: none;
+  margin-bottom: 10px;
 
-    margin-left: 25px;
-    @media (min-width: 900px) {
-        font-size: 17px;
-    }
+  @media (min-width: 990px) {
+    margin-bottom: 0em;
+  }
 
 }
 
+#verInventario{
+
+  @media (min-width: 990px) {
+    margin-right: 25px;
+  }
+
+}
+
+#verInventario, #agregarCel,
+#eliminarCel {
+
+  @media (min-width: 990px) {
+    margin-left: 25px;
+  }
+
+}
+
+// FIN BOTONES NAV BAR OPCIONES GENERALES.
+
+// EFECTO SUBRAYADO MENÚ PRINCIPAL:
 
 .subrayado {
-    background-image: linear-gradient(transparent 0%, transparent 94%, #ffffff 94%, #ffffff 100%);
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    background-position-x: right;
-    transition: background-size 500ms;
-  }
-  
-  .subrayado:hover {
-    background-size: 100% 100%;
-    background-position-x: left;
-  }
-  
-  
-#menorPrecio, #mayorPrecio {
-    background-image: linear-gradient(transparent 0%, transparent 94%, #4d4d4d 94%, #000000 100%);
-    background-repeat: no-repeat;
-    background-size: 0% 100%;
-    background-position-x: right;
-    transition: background-size 500ms;
-  }
-  
-#menorPrecio:hover, #mayorPrecio:hover {
-    background-size: 100% 100%;
-    background-position-x: left;
-  }
-  
+  background-image: linear-gradient(transparent 0%, transparent 94%, #ffffff 94%, #ffffff 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position-x: right;
+  transition: background-size 500ms;
+}
+
+.subrayado:hover {
+  background-size: 100% 100%;
+  background-position-x: left;
+}
+
+// FIN EFECTO SUBRAYADO MENÚ PRINCIPAL.
 
 
+// EFECTO SUBRAYADO SUB MENÚ DE "ORDENAR":
 
+#menorPrecio, #mayorPrecio, #alfabeticamente {
+  background-image: linear-gradient(transparent 0%, transparent 94%, #4d4d4d 94%, #000000 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position-x: right;
+  transition: background-size 500ms;
+}
 
+#menorPrecio:hover, #mayorPrecio:hover, #alfabeticamente:hover {
+  background-size: 100% 100%;
+  background-position-x: left;
+}
 
+// FIN EFECTO SUBRAYADO SUB MENÚ DE "ORDENAR".
 
+// BOTONES EN GENERAL:
 
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
 
+// FIN BOTONES EN GENERAL.
 
-
-
-
-
-
-
-//ORDENAR BOTONES FILTROS:
+//ORDENAR - BOTONES FILTROS - MAY. PREC., MNR. PREC., ALFAB.:
 
 .dropdown-item {
 
-    font-family: 'Lato';
-    color: rgb(121, 119, 119);
+  font-family: 'Lato';
+  color: rgb(121, 119, 119);
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 10px !important;
+  text-align: center;
 
-    text-decoration: none;
-
+  @media (min-width: 900px) {
     font-size: 17px;
-    font-weight: 400;
-
-    padding: 10px !important;
-
-    text-align: center;
-
-    @media (min-width: 900px) {
-        font-size: 17px;
-    }
+  }
 
 }
 
 .dropdown-item:hover {
-    color: black;
+  color: black;
+}
+
+// FIN ORDENAR - BOTONES FILTROS - MAY. PREC., MNR. PREC., ALFAB.
+
+// INPUT BUSCADOR:
+
+#buscador {
+
+  margin-bottom: 1rem;
+  margin-right: 0rem !important;
+  font-family: 'Lato';
+  font-size: 17px;
+  font-weight: 400;
+  padding: 0.65em;
+
+  @media (min-width: 990px) {
+    margin-left: 25px;
+    margin-bottom: 0px !important;
+  }
 
 }
+
+// FIN INPUT BUSCADOR.

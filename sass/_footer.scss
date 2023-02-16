@@ -1,0 +1,69 @@
+// FOOTER:
+
+footer{
+    background: #0D6EFD;
+    padding: 0.50em;
+    border-top: 0.20em solid white;
+    width: 100%;
+    height: auto;
+}
+
+.gridFooter{
+    grid-area: gridFooter;  
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.h3Footer0{
+    line-height: 120%;
+    grid-area: h3Footer0;
+}
+
+.ulFooter{
+    grid-area: ulFooter;
+}
+
+.h3FooterCopy{
+    grid-area: h3FooterCopy;
+}
+
+.gridFooter{
+
+    display: grid;
+    grid-template-areas:
+    "h3Footer0"
+    "ulFooter"    
+    "h3FooterCopy";
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+
+    @media (min-width: 990px) {
+    grid-template-areas:
+    "h3Footer0  ulFooter h3FooterCopy";
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+    }
+    
+}
+
+h3, .ulFooter, .h3FooterCopy{
+    font-size: 15px;
+    padding: 0em;
+    margin: 0em;
+
+}
+
+.listEnlaces{
+    display: flex;
+    gap: 3em;
+    justify-content: center;
+}
+
+.gridFooter{
+    border-top: 0.20em solid white ;
+}
+
+// FIN FOOTER.

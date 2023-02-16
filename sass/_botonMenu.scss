@@ -1,0 +1,23 @@
+// BOTÓN MENÚ HAMBURGUESA:
+
+.navbar-toggler {
+    color: #ffffff;
+    background-color: #006de3;
+    border: var(--bs-border-width) solid #ffffff00;
+}
+
+#navbarDropdown{
+    margin-left: 0px;
+}
+
+.navbar-toggler-icon {
+    background-image: var(--bs-navbar-toggler-icon-bg);
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// FIN BOTÓN MENÚ HAMBURGUESA.

@@ -21,7 +21,7 @@
 
             <div class="container-fluid">
 
-                <h1 class="logo" style="margin-top: 5px">Global Tech</h1>
+                <h1 class="logo">Global Tech</h1>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -45,47 +45,40 @@
                                 ORDENAR
                             </a>
 
-                            
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                <li class="dropdown-item" id="menorPrecio" class="subrayado2" data-bs-target="#idMenorPrecio">
+                                <li class="dropdown-item" id="menorPrecio" data-bs-target="#idMenorPrecio">
                                     Menor precio
                                 </li>
 
-                                <li class="dropdown-item" id="mayorPrecio" class="subrayado2" data-bs-target="#idMayorPrecio">
+                                <li class="dropdown-item" id="mayorPrecio" data-bs-target="#idMayorPrecio">
                                     Mayor precio
                                 </li>
 
-                                <li class="dropdown-item" id="alfabeticamente" class="subrayado2" data-bs-target="#idAlfabeticamente">
+                                <li class="dropdown-item" id="alfabeticamente" data-bs-target="#idAlfabeticamente">
                                     Alfabético
                                 </li>
 
                             </ul>
 
-
-                        </li>
-
-
-
-
-
-                        <li class="nav-item">
-                            <button id="agregarCel" data-bs-toggle="modal" data-bs-target="#idModalAgregarCel"
-                                class="btn btn-primary">Agregar Dispositivo</button>
                         </li>
 
                         <li class="nav-item">
-                            <button id="eliminarCel" data-bs-toggle="modal" data-bs-target="#idModalEliminarCel"
-                                class="btn btn-primary">Eliminar Dispositivo</button>
+                            <button id="agregarCel" class="subrayado" data-bs-toggle="modal"
+                                data-bs-target="#idModalAgregarCel">AGREGAR DISPOSITIVO</button>
                         </li>
 
+                        <li class="nav-item">
+                            <button id="eliminarCel" class="subrayado" data-bs-toggle="modal"
+                                data-bs-target="#idModalEliminarCel">ELIMINAR DISPOSITIVO</button>
+                        </li>
 
+                        <li class="nav-item">
+                            <input id="buscador" class="form-control me-2" type="search"
+                                placeholder="Buscar en GlobalTech" aria-label="Search">
+                        </li>
 
                     </ul>
-
-
-
-
 
                 </div>
 
@@ -95,21 +88,12 @@
 
     </header>
 
-
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-
-        <form class="d-flex" role="search">
-
-            <input id="buscador" class="form-control me-2" type="search" placeholder="Buscar en GlobalTech"
-                aria-label="Search">
-
-        </form>
-
 
         <div class="container-fluid">
 
             <div>
-                <a id="botonDarkMode" class="btn btn-dark">
+                <a id="botonDarkMode" class="btn btn-light">
                     <i class="fas fa-moon fa-2x"></i>
                 </a>
             </div>
@@ -136,33 +120,14 @@
 
     </nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <main>
-
 
         <div class="container">
             <div id="coincidencia"></div>
             <div id="cel" class="row"></div>
         </div>
 
+        <!-- Modal Agregar Cel -->
 
         <div class="modal fade" id="idModalAgregarCel" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -172,8 +137,11 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
+
                         <h5 class="modal-title" id="exampleModalLabel">Agregar Dispositivo</h5>
+
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                     </div>
 
                     <div class="modal-body" id="modal-body">
@@ -181,40 +149,63 @@
                         <form id="formAgregarCel">
 
                             <div class="mb-3">
+
+
                                 <label for="modelo" class="form-label">Modelo:</label>
+
                                 <input type="text" class="form-control" id="modeloInput" aria-describedby="modelo">
+                                <!--Aca estamos-->
+
                             </div>
 
                             <div class="mb-3">
+
                                 <label for="marca" class="form-label">Marca:</label>
+
                                 <input type="text" class="form-control" id="marcaInput" aria-describedby="marca">
+
                             </div>
 
                             <div class="mb-3">
+
                                 <label for="color" class="form-label">Color:</label>
+
                                 <input type="text" class="form-control" id="colorInput" aria-describedby="color">
+
                             </div>
 
                             <div class="mb-3">
+
                                 <label for="memoriaInterna" class="form-label">Memoria Interna:</label>
+
                                 <input type="text" class="form-control" id="memoriaInternaInput"
                                     aria-describedby="memoriaInterna">
+
                             </div>
 
                             <div class="mb-3">
+
                                 <label for="memoriaRam" class="form-label">Memoria Ram:</label>
+
                                 <input type="text" class="form-control" id="memoriaRamInput"
                                     aria-describedby="memoriaRam">
+
                             </div>
 
                             <div class="mb-3">
+
                                 <label for="camara" class="form-label">Cámara:</label>
+
                                 <input type="text" class="form-control" id="camaraInput" aria-describedby="camara">
+
                             </div>
 
                             <div class="mb-3">
+
                                 <label for="precio" class="form-label">Precio:</label>
+
                                 <input type="text" class="form-control" id="precioInput" aria-describedby="precio">
+
                             </div>
 
                         </form>
@@ -223,7 +214,7 @@
 
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
 
                         <button type="text" id="guardarCelBtn" class="btn btn-primary" data-bs-dismiss="modal">Agregar
                             Dispositivo</button>
@@ -236,8 +227,7 @@
 
         </div>
 
-
-        <!-- Modal Favoritos-->>
+        <!-- Modal Favoritos-->
 
         <div class="modal fade" id="idModalFavoritos" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -247,8 +237,12 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Favoritos:</h5>
+
+                        <h5 class="modal-title" id="exampleModalLabel">Favoritos:
+                        </h5>
+
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                     </div>
 
                     <div class="modal-body" id="modal-bodyFavoritos">
@@ -256,7 +250,7 @@
 
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
 
                     </div>
 
@@ -268,9 +262,6 @@
 
         <!-- Modal Carrito -->
 
-
-
-
         <div class="modal fade" id="idModalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
 
@@ -279,21 +270,25 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras:</h5>
+
+                        <h5 class="modal-title" id="exampleModalLabel">Carrito de
+                            Compras:</h5>
+
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
                     </div>
 
                     <div class="modal-body" id="modal-bodyCarrito">
                     </div>
 
-                    <div class="row ml-ato">
+                    <div>
                         <p id="precioTotal"></p>
                     </div>
 
 
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
 
                         <button type="button" data-bs-dismiss="modal" class="btn btn-primary"
                             id="botonFinalizarCompra">Finalizar Compra</button>
@@ -306,6 +301,7 @@
 
         </div>
 
+        <!-- Modal Eliminar Cel-->
 
         <div class="modal fade" id="idModalEliminarCel" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -316,7 +312,8 @@
 
                     <div class="modal-header">
 
-                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Dispositivo por ID</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar
+                            Dispositivo por ID</h5>
 
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
@@ -330,19 +327,17 @@
                         <form>
 
                             <div class="mb-3">
-                                <label for="eliminarModelo" class="form-label" style="text-align: center;">Ingrese la ID
-                                    del
-                                    modelo que desea
-                                    eliminar:</label>
+
+                                <label for="eliminarModelo" class="form-label"><strong>Ingrese la ID
+                                        del
+                                        modelo que desea
+                                        eliminar:</strong></label>
 
                                 <input type="text" class="form-control" id="eliminarModeloInput"
                                     aria-describedby="eliminarModelo">
 
                             </div>
 
-                            <p style="text-align: center;"><strong>Haga doble click en "Eliminar Dispositivo" para
-                                    eliminar
-                                    la unidad.</strong></p>
 
                         </form>
 
@@ -350,10 +345,9 @@
 
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
 
-                        <button type="text" id="eliminarModeloBtn" class="btn btn-primary"
-                            data-bs-dismiss="modal">Eliminar
+                        <button type="text" id="eliminarModeloBtn" class="btn btn-primary" data-bs-dismiss="modal">Eliminar
                             Dispositivo</button>
 
                     </div>
@@ -366,16 +360,19 @@
 
     </main>
 
-    <footer>
+    <footer class="gridFooter">
 
+        <div class="h3Footer0">
+            <h3 style="text-align: center; color:white;">GLOBAL TECH - LAS MEJORES MARCAS A PRECIOS INCREÍBLES</h3>
+            <h3 style="text-align: center; color:white;">TIENDA: AV. CABO DE HORNOS 2836, POSADAS, MISIONES</h3>
+            <h3 style="text-align: center; color:white;">HORARIOS: LUNES A SABADOS DE 10 AM A 18 PM</h3>
+        </div>
 
-        <h3 class="h3-FooterH" style="color:white;">Conoce más sobre nosotros</h3>
+        <ul class="ulFooter">
 
-        <ul class="ul-FooterH">
+            <li class="listEnlaces">
 
-            <li>
-
-                <a href="mailto:takemyhand.arg@gmail.com" target="_blank" style="text-decoration: none">
+                <a href="SoloFicción" target="_blank" style="text-decoration: none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 64 58"
                         style=" fill:#ffffff;" aria-label="Correo">
                         <path
@@ -384,7 +381,7 @@
                     </svg>
                 </a>
 
-                <a href="https://pin.it/3hNFJ9Z" target="_blank" style="text-decoration: none">
+                <a href="SoloFicción" target="_blank" style="text-decoration: none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="34" style="fill: #ffffff;"
                         class="bi bi-pinterest" viewBox="0 0 16 16" aria-label="Pinterest">
                         <path
@@ -392,8 +389,7 @@
                     </svg>
                 </a>
 
-                <a href="https://www.youtube.com/channel/UCyNAIoROzOtGec0Ql83Z-9g" target="_blank"
-                    style="text-decoration: none">
+                <a href="SoloFicción" target="_blank" style="text-decoration: none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" style="fill: #ffffff;"
                         class="bi bi-youtube" viewBox="0 0 16 15" aria-label="YouTube">
                         <path
@@ -405,7 +401,8 @@
 
         </ul>
 
-        <p class="p-FooterH" style="color:white;"> &copy; 2022 Copyright - De los Santos</p>
+        <h3 class="h3FooterCopy" style="text-align: center; color:white;">&copy; 2022 GLOBAL TECH. TODOS LOS DERECHOS
+            RESERVADOS</h3>
 
     </footer>
 
@@ -415,7 +412,7 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
 
-    <!--Archivos JS propios-->
+    <!--Archivos JS-->
     <script src="JS/class.js"></script>
     <script src="JS/main.js"></script>
     <script src="JS/darkMode.js"></script>

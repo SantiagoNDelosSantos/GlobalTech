@@ -1,164 +1,23 @@
-@import "fuentes";
-
 @import "generales";
 
-body {
-    background-color: #EBEBEB;
-    font-family: "Montserrat";
-}
+@import "fuentes";
+
+@import "header";
 
 @import "scrollbar";
 
+@import "logo";
+
+@import "botonMenu";
+
 @import "botones";
 
+@import "modals";
 
-.card-body {
-    background-color: #FFFFFF;
-    font-size: 13px;
-    color: rgb(0, 0, 0);
-    border-radius: 1rem;
-    line-height: 2rem;
-}
+@import "cards";
 
-.darkMode {
-    background-color: #898989;
-}
+@import "darkMode";
 
-.darkMode .menu1 {
-    background-color: #afb0b1;
-}
+@import "footer";
 
-.darkMode .card {
-    color: black;
-    background: #afb0b1;
-}
-
-
-.darkMode .card-body {
-    background-color: #afb0b1;
-
-}
-
-.card,
-#productoCarrito1 {
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
-}
-
-.card:hover {
-    box-shadow: 4px 3px 15px rgba(0, 0, 0, 0.4);
-    transform: scale(1.02);
-    transition: all .3s;
-}
-
-.darkMode h3 {
-    background-color: #FFFFFF;
-}
-
-
-
-
-
-.btn {
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-
-.btn-dark {
-    background-color: #333;
-    color: #fff;
-}
-
-.btn-light {
-    background-color: #fff;
-    color: #333;
-}
-
-footer {
-
-    background: linear-gradient(90deg, rgb(0, 0, 32) 0%, rgb(16, 19, 98) 50%, rgb(0, 0, 32) 100%);
-    padding: 0.50em;
-    border-top: 0.20em solid white;
-    width: 100%;
-    height: 132px;
-    display: flex;
-    justify-content: space-evenly;
-
-    @media (min-width: 500px) {
-        height: 140%;
-    }
-
-    @media (min-width: 700px) {
-        height: 150%;
-    }
-
-}
-
-h4 {
-    font-size: 2em;
-}
-
-
-
-
-
-
-
-
-//LOGO
-
-.logo {
-    font-family: "Lobster";
-    font-size: 17px;
-    font-weight: 400;
-    color: white;
-
-
-    @media (min-width: 500px) {
-        font-size: 35px;
-        margin-left: 23px;
-        margin-right: 25px;
-    }
-
-}
-
-//NAV BAR
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    border-bottom: 0.20em solid white;
-}
-
-//BOTONES
-
-
-
-#agregarCel,
-#eliminarCel,
-#buscador {
-
-   
-    font-family: 'Lato';
-    font-size: 15px;
-    padding: 5px;
-
-
-
-    @media (min-width: 500px) {
-        font-size: 12px;
-    }
-}
-
-#buscador {
-
-    margin-bottom: 1rem;
-    margin-right: 0rem!important;
-
-    @media (min-width: 990px) { 
-    margin-left: 1.5rem;
-    margin-bottom: 0rem;
-    }
-}
-
+@import "jsRetoque";

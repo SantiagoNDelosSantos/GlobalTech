@@ -33,9 +33,9 @@ let coincidencia = document.getElementById("coincidencia")
 
 // Captura Botones Favoritos:
 
-let botonFavNav = document.getElementById ("botonFavoritos")
+let botonFavNav = document.getElementById("botonFavoritos")
 
-let modalBodyFavoritos = document.getElementById ("modal-bodyFavoritos")
+let modalBodyFavoritos = document.getElementById("modal-bodyFavoritos")
 
 // Fin Captura Botones Favoritos.
 
@@ -89,15 +89,15 @@ function verInventario(array) {
 
                         <h4 class="card-title" style="text-align: center;"><strong>${cel.modelo}</strong></h4>
 
-                        <p style="text-align: center;">Marca: ${cel.marca}</p>
+                        <p style="text-align: center;"><strong>Marca:</strong> ${cel.marca}</p>
 
-                        <p style="text-align: center;">Color: ${cel.color}</p>
+                        <p style="text-align: center;"><strong>Color:</strong> ${cel.color}</p>
 
-                        <p style="text-align: center;">Memoria Interna: ${cel.memoriaInterna}</p>
+                        <p style="text-align: center;"><strong>Memoria Interna:</strong> ${cel.memoriaInterna}</p>
                         
-                        <p style="text-align: center;">Memoria Ram: ${cel.memoriaRam}</p>
+                        <p style="text-align: center;"><strong>Memoria Ram:</strong> ${cel.memoriaRam}</p>
                         
-                        <p style="text-align: center;">Cámara: ${cel.camara}</p>
+                        <p style="text-align: center;"><strong>Cámara:</strong> ${cel.camara}</p>
                         
                         <p style="text-align: center; font-size:1.50em;"><strong>Precio:</strong> $${cel.precio}</p>
 
@@ -125,6 +125,7 @@ function verInventario(array) {
         btnAgregar.addEventListener("click", () => {
             agregarAlCarrito(cel)
         })
+
 
     }
 
@@ -277,7 +278,7 @@ guardarCelBtn.addEventListener("click", () => {
 function eliminarItem(indice) {
     pedido.items.splice(indice, 1);
     dibujarPedido();
-  }
+}
 
 
 
@@ -327,10 +328,8 @@ function buscarInfo(buscado, array) {
     )
 
     if (busquedaArray.length == 0) {
-        coincidencia.innerHTML = `<div style="margin-top: 5rem; text-align: center; "><h3 style="color: black; padding: 1rem;
-        width: 80%; border-radius: 1rem; margin-left: 10%;
-margin-right: 10%;">No hay modelos que coincidan con tu búsqueda.</h3></div>`
-        verInventario(busquedaArray)
+        coincidencia.innerHTML = `<div style="margin-top: 5rem; margin-bottom: 5rem; text-align: center; "><h3 class="noCoincidencia">No hay modelos que coincidan con tu búsqueda. Sin embargo, revisa nuestro inventario posiblemente encuentres algún otro modelo con similares o mejores características. </h3></div>`
+        verInventario(inventario)
     } else {
         coincidencia.innerHTML = ""
         verInventario(busquedaArray)
@@ -437,9 +436,11 @@ function cargarProductosCarrito(array) {
                     
                         <h4 class="card-title" style="text-align: center;">${productoEnCarrito.modelo}</h4>
                             
-                        <p class="card-text" style="text-align: center;">$${productoEnCarrito.precio}</p> 
+                        <p class="card-text" style="text-align: center; font-size: 15px;">$${productoEnCarrito.precio}</p> 
                     
-                        <button class= "btn btn-danger" id="botonEliminar" style="height:20%; width:40%;margin-left:30%; margin-right: 30%;margin-bottom: 1rem"><i class="fas fa-trash-alt"></i></button>
+                        <button class= "btn btn-danger" id="botonEliminar" style="margin-left:30%; margin-right: 30%; margin-bottom: 1rem;">
+                        <i class="fas fa-trash-alt" ></i>
+                        </button>
 
                     </div>    
                     
@@ -459,8 +460,9 @@ function cargarProductosCarrito(array) {
 function calcularTotal(array) {
     let total = array.reduce((acc, productoCarrito) => acc + productoCarrito.precio, 0)
 
-    precioTotal.innerHTML = `<p style="text-align: center;">El total del carrito es <strong>$${total}</strong>.</p>`
+    precioTotal.innerHTML = `<p style="text-align: center; font-size: 16px; margin-bottom:0em !important; padding-bottom: 1em;">El total del carrito es <strong>$${total}</strong>.</p>`
 }
+
 
 
 
@@ -470,7 +472,7 @@ function verIDS(array) {
 
     array.forEach((cel) => {
         iDInventario.innerHTML += `
-    <p style="text-align: center; line-height: 0.45;">La id del modelo ${cel.modelo} es ${cel.id}.</p>`
+    <p style="text-align: center; line-height: 1em; font-size: 15px">La id del modelo ${cel.modelo} es ${cel.id}.</p>`
     })
 
 }
