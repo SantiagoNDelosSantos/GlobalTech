@@ -101,10 +101,10 @@ function verInventario(array) {
                         
                         <p style="text-align: center;"><strong>Cámara:</strong> ${cel.camara}</p>
                         <br>
-                        <p style="text-align: center; font-size: 2em; color: green"><strong>$${cel.precio}</strong></p>
+                        <p style="text-align: center; font-size: 1.70em; color: green"><strong>$${cel.precio}</strong></p>
 
                         <div style=" display: flex;
-                        justify-content: space-between;
+                        justify-content: centers;
                         align-items: center; margin-top: 10%;">
 
                         <a id="botonAgregarAFavoritos${cel.id}" data-bs-toggle="modal" data-bs-target="#idAgregarAFavoritos"
@@ -112,7 +112,7 @@ function verInventario(array) {
                             style="
                             width: 5em;
                             height: 5.2em;
-                            margin-left: 5%;
+                            margin-left: 0px;
                             margin-right: 5%;
                             justify-content: center;
                             display: flex;
@@ -122,7 +122,7 @@ function verInventario(array) {
 
                         <button id="agregarBtn${cel.id}" class="btn btn-outline-primary"  
                         style="width: 63%;  
-                        margin-right: 5%;">Agregar al carrito</button>
+                        margin-right: 0px;">Agregar al carrito</button>
 
                         </div>
                 </div>
