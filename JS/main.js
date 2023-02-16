@@ -89,6 +89,8 @@ function verInventario(array) {
 
                         <h4 class="card-title" style="text-align: center;"><strong>${cel.modelo}</strong></h4>
 
+                        <br>
+
                         <p style="text-align: center;"><strong>Marca:</strong> ${cel.marca}</p>
 
                         <p style="text-align: center;"><strong>Color:</strong> ${cel.color}</p>
@@ -98,19 +100,29 @@ function verInventario(array) {
                         <p style="text-align: center;"><strong>Memoria Ram:</strong> ${cel.memoriaRam}</p>
                         
                         <p style="text-align: center;"><strong>Cámara:</strong> ${cel.camara}</p>
-                        
-                        <p style="text-align: center; font-size:1.50em;"><strong>Precio:</strong> $${cel.precio}</p>
+                        <br>
+                        <p style="text-align: center; font-size: 2em; color: green"><strong>$${cel.precio}</strong></p>
 
                         <div style=" display: flex;
                         justify-content: space-between;
                         align-items: center; margin-top: 10%;">
 
                         <a id="botonAgregarAFavoritos${cel.id}" data-bs-toggle="modal" data-bs-target="#idAgregarAFavoritos"
-                        class="btn btn-outline-danger" style="width: 22%; margin-left:5%; margin-right: 5%;">
-                            <i class="fa fa-heart fa-1x"></i>
+                        class="btn btn-outline-danger" 
+                            style="
+                            width: 5em;
+                            height: 5.2em;
+                            margin-left: 5%;
+                            margin-right: 5%;
+                            justify-content: center;
+                            display: flex;
+                            align-items: center;">
+                        <i class="fa fa-heart fa-1x"></i>
                         </a>
 
-                        <button id="agregarBtn${cel.id}" class="btn btn-outline-primary"  style="width: 63%;  margin-right: 5%;">Agregar al carrito</button>
+                        <button id="agregarBtn${cel.id}" class="btn btn-outline-primary"  
+                        style="width: 63%;  
+                        margin-right: 5%;">Agregar al carrito</button>
 
                         </div>
                 </div>
@@ -432,13 +444,29 @@ function cargarProductosCarrito(array) {
 
                     <img class="card-img-top" style="max-height:300px;max-width:180px; margin-top: 2rem" src="assets/${productoEnCarrito.imagen}" alt="">
 
-                    <div class="card-body">
+                    <div class="card-body"
+                    style= "    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;">
                     
                         <h4 class="card-title" style="text-align: center;">${productoEnCarrito.modelo}</h4>
                             
-                        <p class="card-text" style="text-align: center; font-size: 15px;">$${productoEnCarrito.precio}</p> 
+                        <p class="card-text" style="text-align: center; font-size: 17px; color: green"><strong>$${productoEnCarrito.precio}</strong></p> 
                     
-                        <button class= "btn btn-danger" id="botonEliminar" style="margin-left:30%; margin-right: 30%; margin-bottom: 1rem;">
+                        <button class= "btn btn-danger" id="botonEliminar" 
+                        
+                        style="
+                        height: 4em;
+                        width: 4em;
+                        margin-left:30%; 
+                        margin-right: 30%; 
+                        margin-bottom: 1rem; 
+                        justify-content: center;
+                        display: flex;
+                        align-items: center;">
+
                         <i class="fas fa-trash-alt" ></i>
                         </button>
 
@@ -460,7 +488,7 @@ function cargarProductosCarrito(array) {
 function calcularTotal(array) {
     let total = array.reduce((acc, productoCarrito) => acc + productoCarrito.precio, 0)
 
-    precioTotal.innerHTML = `<p style="text-align: center; font-size: 16px; margin-bottom:0em !important; padding-bottom: 1em;">El total del carrito es <strong>$${total}</strong>.</p>`
+    precioTotal.innerHTML = `<p style="text-align: center; font-size: 17px; margin-bottom:0em !important; padding-bottom: 1em;">El total del carrito es <strong>$${total}</strong>.</p>`
 }
 
 
