@@ -4,14 +4,19 @@
     color: #ffffff;
     background-color: #006de3;
     border: var(--bs-border-width) solid #ffffff00;
+    margin-right: 25px;
 }
 
 #navbarDropdown{
     margin-left: 0px;
 }
 
-.navbar-toggler-icon {
+.navbar-toggler-icon{
     background-image: var(--bs-navbar-toggler-icon-bg);
+}
+
+.navbar-toggler:hover{
+    margin-right: 25px;
 }
 
 .navbar-nav {

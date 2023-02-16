@@ -37,7 +37,7 @@ body::-webkit-scrollbar-track {
 
 .logo {
   font-family: "Lobster";
-  font-size: 17px;
+  font-size: 35px;
   font-weight: 400;
   color: white;
 }
@@ -54,6 +54,7 @@ body::-webkit-scrollbar-track {
   color: #ffffff;
   background-color: #006de3;
   border: var(--bs-border-width) solid rgba(255, 255, 255, 0);
+  margin-right: 25px;
 }
 
 #navbarDropdown {
@@ -62,6 +63,10 @@ body::-webkit-scrollbar-track {
 
 .navbar-toggler-icon {
   background-image: var(--bs-navbar-toggler-icon-bg);
+}
+
+.navbar-toggler:hover {
+  margin-right: 25px;
 }
 
 .navbar-nav {
@@ -337,4 +342,8 @@ h3, .ulFooter, .h3FooterCopy {
   margin-right: 10%;
   height: 20vh;
   font-size: 26px;
+}
+
+.modal {
+  --bs-modal-margin: 5.5rem;
 }/*# sourceMappingURL=style.css.map */

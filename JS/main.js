@@ -380,7 +380,7 @@ function agregarProductosFavoritos(array) {
 
             <div class="modal-content">
 
-                <div class="card border-primary mb-4" id ="productoCarrito${productosFavoritos.id}" style="max-width:400px; display: flex;justify-content:space-around; align-items: center;">
+                <div class="card border-primary mb-4" id ="productoCarrito${productosFavoritos.id}" style="max-width:400px; display: flex; justify-content:center; align-items: center;">
 
                     <img class="card-img-top" style="max-height:300px;max-width:180px; margin-top: 2rem" src="assets/${productosFavoritos.imagen}" alt="">
 
@@ -428,7 +428,7 @@ function cargarProductosCarrito(array) {
 
             <div class="modal-content">
 
-                <div class="card border-primary mb-4" id ="productoCarrito${productoEnCarrito.id}" style="max-width:400px; display: flex;justify-content:space-around; align-items: center;">
+                <div class="card border-primary mb-4" id ="productoCarrito${productoEnCarrito.id}" style="max-width:400px; align-items: center;">
 
                     <img class="card-img-top" style="max-height:300px;max-width:180px; margin-top: 2rem" src="assets/${productoEnCarrito.imagen}" alt="">
 
