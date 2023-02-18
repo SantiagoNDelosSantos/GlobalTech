@@ -1,6 +1,3 @@
-let cels = document.getElementById("cel")
-
-
 //Capturas botones para ver y ordenar el inventario:
 
 let botonVerInventario = document.getElementById("verInventario")
@@ -14,9 +11,7 @@ let botonOrdAlfabeticamente = document.getElementById("alfabeticamente")
 // Fin Capturas botones para ver y ordenar el inventario.
 
 
-// Captura botón Agregar Dispositivo:
 
-let guardarCelBtn = document.getElementById("guardarCelBtn")
 
 // Fin Captura botón Agregar Dispositivo.
 
@@ -143,7 +138,6 @@ function verInventario(array) {
 
 }
 
-
 // Fin Function Ver Inventario.
 
 // Evento botón Ver Inventario:
@@ -179,8 +173,6 @@ botonOrdMayor.addEventListener("click", () => {
     ordenarMayorMenor(inventario)
 })
 
-// Fin Evento botón Ord. Mayor Precio.
-
 
 
 // Function Odernar de Menor Precio a Mayor Precio:
@@ -190,8 +182,6 @@ function ordenarMenorMayor(array) {
     menorMayor.sort((a, b) => a.precio - b.precio)
     verInventario(menorMayor)
 }
-
-// Fin Function Odernar de Menor Precio a Mayor Precio.
 
 // Evento botón Ord. Menor Precio:
 
@@ -209,12 +199,8 @@ botonOrdMenor.addEventListener("click", () => {
 
 function ordenarAlfabeticamente(array) {
 
-    const ordenadoAlfabeticamente = [].concat(array)
 
-    ordenadoAlfabeticamente.sort((a, b) => {
 
-        let modeloA = a.modelo.toUpperCase();
-        let modeloB = b.modelo.toUpperCase();
 
         if (modeloA > modeloB) {
             return 1
