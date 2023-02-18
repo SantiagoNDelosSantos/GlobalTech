@@ -1,7 +1,7 @@
 let botonDarkMode = document.getElementById("botonDarkMode")
 let botonLightMode = document.getElementById("botonLightMode")
-let eliminarModeBtn = document.getElementById("eliminarMode")
-
+//let eliminarModeBtn = document.getElementById("eliminarMode")
+ 
 let modoOscuro 
 
 if(localStorage.getItem("modoOscuro")){
@@ -18,8 +18,7 @@ if(modoOscuro == true){
 }
 
 botonDarkMode.addEventListener("click",()=>{
-    document.body.classList.add("darkMode")
-
+    document.body.classList.add("darkMode")  
     localStorage.setItem("modoOscuro", true)
 })
 

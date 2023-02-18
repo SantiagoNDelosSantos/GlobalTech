@@ -1,6 +1,6 @@
 // BOTONES NAV BAR OPCIONES GENERALES:
 
-#verInventario, #navbarDropdown, #agregarCel, #eliminarCel {
+#verInventario, #navbarDropdown, #navbarDropdown2, #agregarCel, #eliminarCel {
   font-family: 'Lato';
   color: white;
   background-color: #0D6EFD;
@@ -63,7 +63,7 @@
 
 // EFECTO SUBRAYADO SUB MENÚ DE "ORDENAR":
 
-#menorPrecio, #mayorPrecio, #alfabeticamente {
+#alfabeticamente, #menorPrecio, #mayorPrecio, #menorMemoriaInterna, #mayorMemoriaInterna, #menorMemoriaRam, #mayorMemoriaRam, #menorResolucionCam, #mayorResolucionCam{
   background-image: linear-gradient(transparent 0%, transparent 94%, #4d4d4d 94%, #000000 100%);
   background-repeat: no-repeat;
   background-size: 0% 100%;
@@ -71,7 +71,7 @@
   transition: background-size 500ms;
 }
 
-#menorPrecio:hover, #mayorPrecio:hover, #alfabeticamente:hover {
+#alfabeticamente:hover, #menorPrecio:hover, #mayorPrecio:hover, #menorMemoriaInterna:hover, #mayorMemoriaInterna:hover, #menorMemoriaRam:hover, #mayorMemoriaRam:hover, #menorResolucionCam:hover, #mayorResolucionCam:hover{
   background-size: 100% 100%;
   background-position-x: left;
 }

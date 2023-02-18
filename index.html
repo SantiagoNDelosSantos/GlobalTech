@@ -46,19 +46,43 @@
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-                                <li class="dropdown-item" id="menorPrecio" data-bs-target="#idMenorPrecio">
-                                    Menor precio
-                                </li>
-
-                                <li class="dropdown-item" id="mayorPrecio" data-bs-target="#idMayorPrecio">
-                                    Mayor precio
-                                </li>
-
+                                
                                 <li class="dropdown-item" id="alfabeticamente" data-bs-target="#idAlfabeticamente">
                                     Alfabético
                                 </li>
+                                
+                                <li class="dropdown-item" id="menorPrecio" data-bs-target="#idMenorPrecio">
+                                    Menor Precio
+                                </li>
 
+                                <li class="dropdown-item" id="mayorPrecio" data-bs-target="#idMayorPrecio">
+                                    Mayor Precio
+                                </li>
+
+                                <li class="dropdown-item" id="menorMemoriaInterna" data-bs-target="#idMenorMemoriaInterna">
+                                    Menor Memoria Interna
+                                </li>
+
+                                <li class="dropdown-item" id="mayorMemoriaInterna" data-bs-target="#idMayorMemoriaInterna">
+                                    Mayor Memoria Interna
+                                </li>
+
+                                <li class="dropdown-item" id="menorMemoriaRam" data-bs-target="#idMenorMemoriaRam">
+                                    Menor Memoria Ram
+                                </li>
+                                
+                                <li class="dropdown-item" id="mayorMemoriaRam" data-bs-target="#idMayorMemoriaRam">
+                                    Mayor Memoria Ram
+                                </li>
+
+                                <li class="dropdown-item" id="menorResolucionCam" data-bs-target="#idmenorResoluciónCam">
+                                    Menor Resolución Cámara
+                                </li>
+
+                                <li class="dropdown-item" id="mayorResolucionCam" data-bs-target="#idmayorResoluciónCam">
+                                    Mayor Resolución Cámara
+                                </li>
+                
                             </ul>
 
                         </li>
@@ -90,7 +114,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
 
-        <div class="container-fluid">
+        <div class="container-fluid" id="segundaNav">
 
             <div>
                 <a id="botonDarkMode" class="btn btn-light">
@@ -123,8 +147,11 @@
     <main>
 
         <div class="container">
+
             <div id="coincidencia"></div>
+
             <div id="cel" class="row"></div>
+
         </div>
 
         <!-- Modal Agregar Cel -->
@@ -345,7 +372,8 @@
 
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
 
-                        <button type="text" id="eliminarModeloBtn" class="btn btn-primary" data-bs-dismiss="modal">Eliminar
+                        <button type="text" id="eliminarModeloBtn" class="btn btn-primary"
+                            data-bs-dismiss="modal">Eliminar
                             Dispositivo</button>
 
                     </div>

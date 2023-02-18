@@ -23,6 +23,10 @@ header {
   border-bottom: 0.2em solid white;
 }
 
+#segundaNav {
+  justify-content: space-around !important;
+}
+
 body::-webkit-scrollbar {
   width: 10px;
 }
@@ -70,7 +74,7 @@ body::-webkit-scrollbar-track {
   justify-content: center;
 }
 
-#verInventario, #navbarDropdown, #agregarCel, #eliminarCel {
+#verInventario, #navbarDropdown, #navbarDropdown2, #agregarCel, #eliminarCel {
   font-family: "Lato";
   color: white;
   background-color: #0D6EFD;
@@ -119,7 +123,7 @@ body::-webkit-scrollbar-track {
   background-position-x: left;
 }
 
-#menorPrecio, #mayorPrecio, #alfabeticamente {
+#alfabeticamente, #menorPrecio, #mayorPrecio, #menorMemoriaInterna, #mayorMemoriaInterna, #menorMemoriaRam, #mayorMemoriaRam, #menorResolucionCam, #mayorResolucionCam {
   background-image: linear-gradient(transparent 0%, transparent 94%, #4d4d4d 94%, #000000 100%);
   background-repeat: no-repeat;
   background-size: 0% 100%;
@@ -127,7 +131,7 @@ body::-webkit-scrollbar-track {
   transition: background-size 500ms;
 }
 
-#menorPrecio:hover, #mayorPrecio:hover, #alfabeticamente:hover {
+#alfabeticamente:hover, #menorPrecio:hover, #mayorPrecio:hover, #menorMemoriaInterna:hover, #mayorMemoriaInterna:hover, #menorMemoriaRam:hover, #mayorMemoriaRam:hover, #menorResolucionCam:hover, #mayorResolucionCam:hover {
   background-size: 100% 100%;
   background-position-x: left;
 }
@@ -203,6 +207,11 @@ body::-webkit-scrollbar-track {
   justify-content: space-around;
 }
 
+#cel {
+  margin-top: 2.5em;
+  margin-bottom: 0.5em;
+}
+
 .card-body {
   background-color: #FFFFFF;
   font-size: 14px;
@@ -234,6 +243,10 @@ h4 {
 .btn-light {
   background-color: #fff;
   color: #000000;
+}
+
+.btn {
+  margin-left: 0px !important;
 }
 
 .darkMode {
