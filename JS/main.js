@@ -523,7 +523,7 @@ function cargarProductosCarrito(array) {
 
                 <div class="card border-primary mb-4" id ="productoCarrito${productoEnCarrito.id}" style="max-width:400px; align-items: center;">
 
-                    <img class="card-img-top" style="max-height:300px;max-width:180px; margin-top: 2rem" src="assets/${productoEnCarrito.imagen}" alt="">
+                    <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 2rem" src="assets/${productoEnCarrito.imagen}" alt="">
 
                     <div class="card-body"
                     style= "    
@@ -639,7 +639,7 @@ function agregarProductosFavoritos(array) {
 
                     <div class="card border-primary mb-4" id ="productoCarrito${productosFavoritos.id}" style="max-width:400px; display: flex; justify-content:center; align-items: center;">
 
-                        <img class="card-img-top" style="max-height:300px;max-width:180px; margin-top: 2rem" src="assets/${productosFavoritos.imagen}" alt="">
+                        <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 2rem" src="assets/${productosFavoritos.imagen}" alt="">
 
                         <div class="card-body" >
                         
@@ -649,13 +649,13 @@ function agregarProductosFavoritos(array) {
                         
                             <div style="display: flex; justify-content: space-around;">
 
-                                <button class= "btn btn-danger" id="botonEliminarFav${cel.id}" 
+                                <button class= "btn btn-danger" id="botonEliminarFav${productosFavoritos.id}" 
                                 style=" height: 4em; width: 4em; justify-content: center;
                                 display: flex; align-items: center;" >
                                 
                                 <i class="fas fa-trash-alt"></i></button>
 
-                                <button class= "btn btn-success" id="agregarFavAlCarritoFav${cel.id}" style=" height: 4em; width: 4em; justify-content: center;
+                                <button class= "btn btn-success" id="agregarFavAlCarritoFav${productosFavoritos.id}" style=" height: 4em; width: 4em; justify-content: center;
                                 display: flex; align-items: center;" >
                                 
                                 <i class="fas fa-cart-plus"></i></button>
@@ -671,6 +671,15 @@ function agregarProductosFavoritos(array) {
             </div>`
     })
 
+    // Captura botón Agregar al Carrito desde Favoritos:
+
+    let botonFavAlCarrito = document.getElementById(`agregarFavAlCarritoFav${productosFavoritos.id}`)
+
+    botonFavAlCarrito.addEventListener("click", () => {
+        
+        favAgregarCarrito(productosFavoritos)
+
+    })
 }
 
 // Fin Funtion Agregar a Favoritos.
@@ -695,47 +704,40 @@ botonFavNav.addEventListener("click", () => {
 
 
 
+/////////////////////////////////////
+// meto cel a productosFvoritos
+
+
+////////////////////////////////////////////////////
 
 
 
 
 
+// array de carrito "    productosEnCarrito    "
+// key o espacio de memoria Local Storage "   carrito   " 
 
 
 
+function favAgregarCarrito(productosFavoritos){
 
-// Captura botón Agregar al Carito desde Favoritos:
+    let celAgregadoEnFav = productosEnCarrito.find((elem) => elem.id == productosFavoritos.id);
 
-//let botonFavAlCarritoFav = document.getElementById(`agregarFavAlCarritoFav${cel.id}`)
+    if (celAgregadoEnFav == undefined) {
 
-//botonFavAlCarritoFav.addEventListener("click", () =>{
-//    "carrito".push(cel)})
+        productosEnCarrito.push(productosFavoritos)
 
+        localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
 
-
-
-favoritos.forEach(producto => {
-    const agregarAlCarritoBtn = document.getElementById(`agregarFavAlCarritoFav${producto.id}`);
-    agregarAlCarritoBtn.addEventListener('click', () => {
-        // función para agregar producto al carrito
-        agregarProductoAlCarrito(producto);
-        // función para eliminar producto de favoritos
-        eliminarProductoDeFavoritos(producto);
-    });
-});
-
-function agregarProductoAlCarrito(producto) {
-    carrito.push(producto);
-    actualizarCarrito();
-}
-
-function eliminarProductoDeFavoritos(producto) {
-    const index = favoritos.findIndex(p => p.id === producto.id);
-    if (index !== -1) {
-        favoritos.splice(index, 1);
-        actualizarFavoritos();
+        console.log(productosFavoritos)
     }
 }
+
+
+
+
+
+
 
 
 
