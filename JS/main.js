@@ -1,60 +1,11 @@
 ////////////////////////////////////////////////////////////////
 
-// Capturas botones para ver y ordenar el inventario:
-
-let botonVerInventario = document.getElementById("verInventario")
-
-let botonOrdMayor = document.getElementById("mayorPrecio")
-
-let botonOrdMenor = document.getElementById("menorPrecio")
-
-let botonOrdAlfabeticamente = document.getElementById("alfabeticamente")
-
-let botonOrdMyMInterna = document.getElementById("mayorMemoriaInterna")
-
-let botonOrdMrMInterna = document.getElementById("menorMemoriaInterna")
-
-let botonOrdMyMRam = document.getElementById("mayorMemoriaRam")
-
-let botonOrdMrMRam = document.getElementById("menorMemoriaRam")
-
-let botonOrdMyCam = document.getElementById("mayorResolucionCam")
-
-let botonOrdMrCam = document.getElementById("menorResolucionCam")
-
-//////////////////////////////////////////////////////////////////////
-
-
-// Captura Barra de Busqueda:
-
-let buscador = document.getElementById("buscador")
-
-let coincidencia = document.getElementById("coincidencia")
-
-// Captura Barra de Busqueda.
-
-
-
-// Captura Botones Favoritos:
-
-let botonFavNav = document.getElementById("botonFavoritos")
-
-let modalBodyFavoritos = document.getElementById("modal-bodyFavoritos")
-
-// Fin Captura Botones Favoritos.
+// Proyecto eCommerce "Global Tech":
 
 
 
 
 
-
-// Captura botones Carrito:
-
-let botonCarrito = document.getElementById("botonCarrito")
-
-let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
-
-// Fin Captura botones Carrito.
 
 
 
@@ -126,11 +77,23 @@ function verInventario(array) {
 
         let btnAgregarFav = document.getElementById(`botonAgregarAFavoritos${cel.id}`)
 
-        btnAgregarFav.addEventListener("click", () => {})
+        btnAgregarFav.addEventListener("click", () => {
+
+            //Limpiar h3 no coindicencias e input buscador:
+            coincidencia.innerHTML = "";
+            buscador.value = "";
+
+            agregarAfavoritos(cel)
+        })
 
         let btnAgregar = document.getElementById(`agregarBtn${cel.id}`)
 
         btnAgregar.addEventListener("click", () => {
+
+            //Limpiar h3 no coindicencias e input buscador:
+            coincidencia.innerHTML = "";
+            buscador.value = "";
+
             agregarAlCarrito(cel)
         })
 
@@ -138,10 +101,39 @@ function verInventario(array) {
 
 }
 
+// Captura botón Ver Inventario:
+
+let botonVerInventario = document.getElementById("verInventario")
+
 // Evento botón Ver Inventario:
 
 botonVerInventario.addEventListener("click", () => {
+
+    //Limpiar h3 no coindicencias e input buscador:
+    coincidencia.innerHTML = "";
+    buscador.value = "";
+
     verInventario(inventario)
+
+})
+
+// Carga por defecto del Inventario:
+
+verInventario(inventario)
+
+
+
+// Captura botón Agregar Cel Nav:
+
+let botonAgregarCelNav = document.getElementById("agregarCel")
+
+// Evento botón Agregar Cel Nav:
+
+botonAgregarCelNav.addEventListener("click", () => {
+
+    //Limpiar h3 no coindicencias e input buscador:
+    coincidencia.innerHTML = "";
+    buscador.value = "";
 })
 
 
@@ -150,8 +142,8 @@ botonVerInventario.addEventListener("click", () => {
 
 function agregarCel(array) {
 
-    let inputMarca = document.getElementById("marcaInput")
     let inputModelo = document.getElementById("modeloInput")
+    let inputMarca = document.getElementById("marcaInput")
     let inputColor = document.getElementById("colorInput")
     let inputMemoriaInterna = document.getElementById("memoriaInternaInput")
     let inputMemoriaRam = document.getElementById("memoriaRamInput")
@@ -163,9 +155,9 @@ function agregarCel(array) {
     array.push(celNuevo)
     localStorage.setItem("inventario", JSON.stringify(array))
 
-    formAgregarCel.reset()
-    
     verInventario(array)
+
+    formAgregarCel.reset()
 
 }
 
@@ -177,6 +169,21 @@ let guardarCelBtn = document.getElementById("guardarCelBtn")
 
 guardarCelBtn.addEventListener("click", () => {
     agregarCel(inventario)
+})
+
+
+
+
+
+// Botón Drop Ordenar - Limpier h3 no coindicencias:
+
+let Drop = document.getElementById("navbarDropdown")
+
+// Evento Botón Drop Ordenar - Limpiar h3 no coindicencias e input buscador:
+
+Drop.addEventListener("click", () => {
+    coincidencia.innerHTML = "";
+    buscador.value = "";
 })
 
 
@@ -195,9 +202,11 @@ function ordenarAlfabeticamente(array) {
         if (modeloA > modeloB) {
             return 1
         }
+
         if (modeloA < modeloB) {
             return -1
         }
+
         return 0;
     })
 
@@ -205,7 +214,11 @@ function ordenarAlfabeticamente(array) {
 
 }
 
-//Evento botón Ordenar Alfabeticamente:
+// Captura botón Ordenar Alfabéticamente:
+
+let botonOrdAlfabeticamente = document.getElementById("alfabeticamente")
+
+// Evento botón Ordenar Alfabéticamente:
 
 botonOrdAlfabeticamente.addEventListener("click", () => {
     ordenarAlfabeticamente(inventario)
@@ -221,7 +234,11 @@ function ordenarMenorMayor(array) {
     verInventario(menorMayor)
 }
 
-// Evento botón Ord. Menor Precio:
+// Captura botón Ordenar Menor Precio:
+
+let botonOrdMenor = document.getElementById("menorPrecio")
+
+// Evento botón Ordenar Menor Precio:
 
 botonOrdMenor.addEventListener("click", () => {
     ordenarMenorMayor(inventario)
@@ -239,7 +256,11 @@ function ordenarMayorMenor(array) {
     verInventario(mayorMenor)
 }
 
-// Evento botón Ord. Mayor Precio:
+// Captura botón Ordenar Mayor Precio:
+
+let botonOrdMayor = document.getElementById("mayorPrecio")
+
+// Evento botón Ordenar Mayor Precio:
 
 botonOrdMayor.addEventListener("click", () => {
     ordenarMayorMenor(inventario)
@@ -255,7 +276,11 @@ function ordenarMenorMInterna(array) {
     verInventario(menorMInt)
 }
 
-// Evento botón Ord. Menor Memoria Interna:
+// Captura botón Ordenar Menor Memoria Interna:
+
+let botonOrdMrMInterna = document.getElementById("menorMemoriaInterna")
+
+// Evento botón Ordenar Menor Memoria Interna:
 
 botonOrdMrMInterna.addEventListener("click", () => {
     ordenarMenorMInterna(inventario)
@@ -273,7 +298,11 @@ function ordenarMayorMInterna(array) {
     verInventario(mayorMInt)
 }
 
-// Evento botón Ord. Mayor Memoria Interna:
+// Captura botón Ordenar Mayor Memoria Interna:
+
+let botonOrdMyMInterna = document.getElementById("mayorMemoriaInterna")
+
+// Evento botón Ordenar Mayor Memoria Interna:
 
 botonOrdMyMInterna.addEventListener("click", () => {
     ordenarMayorMInterna(inventario)
@@ -288,6 +317,10 @@ function ordenarMenorMRam(array) {
     menorMRam.sort((a, b) => a.memoriaRam - b.memoriaRam)
     verInventario(menorMRam)
 }
+
+// Captura botón Ordenar Menor Memoria Ram:
+
+let botonOrdMrMRam = document.getElementById("menorMemoriaRam")
 
 // Evento botón Ord. Menor Memoria Interna:
 
@@ -307,7 +340,11 @@ function ordenarMayorMRam(array) {
     verInventario(mayorMRam)
 }
 
-// Evento botón Ord. Mayor Memoria Ram:
+// Captura botón Ordenar Mayor Memoria Ram:
+
+let botonOrdMyMRam = document.getElementById("mayorMemoriaRam")
+
+// Evento botón Ordenar Mayor Memoria Ram:
 
 botonOrdMyMRam.addEventListener("click", () => {
     ordenarMayorMRam(inventario)
@@ -323,7 +360,11 @@ function ordenarMenorCam(array) {
     verInventario(menorMrCam)
 }
 
-// Evento botón Ord. Menor Cam:
+// Captura botón Odenar Menor Resolución Cam:
+
+let botonOrdMrCam = document.getElementById("menorResolucionCam")
+
+// Evento botón Ordenar Menor Cam:
 
 botonOrdMrCam.addEventListener("click", () => {
     ordenarMenorCam(inventario)
@@ -341,6 +382,10 @@ function ordenarMayorCam(array) {
     verInventario(mayorMyCam)
 }
 
+// Captura botón Ordenar MayorResolución Cam:
+
+let botonOrdMyCam = document.getElementById("mayorResolucionCam")
+
 // Evento botón Ord. Mayor Cam:
 
 botonOrdMyCam.addEventListener("click", () => {
@@ -349,30 +394,84 @@ botonOrdMyCam.addEventListener("click", () => {
 
 
 
-// Function Buscar en Inventario:
+// Captura inputs:
 
-function buscarInfo(buscado, array) {
+let minInput = document.getElementById("minimoInput")
+
+let maxInput = document.getElementById("maximoInput")
+
+// Captura botó rango precios en modal:
+
+let buscarEnRango = document.getElementById("encontrarRango")
+
+// Captura botones Rango de Precios:
+
+buscarEnRango.addEventListener("click", () => {
+    buscarPorRangoPrecio(Number(minInput.value), Number(maxInput.value), inventario)
+})
+
+// Function Rango de Precios:
+
+function buscarPorRangoPrecio(minimo, maximo, array) {
+
+    let busquedaArray = array.filter((cel) => cel.precio >= minimo && cel.precio <= maximo);
+    busquedaArray.sort((a, b) => a.precio - b.precio);
+
+    busquedaArray.length === 0 ?
+        (coincidencia.innerHTML = `<div style="margin-top: 5rem; margin-bottom: 5rem; text-align: center; "><h3 class="noCoincidencia">Actualmente no contamos con modelos que se ajusten al rango de precios buscado. Sin embargo, revisa nuestro inventario posiblemente encuentres algún modelo con un valor similar o cercano al presupuesto de deseas invertir.</h3></div>`, verInventario(inventario)) : (coincidencia.innerHTML = "", verInventario(busquedaArray));
+
+    minInput.value = "";
+    maxInput.value = "";
+}
+
+
+
+
+
+
+
+
+// Function Buscar en Inventario con String:
+
+function buscarInfoString(buscado, array) {
 
     let busquedaArray = array.filter(
-        (cel) => cel.marca.toLowerCase().includes(buscado.toLowerCase()) || cel.modelo.toLowerCase().includes(buscado.toLowerCase())
+        (cel) => cel.modelo.toLowerCase().includes(buscado.toLowerCase()) || cel.marca.toLowerCase().includes(buscado.toLowerCase()) || cel.color.toLowerCase().includes(buscado.toLowerCase())
     )
 
-    if (busquedaArray.length == 0) {
-        coincidencia.innerHTML = `<div style="margin-top: 5rem; margin-bottom: 5rem; text-align: center; "><h3 class="noCoincidencia">No hay modelos que coincidan con tu búsqueda. Sin embargo, revisa nuestro inventario posiblemente encuentres algún otro modelo con similares o mejores características. </h3></div>`
-        verInventario(inventario)
-    } else {
-        coincidencia.innerHTML = ""
-        verInventario(busquedaArray)
-    }
+    busquedaArray.length == 0 ? (coincidencia.innerHTML = `<div style="margin-top: 5rem; margin-bottom: 5rem; text-align: center; "><h3 class="noCoincidencia">No hay modelos que coincidan con tu búsqueda. Sin embargo, revisa nuestro inventario posiblemente encuentres algún otro modelo con similares o mejores características.</h3></div>`, verInventario(inventario)) : (coincidencia.innerHTML = "", verInventario(busquedaArray))
 
 }
 
-// Evento Input Buscar en Inventario:
+// Function Buscar en Inventario con Number:
+
+function buscarInfoNumber(buscado, array) {
+
+    let busquedaArray = array.filter(
+        (cel) => Number(cel.memoriaInterna) === buscado || Number(cel.memoriaRam) === buscado || Number(cel.camara) === buscado || Number(cel.precio) === buscado
+    )
+
+    busquedaArray.length == 0 ? (coincidencia.innerHTML = `<div style="margin-top: 5rem; margin-bottom: 5rem; text-align: center; "><h3 class="noCoincidencia">No hay modelos que coincidan con tu búsqueda. Sin embargo, revisa nuestro inventario posiblemente encuentres algún otro modelo con similares o mejores características.</h3></div>`, verInventario(inventario)) : (coincidencia.innerHTML = "", verInventario(busquedaArray))
+
+}
+
+// Captura Div HTML para Coincidencias de Busqueda:
+
+let coincidencia = document.getElementById("coincidencia")
+
+// Captura input Barra de Busqueda:
+
+let buscador = document.getElementById("buscador")
+
+// Evento Input Barra de Busqueda:
 
 buscador.addEventListener("input", () => {
-    buscarInfo(buscador.value.toLowerCase(), inventario)
-})
 
+    let valor = buscador.value;
+
+    isNaN(valor) ? buscarInfoString(valor.toLowerCase(), inventario) : buscarInfoNumber(Number(valor), inventario);
+
+});
 
 
 
@@ -380,57 +479,13 @@ buscador.addEventListener("input", () => {
 
 
 
+// AGREGAR AL CARRITO DESDE INVENTARIO:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//eliminar dispositivoooooooooooooooooooooooooooooooooooooooo
-//oooooooooooooooooooooo
-//ooooooooo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Array de productos en Carrito:
 
 let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []
 
+// Function para agregar al array de Carrito:
 
 function agregarAlCarrito(cel) {
 
@@ -443,92 +498,26 @@ function agregarAlCarrito(cel) {
         localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
 
     }
-}
-
-
-
-
-
-
-
-
-
-
-let productosFavoritos = JSON.parse(localStorage.getItem("favoritos")) || []
-
-function agregarAfavoritos(cel) {
-
-    let celAgregado = productosFavoritos.find((elem) => elem.id == cel.id)
-
-    if (celAgregado == undefined) {
-
-        productosFavoritos.push(cel)
-
-        localStorage.setItem("favoritos", JSON.stringify(productosFavoritos))
-
-    }
-}
-
-
-
-// Funtion Agregar a Favoritos:
-
-
-function agregarProductosFavoritos(array) {
-    modalBodyCarrito.innerHTML = ""
-    array.forEach((productosFavoritos) => {
-
-        modalBodyFavoritos.innerHTML +=
-
-            `<div class="modal-dialog" style="max-width:250px;>
-
-            <div class="modal-content">
-
-                <div class="card border-primary mb-4" id ="productoCarrito${productosFavoritos.id}" style="max-width:400px; display: flex; justify-content:center; align-items: center;">
-
-                    <img class="card-img-top" style="max-height:300px;max-width:180px; margin-top: 2rem" src="assets/${productosFavoritos.imagen}" alt="">
-
-                    <div class="card-body">
-                    
-                        <h4 class="card-title" style="text-align: center;">${productosFavoritos.modelo}</h4>
-                            
-                        <p class="card-text" style="text-align: center;">$${productosFavoritos.precio}</p> 
-                    
-                        <button class= "btn btn-danger" id="botonEliminar" style="height:20%; width:40%;"><i class="fas fa-trash-alt"></i></button>
-
-                    </div>    
-                    
-                </div>
-
-            </div>
-
-        </div>`
-    })
 
 }
 
-// Fin Funtion Agregar a Favoritos.
 
 
-//Evento 
+// Captura Body Carrito:
 
-botonFavNav.addEventListener("click", () => {
-    agregarProductosFavoritos(productosFavoritos)
-})
+let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
 
-
-
-
-
-
+// Funtion Cargar Productos en Carrito:
 
 function cargarProductosCarrito(array) {
+
     modalBodyCarrito.innerHTML = ""
+
     array.forEach((productoEnCarrito) => {
 
         modalBodyCarrito.innerHTML +=
 
-            `<div class="modal-dialog" style="max-width:250px;>
+            `<div class="modal-dialog" style="max-width:250px;">
 
             <div class="modal-content">
 
@@ -571,14 +560,189 @@ function cargarProductosCarrito(array) {
     calcularTotal(array)
 }
 
-
-
+// Function Total Carrito:
 
 function calcularTotal(array) {
     let total = array.reduce((acc, productoCarrito) => acc + productoCarrito.precio, 0)
 
     precioTotal.innerHTML = `<p style="text-align: center; font-size: 17px; margin-bottom:0em !important; padding-bottom: 1em;">El total del carrito es <strong>$${total}</strong>.</p>`
 }
+
+// Captura botón Carrito Nav:
+
+let botonCarrito = document.getElementById("botonCarrito")
+
+// Evento botón Carrito Nav:
+
+botonCarrito.addEventListener("click", () => {
+
+    //Limpiar h3 no coindicencias e input buscador:
+    coincidencia.innerHTML = "";
+    buscador.value = "";
+
+    cargarProductosCarrito(productosEnCarrito)
+})
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////
+
+
+
+// AGREGAR A FAVORITOS DESDE INVENTARIO:
+
+
+
+//Array de productos en Favoritos:
+
+let productosFavoritos = JSON.parse(localStorage.getItem("favoritos")) || []
+
+// Function para el boton de la card Agregar Al array Favoritos:
+
+function agregarAfavoritos(cel) {
+
+    let celAgregadoEnFav = productosFavoritos.find((elem) => elem.id == cel.id)
+
+    if (celAgregadoEnFav == undefined) {
+
+        productosFavoritos.push(cel)
+
+        localStorage.setItem("favoritos", JSON.stringify(productosFavoritos))
+    }
+
+}
+
+
+
+// Captura Modal Card Favoritos:
+
+let modalBodyFavoritos = document.getElementById("modal-bodyFavoritos")
+
+
+// Funtion Agregar a Favoritos:
+
+function agregarProductosFavoritos(array) {
+
+    modalBodyFavoritos.innerHTML = ""
+
+    array.forEach((productosFavoritos) => {
+
+        modalBodyFavoritos.innerHTML +=
+
+            `<div class="modal-dialog" style="max-width:250px;">
+
+                <div class="modal-content">
+
+                    <div class="card border-primary mb-4" id ="productoCarrito${productosFavoritos.id}" style="max-width:400px; display: flex; justify-content:center; align-items: center;">
+
+                        <img class="card-img-top" style="max-height:300px;max-width:180px; margin-top: 2rem" src="assets/${productosFavoritos.imagen}" alt="">
+
+                        <div class="card-body" >
+                        
+                            <h4 class="card-title" style="text-align: center;">${productosFavoritos.modelo}</h4>
+                                
+                            <p class="card-text" style="text-align: center;">$${productosFavoritos.precio}</p> 
+                        
+                            <div style="display: flex; justify-content: space-around;">
+
+                                <button class= "btn btn-danger" id="botonEliminarFav${cel.id}" 
+                                style=" height: 4em; width: 4em; justify-content: center;
+                                display: flex; align-items: center;" >
+                                
+                                <i class="fas fa-trash-alt"></i></button>
+
+                                <button class= "btn btn-success" id="agregarFavAlCarritoFav${cel.id}" style=" height: 4em; width: 4em; justify-content: center;
+                                display: flex; align-items: center;" >
+                                
+                                <i class="fas fa-cart-plus"></i></button>
+                            
+                            </div>
+
+                        </div>    
+                        
+                    </div>
+
+                </div>
+
+            </div>`
+    })
+
+}
+
+// Fin Funtion Agregar a Favoritos.
+
+
+// Captura Botón Favoritos Nav:
+
+let botonFavNav = document.getElementById("botonFavoritos")
+
+//Evento 
+
+botonFavNav.addEventListener("click", () => {
+
+    //Limpiar h3 no coindicencias e input buscador:
+    coincidencia.innerHTML = "";
+    buscador.value = "";
+
+    agregarProductosFavoritos(productosFavoritos)
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Captura botón Agregar al Carito desde Favoritos:
+
+//let botonFavAlCarritoFav = document.getElementById(`agregarFavAlCarritoFav${cel.id}`)
+
+//botonFavAlCarritoFav.addEventListener("click", () =>{
+//    "carrito".push(cel)})
+
+
+
+
+favoritos.forEach(producto => {
+    const agregarAlCarritoBtn = document.getElementById(`agregarFavAlCarritoFav${producto.id}`);
+    agregarAlCarritoBtn.addEventListener('click', () => {
+        // función para agregar producto al carrito
+        agregarProductoAlCarrito(producto);
+        // función para eliminar producto de favoritos
+        eliminarProductoDeFavoritos(producto);
+    });
+});
+
+function agregarProductoAlCarrito(producto) {
+    carrito.push(producto);
+    actualizarCarrito();
+}
+
+function eliminarProductoDeFavoritos(producto) {
+    const index = favoritos.findIndex(p => p.id === producto.id);
+    if (index !== -1) {
+        favoritos.splice(index, 1);
+        actualizarFavoritos();
+    }
+}
+
+
+
+
+
+
+
 
 
 
@@ -595,15 +759,10 @@ function verIDS(array) {
 }
 
 eliminarCEL.addEventListener("click", () => {
+
+    //Limpiar h3 no coindicencias e input buscador:
+    coincidencia.innerHTML = "";
+    buscador.value = "";
+
     verIDS(inventario)
 })
-
-
-botonCarrito.addEventListener("click", () => {
-    cargarProductosCarrito(productosEnCarrito)
-})
-
-
-
-
-verInventario(inventario) 

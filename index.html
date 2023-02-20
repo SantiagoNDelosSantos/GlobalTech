@@ -46,11 +46,11 @@
                             </a>
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                
+
                                 <li class="dropdown-item" id="alfabeticamente" data-bs-target="#idAlfabeticamente">
                                     Alfabético
                                 </li>
-                                
+
                                 <li class="dropdown-item" id="menorPrecio" data-bs-target="#idMenorPrecio">
                                     Menor Precio
                                 </li>
@@ -59,42 +59,52 @@
                                     Mayor Precio
                                 </li>
 
-                                <li class="dropdown-item" id="menorMemoriaInterna" data-bs-target="#idMenorMemoriaInterna">
+                                <li class="dropdown-item" id="menorMemoriaInterna"
+                                    data-bs-target="#idMenorMemoriaInterna">
                                     Menor Memoria Interna
                                 </li>
 
-                                <li class="dropdown-item" id="mayorMemoriaInterna" data-bs-target="#idMayorMemoriaInterna">
+                                <li class="dropdown-item" id="mayorMemoriaInterna"
+                                    data-bs-target="#idMayorMemoriaInterna">
                                     Mayor Memoria Interna
                                 </li>
 
                                 <li class="dropdown-item" id="menorMemoriaRam" data-bs-target="#idMenorMemoriaRam">
                                     Menor Memoria Ram
                                 </li>
-                                
+
                                 <li class="dropdown-item" id="mayorMemoriaRam" data-bs-target="#idMayorMemoriaRam">
                                     Mayor Memoria Ram
                                 </li>
 
-                                <li class="dropdown-item" id="menorResolucionCam" data-bs-target="#idmenorResoluciónCam">
+                                <li class="dropdown-item" id="menorResolucionCam"
+                                    data-bs-target="#idmenorResoluciónCam">
                                     Menor Resolución Cámara
                                 </li>
 
-                                <li class="dropdown-item" id="mayorResolucionCam" data-bs-target="#idmayorResoluciónCam">
+                                <li class="dropdown-item" id="mayorResolucionCam"
+                                    data-bs-target="#idmayorResoluciónCam">
                                     Mayor Resolución Cámara
                                 </li>
-                
+
                             </ul>
 
                         </li>
 
                         <li class="nav-item">
-                            <button id="agregarCel" class="subrayado" data-bs-toggle="modal"
-                                data-bs-target="#idModalAgregarCel">AGREGAR DISPOSITIVO</button>
+                            <button id="rangoPrecio" class="subrayado" data-bs-toggle="modal"
+                                data-bs-target="#ModalRangoPrecio">RANGO DE PRECIOS</button>
                         </li>
 
                         <li class="nav-item">
+                            <button id="agregarCel" class="subrayado" data-bs-toggle="modal"
+                                data-bs-target="#idModalAgregarCel">AGREGAR CEL</button>
+                        </li>
+
+
+                        <li class="nav-item">
                             <button id="eliminarCel" class="subrayado" data-bs-toggle="modal"
-                                data-bs-target="#idModalEliminarCel">ELIMINAR DISPOSITIVO</button>
+                                data-bs-target="#idModalEliminarCel">ELIMINAR CEL</button>
                         </li>
 
                         <li class="nav-item">
@@ -129,7 +139,7 @@
             </div>
 
             <div>
-                <a id="botonFavoritos" data-bs-toggle="modal" data-bs-target="#idFavoritos" class="btn btn-danger">
+                <a id="botonFavoritos" data-bs-toggle="modal" data-bs-target="#idModalFavoritos" class="btn btn-danger">
                     <i class="fa fa-heart fa-2x"></i>
                 </a>
             </div>
@@ -154,6 +164,66 @@
 
         </div>
 
+
+        <!-- Modal Rango de Precios -->
+
+        <div class="modal fade" id="ModalRangoPrecio" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Buscar en Rango de Precios</h5>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+
+                    <div class="modal-body" id="modal-bodyRangoPrecios">
+
+                        <form id="formRangoPrecio">
+
+                            <div class="mb-3">
+
+                                <label for="minimo" class="form-label">Precio Mínimo:</label>
+
+                                <input type="text" class="form-control" id="minimoInput"
+                                    aria-describedby="precioMinimo">
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="maximo" class="form-label">Precio Máximo:</label>
+
+                                <input type="text" class="form-control" id="maximoInput"
+                                    aria-describedby="precioMaximo">
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+
+                        <button type="text" id="encontrarRango" class="btn btn-primary" data-bs-dismiss="modal">Buscar
+                            en Rango</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
         <!-- Modal Agregar Cel -->
 
         <div class="modal fade" id="idModalAgregarCel" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -171,7 +241,7 @@
 
                     </div>
 
-                    <div class="modal-body" id="modal-body">
+                    <div class="modal-body" id="modal-bodyAgregarCel">
 
                         <form id="formAgregarCel">
 
@@ -263,7 +333,7 @@
 
                     <div class="modal-header">
 
-                        <h5 class="modal-title" id="exampleModalLabel">Favoritos:
+                        <h5 class="modal-title" id="exampleModalLabel">Favoritos
                         </h5>
 
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -297,7 +367,7 @@
                     <div class="modal-header">
 
                         <h5 class="modal-title" id="exampleModalLabel">Carrito de
-                            Compras:</h5>
+                            Compras</h5>
 
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
