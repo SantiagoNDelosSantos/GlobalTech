@@ -346,14 +346,19 @@ h3, .ulFooter, .h3FooterCopy {
 }
 
 .noCoincidencia {
+  font-size: 20px;
   color: black;
   padding: 1rem;
   width: 80%;
   border-radius: 1rem;
   margin-left: 10%;
   margin-right: 10%;
-  height: 20vh;
-  font-size: 26px;
+  height: auto;
+}
+@media (min-width: 990px) {
+  .noCoincidencia {
+    font-size: 26px;
+  }
 }
 
 .modal {
