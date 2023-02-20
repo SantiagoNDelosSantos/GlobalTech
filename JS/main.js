@@ -523,14 +523,14 @@ function cargarProductosCarrito(array) {
 
                 <div class="card border-primary mb-4" id ="productoCarrito${productoEnCarrito.id}" style="max-width:400px; align-items: center;">
 
-                    <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 2rem" src="assets/${productoEnCarrito.imagen}" alt="">
+                    <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${productoEnCarrito.imagen}" alt="">
 
                     <div class="card-body"
                     style= "    
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: center;">
+                    align-items: center; margin-bottom: 1em">
                     
                         <h4 class="card-title" style="text-align: center;">${productoEnCarrito.modelo}</h4>
                             
@@ -639,9 +639,9 @@ function agregarProductosFavoritos(array) {
 
                     <div class="card border-primary mb-4" id ="productoCarrito${productosFavoritos.id}" style="max-width:400px; display: flex; justify-content:center; align-items: center;">
 
-                        <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 2rem" src="assets/${productosFavoritos.imagen}" alt="">
+                        <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${productosFavoritos.imagen}" alt="">
 
-                        <div class="card-body" >
+                        <div class="card-body" style="margin-bottom: 1em">
                         
                             <h4 class="card-title" style="text-align: center;">${productosFavoritos.modelo}</h4>
                                 
