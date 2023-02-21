@@ -24,23 +24,39 @@ let eliminarCelular = document.getElementById("eliminarModeloBtn")
 
 // Function Ver Inventario:
 
+// cel es el id del div que esta en el container del HTML, es el espacio donde se cangan la cards que se crean.
+
 let cels = document.getElementById("cel")
+
+// let cels captura con dom el div cel para poder tenerlo en js
+
 
 function verInventario(array) {
 
+    // cel.innerHTML = "" Lo que hace es vaciar el contenido del DIV donde se cargan las cards para que el inventario no se muestre repetido cada vez que se ejecute la function verInventario
+
     cel.innerHTML = ""
+
+    // for recorre cada objteto del array que se le pasa y por cada objeto de ejecuta lo que este en los conchetes.
 
     for (let cel of array) {
 
+        // let nuevo cel crea un nuevo div en el contenedor por cada objeto que haya en el array mediante createElement("div")
+
+        // nuevoCel es el uevo dic que se crea y que al final con append chlid debe agregarse al div contenedor en este caso cels
+
         let nuevoCel = document.createElement("div")
 
+        // esto le agrega clases al nuevo div 
         nuevoCel.classList.add("col-6", "col-md-4", "col-lg-3")
+
+        // nuevoCel.innnerHTML = agrega los estilos para las card:
 
         nuevoCel.innerHTML =
 
             `<div id="${cel.id}" class="card" style="margin: 1rem; margin-bottom:3em; border-radius: 1rem;">
 
-                <img class="card-img-top img-fluid" style="height: auto; width: auto; margin-top: 1rem; margin-left: 1rem; margin-right: 1rem; border-radius: 1rem;" src="assets/${cel.imagen}" alt="${cel.modelo} de ${cel.marca}">
+                <img class="card-img-top img-fluid" style="height: auto; width: auto;     margin-top: 17px; margin-left: 1rem; margin-right: 1rem; border-radius: 1rem;" src="assets/${cel.imagen}" alt="${cel.modelo} de ${cel.marca}">
 
                 <div class="card-body">
 
@@ -60,7 +76,7 @@ function verInventario(array) {
 
                         <div style=" display: flex; justify-content: center; align-items: center; margin-top: 2.5em; margin-bottom: 0.5em;">
 
-                        <a id="botonAgregarAFavoritos${cel.id}" data-bs-toggle="modal" data-bs-target="#idAgregarAFavoritos"
+                        <a id="botonAgregarAFavoritos${cel.id}" 
                         class="btn btn-outline-danger" style=" width: 5em; height: 5.2em; margin-left: 0px;margin-right: 5%; justify-content: center; display: flex; align-items: center;">
                         <i class="fa fa-heart fa-1x"></i>
                         </a>
@@ -73,7 +89,12 @@ function verInventario(array) {
 
             </div>`
 
+        // el appendChild agrega el nuevo elemento creado al final del div contenedor en este caso la captura del div cel donde se crean las cards es cels.
+
         cels.appendChild(nuevoCel)
+
+
+        // Y por ultimo estan los botones de cada Cards:
 
         let btnAgregarFav = document.getElementById(`botonAgregarAFavoritos${cel.id}`)
 
@@ -489,7 +510,7 @@ let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []
 
 function agregarAlCarrito(cel) {
 
-    let celAgregado = productosEnCarrito.find((elem) => elem.id == cel.id)
+    let celAgregado = productosEnCarrito.find((elemento) => elemento.id == cel.id)
 
     if (celAgregado == undefined) {
 
@@ -509,7 +530,7 @@ let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
 
 // Funtion Cargar Productos en Carrito:
 
-function cargarProductosCarrito(array) {
+function mostrarProductosCarrito(array) {
 
     modalBodyCarrito.innerHTML = ""
 
@@ -523,7 +544,7 @@ function cargarProductosCarrito(array) {
 
                 <div class="card border-primary mb-4" id ="productoCarrito${productoEnCarrito.id}" style="max-width:400px; align-items: center;">
 
-                    <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${productoEnCarrito.imagen}" alt="">
+                    <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${productoEnCarrito.imagen}" alt="${productoEnCarrito.imagen}">
 
                     <div class="card-body"
                     style= "    
@@ -580,7 +601,7 @@ botonCarrito.addEventListener("click", () => {
     coincidencia.innerHTML = "";
     buscador.value = "";
 
-    cargarProductosCarrito(productosEnCarrito)
+    mostrarProductosCarrito(productosEnCarrito)
 })
 
 
@@ -601,11 +622,19 @@ botonCarrito.addEventListener("click", () => {
 
 let productosFavoritos = JSON.parse(localStorage.getItem("favoritos")) || []
 
-// Function para el boton de la card Agregar Al array Favoritos:
+// productosFavoritos es mi array de productos favoritos.
+
+// favoritos es la key con la que guardo los objetos de mi array productosFavoritos en el localStorage.
+
+
+
+
+
+// Function para el boton de la card inventario Agregar Al array Favoritos:
 
 function agregarAfavoritos(cel) {
 
-    let celAgregadoEnFav = productosFavoritos.find((elem) => elem.id == cel.id)
+    let celAgregadoEnFav = productosFavoritos.find((elemento) => elemento.id == cel.id)
 
     if (celAgregadoEnFav == undefined) {
 
@@ -625,64 +654,70 @@ let modalBodyFavoritos = document.getElementById("modal-bodyFavoritos")
 
 // Funtion Agregar a Favoritos:
 
-function agregarProductosFavoritos(array) {
+function mostrarProductosFavoritos(array) {
 
-    modalBodyFavoritos.innerHTML = ""
+    modalBodyFavoritos.innerHTML = "";
 
-    array.forEach((productosFavoritos) => {
+    for (let cel of array) {
 
-        modalBodyFavoritos.innerHTML +=
+        let newCelFav = document.createElement("div")
 
-            `<div class="modal-dialog" style="max-width:250px;">
+        newCelFav.innerHTML +=
 
-                <div class="modal-content">
+        `<div class="modal-dialog" style="max-width:250px;">
 
-                    <div class="card border-primary mb-4" id ="productoCarrito${productosFavoritos.id}" style="max-width:400px; display: flex; justify-content:center; align-items: center;">
+            <div class="modal-content">
 
-                        <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${productosFavoritos.imagen}" alt="">
+                <div class="card border-primary mb-4" id ="productoCarrito${cel.id}" style="max-width:400px; display: flex; justify-content:center; align-items: center;">
 
-                        <div class="card-body" style="margin-bottom: 1em">
+                    <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${cel.imagen}" alt="">
+
+                    <div class="card-body" style="margin-bottom: 1em">
                         
-                            <h4 class="card-title" style="text-align: center;">${productosFavoritos.modelo}</h4>
-                                
-                            <p class="card-text" style="text-align: center;">$${productosFavoritos.precio}</p> 
-                        
-                            <div style="display: flex; justify-content: space-around;">
-
-                                <button class= "btn btn-danger" id="botonEliminarFav${productosFavoritos.id}" 
-                                style=" height: 4em; width: 4em; justify-content: center;
-                                display: flex; align-items: center;" >
-                                
-                                <i class="fas fa-trash-alt"></i></button>
-
-                                <button class= "btn btn-success" id="agregarFavAlCarritoFav${productosFavoritos.id}" style=" height: 4em; width: 4em; justify-content: center;
-                                display: flex; align-items: center;" >
-                                
-                                <i class="fas fa-cart-plus"></i></button>
+                        <h4 class="card-title" style="text-align: center;">${cel.modelo}</h4>
                             
-                            </div>
+                        <p class="card-text" style="text-align: center;">$${cel.precio}</p> 
 
-                        </div>    
-                        
-                    </div>
+                        <div style="display: flex; justify-content: space-around;">
 
+                            <button class="btn btn-danger" id="botonEliminarFav${cel.id}" style="height: 4em; width: 4em; justify-content: center; display: flex; align-items: center;">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+
+                            <button class="btn btn-success" id="agregarFavAlCarritoFav${cel.id}" style="height: 4em; width: 4em; justify-content: center; display: flex; align-items: center;">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+
+                        </div>
+
+                    </div> 
+                    
                 </div>
 
-            </div>`
-    })
+            </div>
 
-    // Captura botón Agregar al Carrito desde Favoritos:
+        </div>`;
 
-    let botonFavAlCarrito = document.getElementById(`agregarFavAlCarritoFav${productosFavoritos.id}`)
 
-    botonFavAlCarrito.addEventListener("click", () => {
-        
-        favAgregarCarrito(productosFavoritos)
+        modalBodyFavoritos.appendChild(newCelFav)
 
-    })
+        let pasarAlCarrito = document.getElementById(`agregarFavAlCarritoFav${cel.id}`);
+
+        pasarAlCarrito.addEventListener("click", (event) => {
+
+            const id = event.target.dataset.id;
+
+            const cel = productosFavoritos.find((p) => p.id == id);
+
+            pasarFavCarrito(cel);
+
+            alert(`El producto ${cel.modelo} ha sido agregado al carrito`);
+        });
+
+        pasarAlCarrito.dataset.id = cel.id;
+    }
 }
 
-// Fin Funtion Agregar a Favoritos.
 
 
 // Captura Botón Favoritos Nav:
@@ -697,49 +732,55 @@ botonFavNav.addEventListener("click", () => {
     coincidencia.innerHTML = "";
     buscador.value = "";
 
-    agregarProductosFavoritos(productosFavoritos)
+    mostrarProductosFavoritos(productosFavoritos)
 
 })
 
 
 
 
-/////////////////////////////////////
-// meto cel a productosFvoritos
-
 
 ////////////////////////////////////////////////////
 
 
 
+// Function para pasar producto de favoritos al carrito
 
+function pasarFavCarrito(cel) {
 
-// array de carrito "    productosEnCarrito    "
-// key o espacio de memoria Local Storage "   carrito   " 
+    let favAgregadoCarrito = productosEnCarrito.find((elemento) => elemento.id == cel.id)
 
+    if (favAgregadoCarrito == undefined) {
 
-
-function favAgregarCarrito(productosFavoritos){
-
-    let celAgregadoEnFav = productosEnCarrito.find((elem) => elem.id == productosFavoritos.id);
-
-    if (celAgregadoEnFav == undefined) {
-
-        productosEnCarrito.push(productosFavoritos)
+        productosEnCarrito.push(cel)
 
         localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
 
-        console.log(productosFavoritos)
     }
+
 }
 
+//function agregarAfavoritos(cel) {
+
+//  let celAgregadoEnFav = productosFavoritos.find((elemento) => elemento.id == cel.id)
+
+//if (celAgregadoEnFav == undefined) {
+
+//  productosFavoritos.push(cel)
+
+//localStorage.setItem("favoritos", JSON.stringify(productosFavoritos))
+//}
+
+//}
 
 
 
 
-
-
-
+//Swal.fire(
+//  'The Internet?',
+//'That thing is still around?',
+//'question'
+//)
 
 
 
