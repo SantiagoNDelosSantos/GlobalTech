@@ -99,7 +99,7 @@
 
                         <li class="nav-item">
                             <button id="agregarCel" class="subrayado" data-bs-toggle="modal"
-                                data-bs-target="#idModalAgregarCel">AGREGAR CEL</button>
+                                data-bs-target="#idModalValidarAgregarCel">AGREGAR CEL</button>
                         </li>
 
 
@@ -225,7 +225,66 @@
         </div>
 
 
+        <!-- Modal Validación para agregar Cel-->
+
+        <div class="modal fade" id="idModalValidarAgregarCel" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Acceso Repositor</h5>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+
+                    <div class="modal-body" id="modal-bodyValidarAgreCel">
+
+                        <form id="validacionAgrForm">
+
+                            <div class="mb-3">
+
+                                <label for="usuario" class="form-label">Usuario:</label>
+
+                                <input type="text" class="form-control" id="usuarioInput"
+                                    aria-describedby="usuarioValidar">
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="contraseña" class="form-label">Contraseña:</label>
+
+                                <input type="password" class="form-control" id="contraseñaInput"
+                                    aria-describedby="contraseñaValidar">
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+
+                        <button type="text" id="validarAccesoAgregar" class="btn btn-primary"
+                            data-bs-dismiss="modal">Validar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
         <!-- Modal Agregar Cel -->
+
 
         <div class="modal fade" id="idModalAgregarCel" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -322,6 +381,8 @@
             </div>
 
         </div>
+
+
 
         <!-- Modal Favoritos-->
 
@@ -515,7 +576,6 @@
 
     <!-- Toastify-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
 
     <!--Archivos JS-->
     <script src="JS/class.js"></script>

@@ -105,6 +105,26 @@ function verInventario(array) {
             buscador.value = "";
 
             agregarAfavoritos(cel)
+
+            Toastify({
+
+                text: `Has guardado en favoritos ${cel.modelo}`,
+                gravity: "top",
+                position: "right",
+                style: {
+                    background: "linear-gradient(to right, #0d6efd, #0dcaf0)",
+                    color: "white",
+                    fontSize: "1.20em",
+                    border: "0.10em solid",
+                    borderRadius: "2em",
+                    textTransform: "uppercase",
+                    textAlign: "center"
+                },
+
+                duration: 1500
+
+            }).showToast()
+
         })
 
         let btnAgregar = document.getElementById(`agregarBtn${cel.id}`)
@@ -116,6 +136,27 @@ function verInventario(array) {
             buscador.value = "";
 
             agregarAlCarrito(cel)
+
+
+            Toastify({
+
+                text: `Has agregado al carrito ${cel.modelo}`,
+                gravity: "top",
+                position: "right",
+                style: {
+                    background: "linear-gradient(to right, #0d6efd, #0dcaf0)",
+                    color: "white",
+                    fontSize: "1.20em",
+                    border: "0.10em solid",
+                    borderRadius: "2em",
+                    textTransform: "uppercase",
+                    textAlign: "center"
+                },
+
+                duration: 1500
+
+            }).showToast()
+
         })
 
     }
@@ -145,52 +186,109 @@ verInventario(inventario)
 
 
 // Captura botón Agregar Cel Nav:
-
-let botonAgregarCelNav = document.getElementById("agregarCel")
+let botonAgregarCelNav = document.getElementById("agregarCel");
 
 // Evento botón Agregar Cel Nav:
-
 botonAgregarCelNav.addEventListener("click", () => {
 
-    //Limpiar h3 no coindicencias e input buscador:
+    // Limpiar h3 no coindicencias e input buscador:
     coincidencia.innerHTML = "";
     buscador.value = "";
+    
+});
+
+// Capturar inputs validación agragar cel:
+
+let usuarioAgr = document.getElementById("usuarioInput")
+
+let contraArg = document.getElementById("contraseñaInput")
+
+let formValidarAgr = document.getElementById("validacionAgrForm")
+
+let btnValidar = document.getElementById("validarAccesoAgregar")
+
+btnValidar.addEventListener("click", () =>{
+
+    validar(usuarioAgr, contraArg)
+
 })
+
+
+function validar(usuario, contra){
+
+
+    if (usuario.value === "Rick Sanchez" && contra.value === "Wubalubadubdub"){
+
+        console.log("Voy a matarte Rick Prime")
+
+        let modalAgregarCel = new bootstrap.Modal(document.getElementById('idModalAgregarCel'));
+
+        modalAgregarCel.show();
+
+    }
+
+    else{
+        console.log("No voy a matarte Rick Prime")
+
+    }
+
+    formValidarAgr.reset()
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 // Function Agregar Nuevo Producto al Inventario:
-
 function agregarCel(array) {
+    let inputModelo = document.getElementById("modeloInput");
+    let inputMarca = document.getElementById("marcaInput");
+    let inputColor = document.getElementById("colorInput");
+    let inputMemoriaInterna = document.getElementById("memoriaInternaInput");
+    let inputMemoriaRam = document.getElementById("memoriaRamInput");
+    let inputCamara = document.getElementById("camaraInput");
+    let inputPrecio = document.getElementById("precioInput");
 
-    let inputModelo = document.getElementById("modeloInput")
-    let inputMarca = document.getElementById("marcaInput")
-    let inputColor = document.getElementById("colorInput")
-    let inputMemoriaInterna = document.getElementById("memoriaInternaInput")
-    let inputMemoriaRam = document.getElementById("memoriaRamInput")
-    let inputCamara = document.getElementById("camaraInput")
-    let inputPrecio = document.getElementById("precioInput")
+    const celNuevo = new Cel(
+        array.length + 1,
+        inputMarca.value,
+        inputModelo.value,
+        inputColor.value,
+        inputMemoriaInterna.value,
+        inputMemoriaRam.value,
+        inputCamara.value,
+        inputPrecio.value,
+        "CelGenerico.png"
+    );
 
-    const celNuevo = new Cel(array.length + 1, inputMarca.value, inputModelo.value, inputColor.value, inputMemoriaInterna.value, inputMemoriaRam.value, inputCamara.value, inputPrecio.value, "CelGenerico.png")
+    array.push(celNuevo);
+    localStorage.setItem("inventario", JSON.stringify(array));
 
-    array.push(celNuevo)
-    localStorage.setItem("inventario", JSON.stringify(array))
+    verInventario(array);
 
-    verInventario(array)
-
-    formAgregarCel.reset()
-
+    formAgregarCel.reset();
 }
 
 // Captura botón Agregar Dispositivo:
-
-let guardarCelBtn = document.getElementById("guardarCelBtn")
+let guardarCelBtn = document.getElementById("guardarCelBtn");
 
 // Evento botón Agregar Dispositivo:
-
 guardarCelBtn.addEventListener("click", () => {
-    agregarCel(inventario)
-})
+    agregarCel(inventario);
+});
 
 
 
@@ -534,17 +632,19 @@ function mostrarProductosCarrito(array) {
 
     modalBodyCarrito.innerHTML = ""
 
-    array.forEach((productoEnCarrito) => {
+    for (let cel of array) {
 
-        modalBodyCarrito.innerHTML +=
+        let proCarrito = document.createElement("div")
+
+        proCarrito.innerHTML +=
 
             `<div class="modal-dialog" style="max-width:250px;">
 
             <div class="modal-content">
 
-                <div class="card border-primary mb-4" id ="productoCarrito${productoEnCarrito.id}" style="max-width:400px; align-items: center;">
+                <div class="card border-primary mb-4" id ="productoCarrito${cel.id}" style="max-width:400px; align-items: center;">
 
-                    <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${productoEnCarrito.imagen}" alt="${productoEnCarrito.imagen}">
+                    <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${cel.imagen}" alt="${cel.imagen}">
 
                     <div class="card-body"
                     style= "    
@@ -553,11 +653,11 @@ function mostrarProductosCarrito(array) {
                     justify-content: center;
                     align-items: center; margin-bottom: 1em">
                     
-                        <h4 class="card-title" style="text-align: center;">${productoEnCarrito.modelo}</h4>
+                        <h4 class="card-title" style="text-align: center;">${cel.modelo}</h4>
                             
-                        <p class="card-text" style="text-align: center; font-size: 17px; color: green"><strong>$${productoEnCarrito.precio}</strong></p> 
+                        <p class="card-text" style="text-align: center; font-size: 17px; color: green"><strong>$${cel.precio}</strong></p> 
                     
-                        <button class= "btn btn-danger" id="botonEliminar" 
+                        <button class= "btn btn-danger" id="botonEliminar${cel.id}" 
                         
                         style="
                         height: 4em;
@@ -576,10 +676,16 @@ function mostrarProductosCarrito(array) {
             </div>
 
         </div>`
-    })
 
-    calcularTotal(array)
+        modalBodyCarrito.appendChild(proCarrito)
+
+        calcularTotal(array)
+
+    }
+
 }
+
+
 
 // Function Total Carrito:
 
@@ -664,7 +770,7 @@ function mostrarProductosFavoritos(array) {
 
         newCelFav.innerHTML +=
 
-        `<div class="modal-dialog" style="max-width:250px;">
+            `<div class="modal-dialog" style="max-width:250px;">
 
             <div class="modal-content">
 
@@ -703,18 +809,38 @@ function mostrarProductosFavoritos(array) {
 
         let pasarAlCarrito = document.getElementById(`agregarFavAlCarritoFav${cel.id}`);
 
+        pasarAlCarrito.dataset.id = cel.id;
+
         pasarAlCarrito.addEventListener("click", (event) => {
-
             const id = event.target.dataset.id;
-
             const cel = productosFavoritos.find((p) => p.id == id);
 
-            pasarFavCarrito(cel);
+            if (cel) {
 
-            alert(`El producto ${cel.modelo} ha sido agregado al carrito`);
+                pasarFavCarrito(cel);
+
+                Toastify({
+
+                    text: `Has agregado al carrito ${cel.modelo}`,
+                    gravity: "top",
+                    position: "right",
+                    style: {
+                        background: "linear-gradient(to right, #0d6efd, #0dcaf0)",
+                        color: "white",
+                        fontSize: "1.20em",
+                        border: "0.10em solid",
+                        borderRadius: "2em",
+                        textTransform: "uppercase",
+                        textAlign: "center"
+                    },
+
+                    duration: 1500
+
+                }).showToast()
+
+            }
         });
 
-        pasarAlCarrito.dataset.id = cel.id;
     }
 }
 

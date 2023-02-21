@@ -363,4 +363,24 @@ h3, .ulFooter, .h3FooterCopy {
 
 .modal {
   --bs-modal-margin: 5.5rem;
+}
+
+.my-swal-button {
+  font-size: 1.7em;
+  border: 0;
+  border-radius: 0.25em;
+  background: initial;
+  display: inline-block;
+  background-color: rgb(13, 110, 253);
+  color: #fff;
+  padding: 0.7em;
+  border-radius: 0.7em;
+}
+
+#idModalAgregarCel {
+  display: none;
+}
+
+.block {
+  display: block;
 }/*# sourceMappingURL=style.css.map */
