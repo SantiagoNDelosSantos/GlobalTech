@@ -14,8 +14,8 @@
 
 let formAgregarCel = document.getElementById("formAgregarCel")
 let precioTotal = document.getElementById("precioTotal")
-let eliminarCEL = document.getElementById("eliminarCel")
-let eliminarCelular = document.getElementById("eliminarModeloBtn")
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ function verInventario(array) {
 
     // cel.innerHTML = "" Lo que hace es vaciar el contenido del DIV donde se cargan las cards para que el inventario no se muestre repetido cada vez que se ejecute la function verInventario
 
-    cel.innerHTML = ""
+    cels.innerHTML = ""
 
     // for recorre cada objteto del array que se le pasa y por cada objeto de ejecuta lo que este en los conchetes.
 
@@ -155,7 +155,7 @@ botonAgregarCelNav.addEventListener("click", () => {
     // Limpiar h3 no coindicencias e input buscador:
     coincidencia.innerHTML = "";
     buscador.value = "";
-    
+
 });
 
 // Capturar inputs validación agragar cel:
@@ -164,32 +164,35 @@ let usuarioAgr = document.getElementById("usuarioInput")
 
 let contraArg = document.getElementById("contraseñaInput")
 
+
 let formValidarAgr = document.getElementById("validacionAgrForm")
+
 
 let btnValidar = document.getElementById("validarAccesoAgregar")
 
-btnValidar.addEventListener("click", () =>{
+let reintentarAccs = document.getElementById("reintAccesoAgregar")
+
+
+btnValidar.addEventListener("click", () => {
 
     validar(usuarioAgr, contraArg)
 
 })
 
+function validar(usuario, contra) {
 
-function validar(usuario, contra){
 
-
-    if (usuario.value === "Rick Sanchez" && contra.value === "Wubalubadubdub"){
-
-        console.log("Voy a matarte Rick Prime")
+    if (usuario.value === "Rick" && contra.value === "1234") {
 
         let modalAgregarCel = new bootstrap.Modal(document.getElementById('idModalAgregarCel'));
 
         modalAgregarCel.show();
 
-    }
+    } else {
 
-    else{
-        console.log("No voy a matarte Rick Prime")
+        let reintentarAcceso = new bootstrap.Modal(document.getElementById('contraseñaIncorrecta'));
+
+        reintentarAcceso.show();
 
     }
 
@@ -197,19 +200,12 @@ function validar(usuario, contra){
 
 }
 
+reintentarAccs.addEventListener("click", () => {
 
+    let Acceso2 = new bootstrap.Modal(document.getElementById('idModalValidarAgregarCel'));
 
-
-
-
-
-
-
-
-
-
-
-
+    Acceso2.show();
+})
 
 
 
@@ -238,6 +234,16 @@ function agregarCel(array) {
     array.push(celNuevo);
     localStorage.setItem("inventario", JSON.stringify(array));
 
+    Swal.fire({
+
+        position: "center",
+        icon: "success",
+        title: `Has agregado el dispositivo ${celNuevo.modelo} al inventario `,
+        timer: 3500,
+        timerProgressBar: true,
+
+    })
+
     verInventario(array);
 
     formAgregarCel.reset();
@@ -250,6 +256,12 @@ let guardarCelBtn = document.getElementById("guardarCelBtn");
 guardarCelBtn.addEventListener("click", () => {
     agregarCel(inventario);
 });
+
+
+
+
+
+
 
 
 
@@ -577,6 +589,48 @@ function agregarAlCarrito(cel) {
 
         localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
 
+        Toastify({
+
+            text: `Has agregado al carrito ${cel.modelo}`,
+            gravity: "top",
+            position: "right",
+            style: {
+                background: "linear-gradient(to right, #006a15, rgb(3, 183, 0))",
+                color: "white",
+                fontSize: "1.20em",
+                border: "0.10em solid",
+                borderRadius: "2em",
+                textTransform: "uppercase",
+                textAlign: "center"
+            },
+
+            duration: 2000
+
+        }).showToast()
+
+    } else {
+
+        Toastify({
+
+            text: `${cel.modelo} ya se encuentra en tu carrito`,
+
+            gravity: "top",
+            position: "right",
+
+            style: {
+                background: " #000000",
+                color: "white",
+                fontSize: "1.20em",
+                border: "0.10em solid",
+                borderRadius: "2em",
+                textTransform: "uppercase",
+                textAlign: "center"
+            },
+
+            duration: 2000
+
+        }).showToast()
+
     }
 
 }
@@ -588,7 +642,6 @@ function agregarAlCarrito(cel) {
 let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
 
 // Funtion Cargar Productos en Carrito:
-
 function mostrarProductosCarrito(array) {
 
     modalBodyCarrito.innerHTML = ""
@@ -599,11 +652,11 @@ function mostrarProductosCarrito(array) {
 
         proCarrito.innerHTML +=
 
-            `<div class="modal-dialog" style="max-width:250px;">
+            `<div class="modal-dialog" style="max-width:250px;" id ="productoCarrito${cel.id}">
 
             <div class="modal-content">
 
-                <div class="card border-primary mb-4" id ="productoCarrito${cel.id}" style="max-width:400px; align-items: center;">
+                <div class="card border-primary mb-4"  style="max-width:400px; align-items: center;">
 
                     <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${cel.imagen}" alt="${cel.imagen}">
 
@@ -640,20 +693,65 @@ function mostrarProductosCarrito(array) {
 
         modalBodyCarrito.appendChild(proCarrito)
 
-        calcularTotal(array)
-
     }
 
+    // Eliminar del array de carrito:
+
+    array.forEach((productoEnCarrito) => {
+
+        let eliminarEnCarrito = document.getElementById(`botonEliminar${productoEnCarrito.id}`);
+
+        eliminarEnCarrito.addEventListener("click", () => {
+
+            let cardCarrito = document.getElementById(`productoCarrito${productoEnCarrito.id}`);
+
+            cardCarrito.remove();
+
+            let proCarritoEliminar = array.find((celCarri) => celCarri.id == productoEnCarrito.id)
+
+            let positionElim = array.indexOf(proCarritoEliminar)
+
+            array.splice(positionElim, 1)
+
+            localStorage.setItem("carrito", JSON.stringify(array))
+
+            Toastify({
+
+                text: `Has eliminado ${productoEnCarrito.modelo} del carrito`,
+                gravity: "top",
+                position: "right",
+                style: {
+                    background: "#000000",
+                    color: "white",
+                    fontSize: "1.20em",
+                    border: "0.10em solid",
+                    borderRadius: "2em",
+                    textTransform: "uppercase",
+                    textAlign: "center"
+                },
+                duration: 2000
+
+            }).showToast()
+
+            calcularTotal(array);
+
+        })
+
+    })
+
+    calcularTotal(array);
 }
+
 
 
 
 // Function Total Carrito:
 
 function calcularTotal(array) {
+
     let total = array.reduce((acc, productoCarrito) => acc + productoCarrito.precio, 0)
 
-    precioTotal.innerHTML = `<p style="text-align: center; font-size: 17px; margin-bottom:0em !important; padding-bottom: 1em;">El total del carrito es <strong>$${total}</strong>.</p>`
+    total == 0 ? precioTotal.innerHTML = `<p style="text-align: center; font-size: 17px; margin-bottom:1em !important; margin-top:1em !important; padding-bottom: 1em;"><strong>Tu carrito no tiene productos.</strong></p>` : precioTotal.innerHTML = `<p style="text-align: center; font-size: 17px; margin-bottom:1em !important; padding-bottom: 1em;"><strong>El total del carrito es </strong><strong style="color: green;">$${total}.</strong></p>`
 }
 
 // Captura botón Carrito Nav:
@@ -708,6 +806,49 @@ function agregarAfavoritos(cel) {
         productosFavoritos.push(cel)
 
         localStorage.setItem("favoritos", JSON.stringify(productosFavoritos))
+
+        Toastify({
+
+            text: `Has guardado en favoritos ${cel.modelo}`,
+            gravity: "top",
+            position: "right",
+            style: {
+                background: "linear-gradient(to right, rgb(157 37 37), rgb(225 9 9))",
+                color: "white",
+                fontSize: "1.20em",
+                border: "0.10em solid",
+                borderRadius: "2em",
+                textTransform: "uppercase",
+                textAlign: "center"
+            },
+
+            duration: 2000
+
+        }).showToast()
+
+    } else {
+
+        Toastify({
+
+            text: `${cel.modelo} ya se encuentra en favoritos`,
+
+            gravity: "top",
+            position: "right",
+
+            style: {
+                background: " #000000",
+                color: "white",
+                fontSize: "1.20em",
+                border: "0.10em solid",
+                borderRadius: "2em",
+                textTransform: "uppercase",
+                textAlign: "center"
+            },
+
+            duration: 2000
+
+        }).showToast()
+
     }
 
 }
@@ -731,11 +872,11 @@ function mostrarProductosFavoritos(array) {
 
         newCelFav.innerHTML +=
 
-            `<div class="modal-dialog" style="max-width:250px;">
+            `<div class="modal-dialog" style="max-width:250px;" id ="productoFavoritos${cel.id}">
 
             <div class="modal-content">
 
-                <div class="card border-primary mb-4" id ="productoCarrito${cel.id}" style="max-width:400px; display: flex; justify-content:center; align-items: center;">
+                <div class="card border-primary mb-4"  style="max-width:400px; display: flex; justify-content:center; align-items: center;">
 
                     <img class="card-img-top" style="max-height:300px;max-width:180px; padding: 1em; margin-top: 1.4em" src="assets/${cel.imagen}" alt="">
 
@@ -773,6 +914,7 @@ function mostrarProductosFavoritos(array) {
         pasarAlCarrito.dataset.id = cel.id;
 
         pasarAlCarrito.addEventListener("click", (event) => {
+
             const id = event.target.dataset.id;
             const cel = productosFavoritos.find((p) => p.id == id);
 
@@ -780,29 +922,54 @@ function mostrarProductosFavoritos(array) {
 
                 pasarFavCarrito(cel);
 
-                Toastify({
-
-                    text: `Has agregado al carrito ${cel.modelo}`,
-                    gravity: "top",
-                    position: "right",
-                    style: {
-                        background: "linear-gradient(to right, #0d6efd, #0dcaf0)",
-                        color: "white",
-                        fontSize: "1.20em",
-                        border: "0.10em solid",
-                        borderRadius: "2em",
-                        textTransform: "uppercase",
-                        textAlign: "center"
-                    },
-
-                    duration: 1500
-
-                }).showToast()
-
             }
+
         });
 
     }
+
+    // Eliminar del array de favoritos:
+
+    array.forEach((productosFavoritos) => {
+
+        let eliminarEnFavoritos = document.getElementById(`botonEliminarFav${productosFavoritos.id}`)
+
+        eliminarEnFavoritos.addEventListener("click", () => {
+
+            let cardFavorito = document.getElementById(`productoFavoritos${productosFavoritos.id}`);
+
+            cardFavorito.remove();
+
+            let proFavoritoEliminar = array.find((celFav) => celFav.id == productosFavoritos.id)
+
+            let positionElimFav = array.indexOf(proFavoritoEliminar)
+
+            array.splice(positionElimFav, 1)
+
+            localStorage.setItem("favoritos", JSON.stringify(array))
+
+            Toastify({
+
+                text: `Has eliminado ${productosFavoritos.modelo} de favoritos`,
+                gravity: "top",
+                position: "right",
+                style: {
+                    background: "#000000",
+                    color: "white",
+                    fontSize: "1.20em",
+                    border: "0.10em solid",
+                    borderRadius: "2em",
+                    textTransform: "uppercase",
+                    textAlign: "center"
+                },
+                duration: 2000
+
+            }).showToast()
+
+        })
+
+    })
+
 }
 
 
@@ -843,50 +1010,124 @@ function pasarFavCarrito(cel) {
 
         localStorage.setItem("carrito", JSON.stringify(productosEnCarrito))
 
+        Toastify({
+
+            text: `Has agregado al carrito ${cel.modelo}`,
+            gravity: "top",
+            position: "right",
+            style: {
+                background: "linear-gradient(to right, #006a15, rgb(3, 183, 0))",
+                color: "white",
+                fontSize: "1.20em",
+                border: "0.10em solid",
+                borderRadius: "2em",
+                textTransform: "uppercase",
+                textAlign: "center"
+            },
+
+            duration: 2000
+
+        }).showToast()
+
+    } else {
+
+        Toastify({
+
+            text: `${cel.modelo} ya se encuentra en tu carrito`,
+
+            gravity: "top",
+            position: "right",
+
+            style: {
+                background: " #000000",
+                color: "white",
+                fontSize: "1.20em",
+                border: "0.10em solid",
+                borderRadius: "2em",
+                textTransform: "uppercase",
+                textAlign: "center"
+            },
+
+            duration: 2000
+
+        }).showToast()
+
     }
 
 }
 
-//function agregarAfavoritos(cel) {
 
-//  let celAgregadoEnFav = productosFavoritos.find((elemento) => elemento.id == cel.id)
+//////////////////////////////////////////////
 
-//if (celAgregadoEnFav == undefined) {
-
-//  productosFavoritos.push(cel)
-
-//localStorage.setItem("favoritos", JSON.stringify(productosFavoritos))
-//}
-
-//}
+// ELIMINAR PRODCUTOS:
 
 
+let usuarioElim = document.getElementById("usuarioInputElim")
+
+let contraElim = document.getElementById("contraseñaInputElim")
 
 
-//Swal.fire(
-//  'The Internet?',
-//'That thing is still around?',
-//'question'
-//)
+let formValidarElim = document.getElementById("validacionElimForm")
+
+
+let btnValidarElim = document.getElementById("validarAccesoEliminar")
+
+let reintentarAccsElim = document.getElementById("reintAccesoEliminar")
 
 
 
+btnValidarElim.addEventListener("click", () => {
 
+    validarElim(usuarioElim, contraElim)
 
+})
 
+function validarElim(usuario, contra) {
 
+    if (usuario.value === "Rick" && contra.value === "1234") {
 
+        let modalEliminarCel = new bootstrap.Modal(document.getElementById('idModalEliminarCel'));
 
-function verIDS(array) {
+        modalEliminarCel.show();
 
-    iDInventario.innerHTML = ""
+        console.log("1")
 
-    array.forEach((cel) => {
-        iDInventario.innerHTML += `
-    <p style="text-align: center; line-height: 1em; font-size: 15px">La id del modelo ${cel.modelo} es ${cel.id}.</p>`
-    })
+    } else {
+
+        let reintentarAccesoElim = new bootstrap.Modal(document.getElementById('contraseñaIncorrectaElim'));
+
+        reintentarAccesoElim.show();
+
+    }
+
+    formValidarElim.reset()
 
 }
+
+reintentarAccsElim.addEventListener("click", () => {
+
+    let Acceso2Elim = new bootstrap.Modal(document.getElementById("idModalValidarEliminarCel"));
+
+    Acceso2Elim.show();
+
+
+})
+
+
+
+
+///////////////////////////////////////////////////
+
+
+//ELIMINAR CELS
+
+///////////////////////////////
+
+
+
+// boton eliminar del inventario. 
+
+let eliminarCEL = document.getElementById("eliminarCel")
 
 eliminarCEL.addEventListener("click", () => {
 
@@ -894,5 +1135,58 @@ eliminarCEL.addEventListener("click", () => {
     coincidencia.innerHTML = "";
     buscador.value = "";
 
-    verIDS(inventario)
+})
+
+
+
+// Este es el boton que dice eliminar dispositivo en el modal que se accede despues de hacer la valicacion del acceso:
+
+let eliminarCelular = document.getElementById("eliminarModeloBtn")
+
+eliminarCelular.addEventListener("click", () => {
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+
+            position: "center",
+            icon: 'info',
+            title: 'Estas seguro de querer eliminar el modelo ${cel.modelo} del inventario?',
+            showCancelButton: true,
+            confirmButtonText: 'Si',
+            cancelButtonText: 'No',
+            reverseButtons: true
+
+        })
+
+        .then((result) => {
+
+            if (result.isConfirmed) {
+
+                swalWithBootstrapButtons.fire(
+                    '${cel.modelo} se ha eliminado del inventario',
+                    '¡Eliminación exitosa!',
+                    'success',
+                )
+
+                // Acá es donde tendria que poner la function que eliminar efectivamente el modelo del inventario, junto con la function que elimina el modelo de favoritos y la que lo elimina de carrito. 
+
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+                swalWithBootstrapButtons.fire(
+                    'Has cancelado la eliminación de ${cel.modelo} del inventario',
+                    '¡Eliminación cancelada!',
+                    'error',
+                )
+
+            }
+
+        })
+
 })

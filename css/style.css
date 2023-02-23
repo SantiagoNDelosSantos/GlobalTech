@@ -303,6 +303,12 @@ footer {
 .h3Footer0 {
   line-height: 120%;
   grid-area: h3Footer0;
+  margin-top: 1em;
+}
+@media (min-width: 990px) {
+  .h3Footer0 {
+    margin-top: 0em;
+  }
 }
 
 .ulFooter {
@@ -311,6 +317,12 @@ footer {
 
 .h3FooterCopy {
   grid-area: h3FooterCopy;
+  margin-bottom: 1em;
+}
+@media (min-width: 990px) {
+  .h3FooterCopy {
+    margin-bottom: 0em;
+  }
 }
 
 .gridFooter {
@@ -318,7 +330,12 @@ footer {
   grid-template-areas: "h3Footer0" "ulFooter" "h3FooterCopy";
   justify-content: center;
   align-items: center;
-  gap: 4em;
+  gap: 2em;
+}
+@media (min-width: 600px) {
+  .gridFooter {
+    grid-template-areas: "h3Footer0 ulFooter" "h3Footer0 h3FooterCopy";
+  }
 }
 @media (min-width: 990px) {
   .gridFooter {
@@ -329,9 +346,14 @@ footer {
   }
 }
 
-h3, .ulFooter, .h3FooterCopy {
+h3,
+.ulFooter,
+.h3FooterCopy {
   font-size: 15px;
   padding: 0em;
+}
+
+.ulFooter {
   margin: 0em;
 }
 
@@ -365,22 +387,54 @@ h3, .ulFooter, .h3FooterCopy {
   --bs-modal-margin: 5.5rem;
 }
 
-.my-swal-button {
-  font-size: 1.7em;
-  border: 0;
-  border-radius: 0.25em;
-  background: initial;
-  display: inline-block;
-  background-color: rgb(13, 110, 253);
-  color: #fff;
-  padding: 0.7em;
-  border-radius: 0.7em;
+.swal2-success-ring {
+  color: #9de275 !important;
+  border-color: #9de275 !important;
 }
 
-#idModalAgregarCel {
-  display: none;
+.swal2-icon.swal2-warning.swal2-icon-show {
+  color: #c90000 !important;
+  border-color: #c90000 !important;
 }
 
-.block {
-  display: block;
+.swal2-icon.swal2-info.swal2-icon-show {
+  color: #006de3 !important;
+  border-color: #006de3 !important;
+}
+
+span.swal2-x-mark {
+  color: #c90000 !important;
+  border-color: #c90000 !important;
+}
+
+button.swal2-confirm.swal2-styled {
+  background-color: #006de3 !important;
+  box-shadow: none !important;
+  font-size: 1.5em !important;
+  border-color: white !important;
+}
+
+.swal2-timer-progress-bar {
+  background: #006de3 !important;
+  height: 0.5em !important;
+}
+
+button.swal2-confirm.btn.btn-success {
+  background-color: #006de3 !important;
+  box-shadow: none !important;
+  font-size: 1.5em !important;
+  border-color: white !important;
+  margin-left: 1em !important;
+}
+
+button.swal2-cancel.btn.btn-danger {
+  background-color: #006de3 !important;
+  box-shadow: none !important;
+  font-size: 1.5em !important;
+  border-color: white !important;
+  margin-right: 1em !important;
+}
+
+div#swal2-html-container {
+  font-size: 1.7em !important;
 }/*# sourceMappingURL=style.css.map */

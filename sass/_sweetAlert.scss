@@ -1,11 +1,69 @@
-.my-swal-button {
-    font-size: 1.70em;
-    border: 0;
-    border-radius: 0.25em;
-    background: initial;
-    display: inline-block;
-    background-color: rgb(13, 110, 253);
-    color: #fff;
-    padding: 0.70em;
-    border-radius: 0.70em;
+// Icono Check:
+
+.swal2-success-ring {
+    color: #9de275 !important;
+    border-color: #9de275 !important;
+}
+
+// Icono Warning:
+
+.swal2-icon.swal2-warning.swal2-icon-show {
+    color: #c90000 !important;
+    border-color: #c90000 !important;
+}
+
+// Icono Info:
+
+.swal2-icon.swal2-info.swal2-icon-show {
+    color: #006de3 !important;
+    border-color: #006de3 !important;
+}
+
+// Icono Cancelar:
+
+span.swal2-x-mark{
+    color: #c90000 !important;
+    border-color: #c90000 !important;
+}
+
+// Botón Confirmar Agregar:
+
+button.swal2-confirm.swal2-styled {
+    background-color: #006de3 !important;
+    box-shadow: none !important;
+    font-size: 1.50em !important;
+    border-color: white !important;
+}
+
+// Barra Timer:
+
+.swal2-timer-progress-bar {
+    background: #006de3 !important;
+    height: 0.50em !important;
+}
+
+// Botón confirmar SI desea Eliminar:
+
+button.swal2-confirm.btn.btn-success{
+    background-color: #006de3 !important;
+    box-shadow: none !important;
+    font-size: 1.50em !important;
+    border-color: white !important;
+    margin-left: 1em !important;
+}
+
+// // Botón confirmar NO desea Eliminar:
+
+button.swal2-cancel.btn.btn-danger{
+    background-color: #006de3 !important;
+    box-shadow: none !important;
+    font-size: 1.50em !important;
+    border-color: white !important;
+    margin-right: 1em !important;
+}
+
+// Texto Eliminación cancelada / Eliminación exitosa:
+
+div#swal2-html-container{
+    font-size: 1.70em !important;
 }

@@ -105,7 +105,7 @@
 
                         <li class="nav-item">
                             <button id="eliminarCel" class="subrayado" data-bs-toggle="modal"
-                                data-bs-target="#idModalEliminarCel">ELIMINAR CEL</button>
+                                data-bs-target="#idModalValidarEliminarCel">ELIMINAR CEL</button>
                         </li>
 
                         <li class="nav-item">
@@ -223,7 +223,6 @@
             </div>
 
         </div>
-
 
         <!-- Modal Validación para agregar Cel-->
 
@@ -384,6 +383,51 @@
 
 
 
+        <!-- Modal Reintentar Validación para agregar Cel-->
+
+        <div class="modal fade" id="contraseñaIncorrecta" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: rgb(173, 1, 1);">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Acceso Denegado</h5>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+
+                    <div class="modal-body" id="modal-bodyReintAgreCel">
+
+                        <div class="mb-3">
+
+                            <label class="form-label" style="text-align: center; color: rgb(173, 1, 1)">La contraseña
+                                ingresada es incorrecta, si desea puede volver a intentar.</label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+
+                        <button type="text" id="reintAccesoAgregar" class="btn btn-primary"
+                            style="background-color: rgb(173, 1, 1)" data-bs-dismiss="modal">Reintentar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
         <!-- Modal Favoritos-->
 
         <div class="modal fade" id="idModalFavoritos" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -417,6 +461,8 @@
 
         </div>
 
+
+
         <!-- Modal Carrito -->
 
         <div class="modal fade" id="idModalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -434,6 +480,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                     </div>
+                    
 
                     <div class="modal-body" id="modal-bodyCarrito">
                     </div>
@@ -457,6 +504,67 @@
             </div>
 
         </div>
+
+
+
+        <!-- Modal Validación para eliminar Cel-->
+
+        <div class="modal fade" id="idModalValidarEliminarCel" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Acceso Repositor</h5>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+
+                    <div class="modal-body" id="modal-bodyValidarElimCel">
+
+                        <form id="validacionElimForm">
+
+                            <div class="mb-3">
+
+                                <label for="usuario" class="form-label">Usuario:</label>
+
+                                <input type="text" class="form-control" id="usuarioInputElim"
+                                    aria-describedby="usuarioValidarElim">
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="contraseña" class="form-label">Contraseña:</label>
+
+                                <input type="password" class="form-control" id="contraseñaInputElim"
+                                    aria-describedby="contraseñaValidarElim">
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+
+                        <button type="text" id="validarAccesoEliminar" class="btn btn-primary"
+                            data-bs-dismiss="modal">Validar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
 
         <!-- Modal Eliminar Cel-->
 
@@ -515,6 +623,63 @@
             </div>
 
         </div>
+
+
+
+        <!-- Modal Reintentar Validación para  Eliminar Cel-->
+
+        <div class="modal fade" id="contraseñaIncorrectaElim" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header" style="background-color: rgb(173, 1, 1);">
+
+                        <h5 class="modal-title" id="exampleModalLabel">Acceso Denegado</h5>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+
+                    <div class="modal-body" id="modal-bodyReintElimCel">
+
+                        <div class="mb-3">
+
+                            <label class="form-label" style="text-align: center; color: rgb(173, 1, 1)">La contraseña
+                                ingresada es incorrecta, si desea puede volver a intentar.</label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+
+                        <button type="text" id="reintAccesoEliminar" class="btn btn-primary"
+                            style="background-color: rgb(173, 1, 1)" data-bs-dismiss="modal">Reintentar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
     </main>
 
