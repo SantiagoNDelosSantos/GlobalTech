@@ -392,16 +392,6 @@ h3,
   border-color: #9de275 !important;
 }
 
-.swal2-icon.swal2-warning.swal2-icon-show {
-  color: #c90000 !important;
-  border-color: #c90000 !important;
-}
-
-.swal2-icon.swal2-info.swal2-icon-show {
-  color: #006de3 !important;
-  border-color: #006de3 !important;
-}
-
 span.swal2-x-mark {
   color: #c90000 !important;
   border-color: #c90000 !important;
@@ -419,22 +409,41 @@ button.swal2-confirm.swal2-styled {
   height: 0.5em !important;
 }
 
-button.swal2-confirm.btn.btn-success {
-  background-color: #006de3 !important;
-  box-shadow: none !important;
-  font-size: 1.6em !important;
-  border-color: white !important;
-  margin-left: 1em !important;
+h2.logo {
+  color: black;
+  margin-top: 0px !important;
 }
 
-button.swal2-cancel.btn.btn-danger {
-  background-color: #006de3 !important;
-  box-shadow: none !important;
-  font-size: 1.5em !important;
-  border-color: white !important;
-  margin-right: 1em !important;
+#Carga {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 2em;
 }
 
-div#swal2-html-container {
-  font-size: 1.7em !important;
+h2#loaderTexto {
+  color: rgb(2, 2, 2) !important;
+  font-family: "Montserrat";
+  font-size: 2em;
+  margin-top: 1em;
+}
+
+.spinner-border.text-success {
+  color: rgb(0, 0, 0) !important;
+  --bs-spinner-width: 5rem;
+  --bs-spinner-height: 5rem;
+  margin-top: 1em;
+}
+
+#inicioImg {
+  height: auto;
+  width: 60%;
+  margin-bottom: 2em;
+}
+@media (min-width: 600px) {
+  #inicioImg {
+    width: 30%;
+  }
 }/*# sourceMappingURL=style.css.map */

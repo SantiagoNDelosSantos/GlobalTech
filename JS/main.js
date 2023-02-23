@@ -1,26 +1,4 @@
-////////////////////////////////////////////////////////////////
-
 // Proyecto eCommerce "Global Tech":
-
-
-
-
-
-
-
-
-
-
-
-let formAgregarCel = document.getElementById("formAgregarCel")
-let precioTotal = document.getElementById("precioTotal")
-
-
-
-
-///////////////////////////////////////////////////////////////////////////
-
-
 
 // Function Ver Inventario:
 
@@ -140,10 +118,15 @@ botonVerInventario.addEventListener("click", () => {
 
 })
 
-// Carga por defecto del Inventario:
 
-verInventario(inventario)
+// Ventana de inicio => Carga por defecto del Inventario:
 
+let inicia = document.getElementById("Carga") 
+
+setTimeout(() => {
+    inicia.remove()
+    verInventario(inventario)
+}, 1500)
 
 
 // Captura botón Agregar Cel Nav:
@@ -179,6 +162,7 @@ btnValidar.addEventListener("click", () => {
 
 })
 
+
 function validar(usuario, contra) {
 
 
@@ -207,7 +191,7 @@ reintentarAccs.addEventListener("click", () => {
     Acceso2.show();
 })
 
-
+let formAgregarCel = document.getElementById("formAgregarCel")
 
 // Function Agregar Nuevo Producto al Inventario:
 function agregarCel(array) {
@@ -256,10 +240,6 @@ let guardarCelBtn = document.getElementById("guardarCelBtn");
 guardarCelBtn.addEventListener("click", () => {
     agregarCel(inventario);
 });
-
-
-
-
 
 
 
@@ -742,8 +722,7 @@ function mostrarProductosCarrito(array) {
     calcularTotal(array);
 }
 
-
-
+let precioTotal = document.getElementById("precioTotal")
 
 // Function Total Carrito:
 
@@ -1057,75 +1036,11 @@ function pasarFavCarrito(cel) {
 }
 
 
-//////////////////////////////////////////////
 
-// ELIMINAR PRODCUTOS:
-
-
-let usuarioElim = document.getElementById("usuarioInputElim")
-
-let contraElim = document.getElementById("contraseñaInputElim")
+//ELIMINAR CELS:
 
 
-let formValidarElim = document.getElementById("validacionElimForm")
-
-
-let btnValidarElim = document.getElementById("validarAccesoEliminar")
-
-let reintentarAccsElim = document.getElementById("reintAccesoEliminar")
-
-
-
-btnValidarElim.addEventListener("click", () => {
-
-    validarElim(usuarioElim, contraElim)
-
-})
-
-function validarElim(usuario, contra) {
-
-    if (usuario.value === "Rick" && contra.value === "1234") {
-
-        let modalEliminarCel = new bootstrap.Modal(document.getElementById('idModalEliminarCel'));
-
-        modalEliminarCel.show();
-
-        console.log("1")
-
-    } else {
-
-        let reintentarAccesoElim = new bootstrap.Modal(document.getElementById('contraseñaIncorrectaElim'));
-
-        reintentarAccesoElim.show();
-
-    }
-
-    formValidarElim.reset()
-
-}
-
-reintentarAccsElim.addEventListener("click", () => {
-
-    let Acceso2Elim = new bootstrap.Modal(document.getElementById("idModalValidarEliminarCel"));
-
-    Acceso2Elim.show();
-
-
-})
-
-
-
-
-///////////////////////////////////////////////////
-
-
-//ELIMINAR CELS
-
-///////////////////////////////
-
-
-
-// boton eliminar del inventario. 
+// Botón Eliminar Cel (Botón Nav Bar). 
 
 let eliminarCEL = document.getElementById("eliminarCel")
 
@@ -1137,56 +1052,156 @@ eliminarCEL.addEventListener("click", () => {
 
 })
 
+// Al presionar este boton se me muestra el modal Acceso Repositor para eliminar cel.
 
 
-// Este es el boton que dice eliminar dispositivo en el modal que se accede despues de hacer la valicacion del acceso:
+// Captura input modal Acceso Repositor:
 
-let eliminarCelular = document.getElementById("eliminarModeloBtn")
+let usuarioElim = document.getElementById("usuarioInputElim")
 
-eliminarCelular.addEventListener("click", () => {
+let contraElim = document.getElementById("contraseñaInputElim")
 
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-            confirmButton: 'btn btn-success',
-            cancelButton: 'btn btn-danger'
-        },
-        buttonsStyling: false
-    })
+// Una vez que tengo capturados los input 
 
-    swalWithBootstrapButtons.fire({
+// Capturo el formulario donde estan los input para reiniciar los valores una vez que ya se valido o intento validar el accceso:
 
-            position: "center",
-            icon: 'info',
-            title: 'Estas seguro de querer eliminar el modelo ${cel.modelo} del inventario?',
-            showCancelButton: true,
-            confirmButtonText: 'Si',
-            cancelButtonText: 'No',
-            reverseButtons: true
+let formValidarElim = document.getElementById("validacionElimForm")
 
-        })
+// Despues de completar los input tengo el boton que dice validar en el modal con los input. Lo capturo.
 
-        .then((result) => {
+let btnValidarElim = document.getElementById("validarAccesoEliminar")
 
-            if (result.isConfirmed) {
+// El boton de Validar me ejecuta una function con dos parametros el usuario y la contraseña:
 
-                swalWithBootstrapButtons.fire(
-                    '${cel.modelo} se ha eliminado del inventario',
-                    '¡Eliminación exitosa!',
-                    'success',
-                )
+btnValidarElim.addEventListener("click", () => {
 
-                // Acá es donde tendria que poner la function que eliminar efectivamente el modelo del inventario, junto con la function que elimina el modelo de favoritos y la que lo elimina de carrito. 
-
-            } else if (result.dismiss === Swal.DismissReason.cancel) {
-
-                swalWithBootstrapButtons.fire(
-                    'Has cancelado la eliminación de ${cel.modelo} del inventario',
-                    '¡Eliminación cancelada!',
-                    'error',
-                )
-
-            }
-
-        })
+    validarElim(usuarioElim, contraElim)
 
 })
+
+// La function que ejecuta el boton de validar valida la contraseña Y ejectuta dos cosas segun si la contraseña es correcta o incorrecta:
+
+// Antes de ejecutar la function capturo el body del Modal que se va a mostrar si la validación es correcta.
+
+
+function validarElim(usuario, contra) {
+
+    if (usuario.value === "Rick" && contra.value === "1234") {
+
+        verELIM(inventario)
+
+        let modalEliminarCel = new bootstrap.Modal(document.getElementById('idModalEliminarCel'));
+
+        modalEliminarCel.show();
+
+    } else {
+
+        // Si la contraseña es incorrecta me muestra el modal de Reintentar Validacion que capturo y muestro a continuación:
+
+        let reintentarAccesoElim = new bootstrap.Modal(document.getElementById('contraseñaIncorrectaElim'));
+
+        reintentarAccesoElim.show();
+
+        // Dentro de este modal tengo un bóton que dice Reintentar este bóton vuelve a cargar el modal de Acceso Repositor de esta manera se hace un ciclo hasta que se de con la contraseña correcta o que que la persona seleccione cerrar y salga del modal de reintentar:
+
+        let reintentarAccsElim = document.getElementById("reintAccesoEliminar")
+
+        reintentarAccsElim.addEventListener("click", () => {
+
+            let Acceso2Elim = new bootstrap.Modal(document.getElementById("idModalValidarEliminarCel"));
+
+            Acceso2Elim.show();
+
+        })
+
+    }
+
+    formValidarElim.reset()
+
+}
+
+
+/// Function para ver las ID de todos los productos que estan en el Inventario:
+
+function verELIM(array) {
+
+    let iDInventario = document.getElementById("mostrarIdInventario")
+
+    iDInventario.innerHTML = ""
+
+    array.forEach((cel) => {
+
+        let enInventario = document.createElement("div")
+
+        enInventario.innerHTML += `
+        <div style=" display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 3em;
+        margin-bottom: 2em;
+        border: 0.1em solid black;
+        padding: 1em;
+        border-radius: 1em;" id="card${cel.id}">
+
+            <p style="text-align: center; line-height: 1em; font-size: 17px; font-weight: bold; line-height: 1.50em;">${cel.modelo}.</p>
+            
+            <button class= "btn btn-danger" id="btnEliminarEnAcceso${cel.id}"                  
+            style=" height: 4em; width: 4em; display: flex; justify-content: center; display: flex;align-items: center;"><i class="fas fa-trash-alt" ></i></button>
+
+        </div>
+        `
+
+        iDInventario.appendChild(enInventario)
+
+    })
+
+    array.forEach((inventario) => {
+
+        let btnEliminarFinalInvt = document.getElementById(`btnEliminarEnAcceso${inventario.id}`)
+
+        btnEliminarFinalInvt.addEventListener("click", () => {
+
+            // Elimina de menú eliminar:
+
+            let cardEliminar = document.getElementById(`card${inventario.id}`)
+
+            cardEliminar.remove();
+
+            // Elimina la card del inventario: 
+
+            let cardInventario = document.getElementById(`${inventario.id}`)
+
+            cardInventario.remove();
+
+            // Elimina del array
+
+            let proInventarioEliminar = array.find((celInventari) => celInventari.id == inventario.id)
+
+            let positionInvElim = array.indexOf(proInventarioEliminar)
+
+            array.splice(positionInvElim, 1)
+
+            localStorage.setItem("inventario", JSON.stringify(array))
+
+            // Vuelve a cargar cards actualizadas:
+
+            verInventario(array)
+
+            // Notifica:
+
+            Swal.fire({
+
+                position: "center",
+                icon: "success",
+                title: `${inventario.modelo} se ha eliminado del inventario`,
+                timer: 3500,
+                timerProgressBar: true,
+
+            })
+
+        })
+
+    })
+
+}

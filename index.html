@@ -165,6 +165,24 @@
 
         </div>
 
+        <!-- Carga para Inicio-->
+
+        <div id="Carga">
+
+            <h2 class="logo" >Global Tech</h2>
+
+            <h2 id="loaderTexto" class="text-success text-center">Cargando Productos...</h2>
+
+
+            <div id="loaderInicio" class="d-flex justify-content-center">
+                <div class="spinner-border text-success" role="status" >
+                    <span class="visually-hidden"></span>
+                </div>
+            </div>
+
+            <img src="assets/Inicio.png" alt="Inicio" id="inicioImg">
+
+        </div>
 
         <!-- Modal Rango de Precios -->
 
@@ -404,7 +422,8 @@
 
                         <div class="mb-3">
 
-                            <label class="form-label" style="text-align: center; color: rgb(173, 1, 1)">El usuario o contraseña
+                            <label class="form-label" style="text-align: center; color: rgb(173, 1, 1)">El usuario o
+                                contraseña
                                 ingresados son incorrectos, si deseas puedes volver a intentar.</label>
 
                         </div>
@@ -480,7 +499,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                     </div>
-                    
+
 
                     <div class="modal-body" id="modal-bodyCarrito">
                     </div>
@@ -578,43 +597,21 @@
                     <div class="modal-header">
 
                         <h5 class="modal-title" id="exampleModalLabel">Eliminar
-                            Dispositivo por ID</h5>
+                            Dispositivo del Inventario</h5>
 
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                     </div>
 
-                    <div class="modal-body" id="modal-body">
+                    <div class="modal-body" id="modal-bodyEliminarInventario">
 
-                        <div id="iDInventario">
-                        </div>
-
-                        <form>
-
-                            <div class="mb-3">
-
-                                <label for="eliminarModelo" class="form-label"><strong>Ingrese la ID
-                                        del
-                                        modelo que desea
-                                        eliminar:</strong></label>
-
-                                <input type="text" class="form-control" id="eliminarModeloInput"
-                                    aria-describedby="eliminarModelo">
-
-                            </div>
-
-
-                        </form>
+                        <div id="mostrarIdInventario"></div>
 
                     </div>
 
                     <div class="modal-footer">
 
                         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
-
-                        <button type="text" id="eliminarModeloBtn" class="btn btn-primary"
-                            data-bs-dismiss="modal">Eliminar
-                            Dispositivo</button>
 
                     </div>
 
@@ -623,8 +620,6 @@
             </div>
 
         </div>
-
-
 
         <!-- Modal Reintentar Validación para  Eliminar Cel-->
 
@@ -647,7 +642,8 @@
 
                         <div class="mb-3">
 
-                            <label class="form-label" style="text-align: center; color: rgb(173, 1, 1)">El usuario o contraseña
+                            <label class="form-label" style="text-align: center; color: rgb(173, 1, 1)">El usuario o
+                                contraseña
                                 ingresados son incorrectos, si deseas puedes volver a intentar.</label>
 
                         </div>
@@ -668,18 +664,6 @@
             </div>
 
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
     </main>
 
