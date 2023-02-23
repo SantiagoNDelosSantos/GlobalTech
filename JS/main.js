@@ -106,25 +106,6 @@ function verInventario(array) {
 
             agregarAfavoritos(cel)
 
-            Toastify({
-
-                text: `Has guardado en favoritos ${cel.modelo}`,
-                gravity: "top",
-                position: "right",
-                style: {
-                    background: "linear-gradient(to right, #0d6efd, #0dcaf0)",
-                    color: "white",
-                    fontSize: "1.20em",
-                    border: "0.10em solid",
-                    borderRadius: "2em",
-                    textTransform: "uppercase",
-                    textAlign: "center"
-                },
-
-                duration: 1500
-
-            }).showToast()
-
         })
 
         let btnAgregar = document.getElementById(`agregarBtn${cel.id}`)
@@ -136,26 +117,6 @@ function verInventario(array) {
             buscador.value = "";
 
             agregarAlCarrito(cel)
-
-
-            Toastify({
-
-                text: `Has agregado al carrito ${cel.modelo}`,
-                gravity: "top",
-                position: "right",
-                style: {
-                    background: "linear-gradient(to right, #0d6efd, #0dcaf0)",
-                    color: "white",
-                    fontSize: "1.20em",
-                    border: "0.10em solid",
-                    borderRadius: "2em",
-                    textTransform: "uppercase",
-                    textAlign: "center"
-                },
-
-                duration: 1500
-
-            }).showToast()
 
         })
 
