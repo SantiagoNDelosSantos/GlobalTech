@@ -1,41 +1,49 @@
-h2.logo{
+h2.logo {
     color: black;
     margin-top: 0px !important;
 }
 
-#Carga{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center; 
-height: 100%;
-gap: 2em;
+#Carga {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 2em;
 }
 
-h2#loaderTexto{
+h2#loaderTexto {
     color: rgb(2, 2, 2) !important;
     font-family: "Montserrat";
-    font-size: 2em; 
+    font-size: 2em;
     margin-top: 1em;
 }
 
-.spinner-border.text-success{
-color: rgb(0, 0, 0) !important;
-        --bs-spinner-width: 5rem;
-        --bs-spinner-height: 5rem; 
-margin-top: 1em;
+.spinner-border.text-success {
+    color: rgb(0, 0, 0) !important;
+    margin-top: 1em;
+    --bs-spinner-width: 5rem;
+    --bs-spinner-height: 5rem;
+
+    @media (min-width: 600px) {
+        --bs-spinner-width: 3rem;
+        --bs-spinner-height: 3rem;
+    }
 
 }
 
-#inicioImg{
+#inicioImg {
 
     height: auto;
     width: 60%;
     margin-bottom: 2em;
 
     @media (min-width: 600px) {
+        width: 40%;
+    }
+
+    @media (min-width: 900px) {
         width: 30%;
     }
 
 }
-

@@ -392,6 +392,16 @@ h3,
   border-color: #9de275 !important;
 }
 
+.swal2-icon.swal2-warning.swal2-icon-show {
+  color: #c90000 !important;
+  border-color: #c90000 !important;
+}
+
+.swal2-icon.swal2-info.swal2-icon-show {
+  color: #006de3 !important;
+  border-color: #006de3 !important;
+}
+
 span.swal2-x-mark {
   color: #c90000 !important;
   border-color: #c90000 !important;
@@ -407,6 +417,31 @@ button.swal2-confirm.swal2-styled {
 .swal2-timer-progress-bar {
   background: #006de3 !important;
   height: 0.5em !important;
+}
+
+button.swal2-confirm.btn.btn-success {
+  background-color: #006de3 !important;
+  box-shadow: none !important;
+  font-size: 1.6em !important;
+  border-color: white !important;
+  margin-left: 0em !important;
+}
+
+button.swal2-cancel.btn.btn-danger {
+  background-color: #006de3 !important;
+  box-shadow: none !important;
+  font-size: 1.5em !important;
+  border-color: white !important;
+  margin-right: 0em !important;
+}
+
+div#swal2-html-container {
+  font-size: 1.7em !important;
+}
+
+.swal2-actions {
+  display: flex;
+  gap: 2em;
 }
 
 h2.logo {
@@ -432,9 +467,15 @@ h2#loaderTexto {
 
 .spinner-border.text-success {
   color: rgb(0, 0, 0) !important;
+  margin-top: 1em;
   --bs-spinner-width: 5rem;
   --bs-spinner-height: 5rem;
-  margin-top: 1em;
+}
+@media (min-width: 600px) {
+  .spinner-border.text-success {
+    --bs-spinner-width: 3rem;
+    --bs-spinner-height: 3rem;
+  }
 }
 
 #inicioImg {
@@ -443,6 +484,11 @@ h2#loaderTexto {
   margin-bottom: 2em;
 }
 @media (min-width: 600px) {
+  #inicioImg {
+    width: 40%;
+  }
+}
+@media (min-width: 900px) {
   #inicioImg {
     width: 30%;
   }

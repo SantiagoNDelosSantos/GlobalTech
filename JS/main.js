@@ -121,7 +121,7 @@ botonVerInventario.addEventListener("click", () => {
 
 // Ventana de inicio => Carga por defecto del Inventario:
 
-let inicia = document.getElementById("Carga") 
+let inicia = document.getElementById("Carga")
 
 setTimeout(() => {
     inicia.remove()
@@ -749,9 +749,61 @@ botonCarrito.addEventListener("click", () => {
 })
 
 
+// Finalizar compra:
 
+let finalizarCompra = document.getElementById("botonFinalizarCompra")
 
+finalizarCompra.addEventListener("click", () => {
 
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+
+            position: "center",
+            icon: 'info',
+            title: '¿Estás seguro de querer finalizar tu compra?',
+            showCancelButton: true,
+            confirmButtonText: 'Si',
+            cancelButtonText: 'No',
+            reverseButtons: true
+
+        })
+
+        .then((result) => {
+
+            if (result.isConfirmed) {
+
+                swalWithBootstrapButtons.fire(
+                    '¡Tu compra ha sido finalizada!',
+                    'Gracias por su compra ;)',
+                    'success',
+                )
+
+                // Vaciar el carrito:
+
+                productosEnCarrito = []
+
+                localStorage.removeItem("carrito")
+
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+                swalWithBootstrapButtons.fire(
+                    '¡Tu compra ha sido cancelada!',
+                    'Compra cancelada :(',
+                    'error',
+                )
+
+            }
+
+        })
+
+})
 
 
 ////////////////////////////////////////////////////////////////////
@@ -761,7 +813,6 @@ botonCarrito.addEventListener("click", () => {
 // AGREGAR A FAVORITOS DESDE INVENTARIO:
 
 
-
 //Array de productos en Favoritos:
 
 let productosFavoritos = JSON.parse(localStorage.getItem("favoritos")) || []
@@ -769,9 +820,6 @@ let productosFavoritos = JSON.parse(localStorage.getItem("favoritos")) || []
 // productosFavoritos es mi array de productos favoritos.
 
 // favoritos es la key con la que guardo los objetos de mi array productosFavoritos en el localStorage.
-
-
-
 
 
 // Function para el boton de la card inventario Agregar Al array Favoritos:
