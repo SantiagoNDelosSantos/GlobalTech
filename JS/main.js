@@ -2,33 +2,17 @@
 
 // Function Ver Inventario:
 
-// cel es el id del div que esta en el container del HTML, es el espacio donde se cangan la cards que se crean.
-
 let cels = document.getElementById("cel")
-
-// let cels captura con dom el div cel para poder tenerlo en js
-
 
 function verInventario(array) {
 
-    // cel.innerHTML = "" Lo que hace es vaciar el contenido del DIV donde se cargan las cards para que el inventario no se muestre repetido cada vez que se ejecute la function verInventario
-
     cels.innerHTML = ""
-
-    // for recorre cada objteto del array que se le pasa y por cada objeto de ejecuta lo que este en los conchetes.
 
     for (let cel of array) {
 
-        // let nuevo cel crea un nuevo div en el contenedor por cada objeto que haya en el array mediante createElement("div")
-
-        // nuevoCel es el uevo dic que se crea y que al final con append chlid debe agregarse al div contenedor en este caso cels
-
         let nuevoCel = document.createElement("div")
 
-        // esto le agrega clases al nuevo div 
         nuevoCel.classList.add("col-6", "col-md-4", "col-lg-3")
-
-        // nuevoCel.innnerHTML = agrega los estilos para las card:
 
         nuevoCel.innerHTML =
 
@@ -67,18 +51,12 @@ function verInventario(array) {
 
             </div>`
 
-        // el appendChild agrega el nuevo elemento creado al final del div contenedor en este caso la captura del div cel donde se crean las cards es cels.
-
         cels.appendChild(nuevoCel)
-
-
-        // Y por ultimo estan los botones de cada Cards:
 
         let btnAgregarFav = document.getElementById(`botonAgregarAFavoritos${cel.id}`)
 
         btnAgregarFav.addEventListener("click", () => {
 
-            //Limpiar h3 no coindicencias e input buscador:
             coincidencia.innerHTML = "";
             buscador.value = "";
 
@@ -90,7 +68,6 @@ function verInventario(array) {
 
         btnAgregar.addEventListener("click", () => {
 
-            //Limpiar h3 no coindicencias e input buscador:
             coincidencia.innerHTML = "";
             buscador.value = "";
 
@@ -110,7 +87,6 @@ let botonVerInventario = document.getElementById("verInventario")
 
 botonVerInventario.addEventListener("click", () => {
 
-    //Limpiar h3 no coindicencias e input buscador:
     coincidencia.innerHTML = "";
     buscador.value = "";
 
@@ -130,12 +106,13 @@ setTimeout(() => {
 
 
 // Captura botón Agregar Cel Nav:
+
 let botonAgregarCelNav = document.getElementById("agregarCel");
 
 // Evento botón Agregar Cel Nav:
+
 botonAgregarCelNav.addEventListener("click", () => {
 
-    // Limpiar h3 no coindicencias e input buscador:
     coincidencia.innerHTML = "";
     buscador.value = "";
 
@@ -144,24 +121,16 @@ botonAgregarCelNav.addEventListener("click", () => {
 // Capturar inputs validación agragar cel:
 
 let usuarioAgr = document.getElementById("usuarioInput")
-
 let contraArg = document.getElementById("contraseñaInput")
-
-
 let formValidarAgr = document.getElementById("validacionAgrForm")
-
-
 let btnValidar = document.getElementById("validarAccesoAgregar")
-
 let reintentarAccs = document.getElementById("reintAccesoAgregar")
-
 
 btnValidar.addEventListener("click", () => {
 
     validar(usuarioAgr, contraArg)
 
 })
-
 
 function validar(usuario, contra) {
 
@@ -194,6 +163,7 @@ reintentarAccs.addEventListener("click", () => {
 let formAgregarCel = document.getElementById("formAgregarCel")
 
 // Function Agregar Nuevo Producto al Inventario:
+
 function agregarCel(array) {
     let inputModelo = document.getElementById("modeloInput");
     let inputMarca = document.getElementById("marcaInput");
@@ -242,12 +212,7 @@ guardarCelBtn.addEventListener("click", () => {
 });
 
 
-
-
-
-
-
-// Botón Drop Ordenar - Limpier h3 no coindicencias:
+// Botón Drop Ordenar - Limpiar h3 no coindicencias:
 
 let Drop = document.getElementById("navbarDropdown")
 
@@ -257,7 +222,6 @@ Drop.addEventListener("click", () => {
     coincidencia.innerHTML = "";
     buscador.value = "";
 })
-
 
 
 // Function Ordenar Alfabeticamente:
@@ -286,16 +250,11 @@ function ordenarAlfabeticamente(array) {
 
 }
 
-// Captura botón Ordenar Alfabéticamente:
-
 let botonOrdAlfabeticamente = document.getElementById("alfabeticamente")
-
-// Evento botón Ordenar Alfabéticamente:
 
 botonOrdAlfabeticamente.addEventListener("click", () => {
     ordenarAlfabeticamente(inventario)
 })
-
 
 
 // Function Odernar de Menor Precio a Mayor Precio:
@@ -306,16 +265,11 @@ function ordenarMenorMayor(array) {
     verInventario(menorMayor)
 }
 
-// Captura botón Ordenar Menor Precio:
-
 let botonOrdMenor = document.getElementById("menorPrecio")
-
-// Evento botón Ordenar Menor Precio:
 
 botonOrdMenor.addEventListener("click", () => {
     ordenarMenorMayor(inventario)
 })
-
 
 
 // Function Ordenar de Mayor Precio a Menor Precio:
@@ -328,16 +282,11 @@ function ordenarMayorMenor(array) {
     verInventario(mayorMenor)
 }
 
-// Captura botón Ordenar Mayor Precio:
-
 let botonOrdMayor = document.getElementById("mayorPrecio")
-
-// Evento botón Ordenar Mayor Precio:
 
 botonOrdMayor.addEventListener("click", () => {
     ordenarMayorMenor(inventario)
 })
-
 
 
 // Function Ordenar de Menor Memoria Interna a Mayor Memoria Interna:
@@ -348,16 +297,11 @@ function ordenarMenorMInterna(array) {
     verInventario(menorMInt)
 }
 
-// Captura botón Ordenar Menor Memoria Interna:
-
 let botonOrdMrMInterna = document.getElementById("menorMemoriaInterna")
-
-// Evento botón Ordenar Menor Memoria Interna:
 
 botonOrdMrMInterna.addEventListener("click", () => {
     ordenarMenorMInterna(inventario)
 })
-
 
 
 // Function Ordenar de Mayor Memoria Interna a Menor Memoria Interna:
@@ -370,16 +314,11 @@ function ordenarMayorMInterna(array) {
     verInventario(mayorMInt)
 }
 
-// Captura botón Ordenar Mayor Memoria Interna:
-
 let botonOrdMyMInterna = document.getElementById("mayorMemoriaInterna")
-
-// Evento botón Ordenar Mayor Memoria Interna:
 
 botonOrdMyMInterna.addEventListener("click", () => {
     ordenarMayorMInterna(inventario)
 })
-
 
 
 // Function Ordenar de Menor Memoria Ram a Mayor Memoria Ram:
@@ -390,16 +329,11 @@ function ordenarMenorMRam(array) {
     verInventario(menorMRam)
 }
 
-// Captura botón Ordenar Menor Memoria Ram:
-
 let botonOrdMrMRam = document.getElementById("menorMemoriaRam")
-
-// Evento botón Ord. Menor Memoria Interna:
 
 botonOrdMrMRam.addEventListener("click", () => {
     ordenarMenorMRam(inventario)
 })
-
 
 
 // Function Ordenar de Mayor Memoria Ram a Menor Memoria Ram:
@@ -412,16 +346,11 @@ function ordenarMayorMRam(array) {
     verInventario(mayorMRam)
 }
 
-// Captura botón Ordenar Mayor Memoria Ram:
-
 let botonOrdMyMRam = document.getElementById("mayorMemoriaRam")
-
-// Evento botón Ordenar Mayor Memoria Ram:
 
 botonOrdMyMRam.addEventListener("click", () => {
     ordenarMayorMRam(inventario)
 })
-
 
 
 // Function Ordenar de Menor Cam a Mayor Cam:
@@ -432,16 +361,11 @@ function ordenarMenorCam(array) {
     verInventario(menorMrCam)
 }
 
-// Captura botón Odenar Menor Resolución Cam:
-
 let botonOrdMrCam = document.getElementById("menorResolucionCam")
-
-// Evento botón Ordenar Menor Cam:
 
 botonOrdMrCam.addEventListener("click", () => {
     ordenarMenorCam(inventario)
 })
-
 
 
 // Function Ordenar de Mayor Cam a Menor Cam:
@@ -454,25 +378,17 @@ function ordenarMayorCam(array) {
     verInventario(mayorMyCam)
 }
 
-// Captura botón Ordenar MayorResolución Cam:
-
 let botonOrdMyCam = document.getElementById("mayorResolucionCam")
-
-// Evento botón Ord. Mayor Cam:
 
 botonOrdMyCam.addEventListener("click", () => {
     ordenarMayorCam(inventario)
 })
-
-
 
 // Captura inputs:
 
 let minInput = document.getElementById("minimoInput")
 
 let maxInput = document.getElementById("maximoInput")
-
-// Captura botó rango precios en modal:
 
 let buscarEnRango = document.getElementById("encontrarRango")
 
@@ -495,12 +411,6 @@ function buscarPorRangoPrecio(minimo, maximo, array) {
     minInput.value = "";
     maxInput.value = "";
 }
-
-
-
-
-
-
 
 
 // Function Buscar en Inventario con String:
@@ -544,12 +454,6 @@ buscador.addEventListener("input", () => {
     isNaN(valor) ? buscarInfoString(valor.toLowerCase(), inventario) : buscarInfoNumber(Number(valor), inventario);
 
 });
-
-
-
-////////////////////////////////////////////////////////////////////
-
-
 
 // AGREGAR AL CARRITO DESDE INVENTARIO:
 
@@ -616,12 +520,12 @@ function agregarAlCarrito(cel) {
 }
 
 
-
 // Captura Body Carrito:
 
 let modalBodyCarrito = document.getElementById("modal-bodyCarrito")
 
 // Funtion Cargar Productos en Carrito:
+
 function mostrarProductosCarrito(array) {
 
     modalBodyCarrito.innerHTML = ""
@@ -737,11 +641,8 @@ function calcularTotal(array) {
 
 let botonCarrito = document.getElementById("botonCarrito")
 
-// Evento botón Carrito Nav:
-
 botonCarrito.addEventListener("click", () => {
 
-    //Limpiar h3 no coindicencias e input buscador:
     coincidencia.innerHTML = "";
     buscador.value = "";
 
@@ -805,24 +706,12 @@ finalizarCompra.addEventListener("click", () => {
 
 })
 
-
-////////////////////////////////////////////////////////////////////
-
-
-
 // AGREGAR A FAVORITOS DESDE INVENTARIO:
 
 
 //Array de productos en Favoritos:
 
 let productosFavoritos = JSON.parse(localStorage.getItem("favoritos")) || []
-
-// productosFavoritos es mi array de productos favoritos.
-
-// favoritos es la key con la que guardo los objetos de mi array productosFavoritos en el localStorage.
-
-
-// Function para el boton de la card inventario Agregar Al array Favoritos:
 
 function agregarAfavoritos(cel) {
 
@@ -879,8 +768,6 @@ function agregarAfavoritos(cel) {
     }
 
 }
-
-
 
 // Captura Modal Card Favoritos:
 
@@ -999,30 +886,18 @@ function mostrarProductosFavoritos(array) {
 
 }
 
-
-
 // Captura Botón Favoritos Nav:
 
 let botonFavNav = document.getElementById("botonFavoritos")
 
-//Evento 
-
 botonFavNav.addEventListener("click", () => {
 
-    //Limpiar h3 no coindicencias e input buscador:
     coincidencia.innerHTML = "";
     buscador.value = "";
 
     mostrarProductosFavoritos(productosFavoritos)
 
 })
-
-
-
-
-
-////////////////////////////////////////////////////
-
 
 
 // Function para pasar producto de favoritos al carrito
@@ -1083,54 +958,31 @@ function pasarFavCarrito(cel) {
 
 }
 
-
-
 //ELIMINAR CELS:
 
-
-// Botón Eliminar Cel (Botón Nav Bar). 
+// Botón Eliminar Cel (Botón Nav Bar).
 
 let eliminarCEL = document.getElementById("eliminarCel")
 
 eliminarCEL.addEventListener("click", () => {
 
-    //Limpiar h3 no coindicencias e input buscador:
     coincidencia.innerHTML = "";
     buscador.value = "";
 
 })
 
-// Al presionar este boton se me muestra el modal Acceso Repositor para eliminar cel.
-
-
 // Captura input modal Acceso Repositor:
 
 let usuarioElim = document.getElementById("usuarioInputElim")
-
 let contraElim = document.getElementById("contraseñaInputElim")
-
-// Una vez que tengo capturados los input 
-
-// Capturo el formulario donde estan los input para reiniciar los valores una vez que ya se valido o intento validar el accceso:
-
 let formValidarElim = document.getElementById("validacionElimForm")
-
-// Despues de completar los input tengo el boton que dice validar en el modal con los input. Lo capturo.
-
 let btnValidarElim = document.getElementById("validarAccesoEliminar")
-
-// El boton de Validar me ejecuta una function con dos parametros el usuario y la contraseña:
 
 btnValidarElim.addEventListener("click", () => {
 
     validarElim(usuarioElim, contraElim)
 
 })
-
-// La function que ejecuta el boton de validar valida la contraseña Y ejectuta dos cosas segun si la contraseña es correcta o incorrecta:
-
-// Antes de ejecutar la function capturo el body del Modal que se va a mostrar si la validación es correcta.
-
 
 function validarElim(usuario, contra) {
 
@@ -1144,13 +996,9 @@ function validarElim(usuario, contra) {
 
     } else {
 
-        // Si la contraseña es incorrecta me muestra el modal de Reintentar Validacion que capturo y muestro a continuación:
-
         let reintentarAccesoElim = new bootstrap.Modal(document.getElementById('contraseñaIncorrectaElim'));
 
         reintentarAccesoElim.show();
-
-        // Dentro de este modal tengo un bóton que dice Reintentar este bóton vuelve a cargar el modal de Acceso Repositor de esta manera se hace un ciclo hasta que se de con la contraseña correcta o que que la persona seleccione cerrar y salga del modal de reintentar:
 
         let reintentarAccsElim = document.getElementById("reintAccesoEliminar")
 
@@ -1167,9 +1015,6 @@ function validarElim(usuario, contra) {
     formValidarElim.reset()
 
 }
-
-
-/// Function para ver las ID de todos los productos que estan en el Inventario:
 
 function verELIM(array) {
 
@@ -1210,19 +1055,13 @@ function verELIM(array) {
 
         btnEliminarFinalInvt.addEventListener("click", () => {
 
-            // Elimina de menú eliminar:
-
             let cardEliminar = document.getElementById(`card${inventario.id}`)
 
             cardEliminar.remove();
 
-            // Elimina la card del inventario: 
-
             let cardInventario = document.getElementById(`${inventario.id}`)
 
             cardInventario.remove();
-
-            // Elimina del array
 
             let proInventarioEliminar = array.find((celInventari) => celInventari.id == inventario.id)
 
@@ -1232,11 +1071,7 @@ function verELIM(array) {
 
             localStorage.setItem("inventario", JSON.stringify(array))
 
-            // Vuelve a cargar cards actualizadas:
-
             verInventario(array)
-
-            // Notifica:
 
             Swal.fire({
 

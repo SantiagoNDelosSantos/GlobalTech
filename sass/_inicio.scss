@@ -12,13 +12,6 @@ h2.logo {
     gap: 2em;
 }
 
-h2#loaderTexto {
-    color: rgb(2, 2, 2) !important;
-    font-family: "Montserrat";
-    font-size: 2em;
-    margin-top: 1em;
-}
-
 .spinner-border.text-success {
     color: rgb(0, 0, 0) !important;
     margin-top: 1em;
@@ -29,7 +22,7 @@ h2#loaderTexto {
         --bs-spinner-width: 3rem;
         --bs-spinner-height: 3rem;
     }
-
+    
 }
 
 #inicioImg {
@@ -43,7 +36,8 @@ h2#loaderTexto {
     }
 
     @media (min-width: 900px) {
-        width: 30%;
+        width: 25%;
+        margin-bottom: 1em;
     }
 
 }
